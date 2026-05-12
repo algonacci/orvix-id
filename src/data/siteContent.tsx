@@ -19,7 +19,7 @@ import {
 export const siteName = "Orvix.id";
 export const siteTitle = "Orvix.id - Cloud & Managed Infrastructure Services";
 export const siteDescription =
-  "Orvix.id membantu bisnis membangun, migrasi, deploy, mengamankan, memonitor, dan merawat infrastruktur cloud tanpa kompleksitas operasional.";
+  "Orvix.id membantu setup, deploy, monitor, secure, dan maintain infrastruktur cloud agar workload bisnis lebih stabil dan mudah diawasi.";
 export const siteUrl = "https://orvix.id";
 export const whatsappNumber = "6282125609413";
 export const whatsappDisplay = "0821-2560-9413";
@@ -54,8 +54,9 @@ export type WorkflowItem = {
 };
 
 export const heroBadges = [
-  "Managed Cloud Services",
+  "Managed Cloud",
   "Cloud Migration",
+  "Managed Hosting",
   "DevOps & CI/CD",
   "Monitoring & Security",
   "Hybrid Cloud",
@@ -68,61 +69,63 @@ export const trustPoints = [
 ];
 
 export const aboutHighlights = [
-  "Managed server dan cloud yang lebih stabil untuk workload bisnis harian.",
-  "Pendekatan praktis untuk UKM, SaaS, ERP, dan sistem internal perusahaan.",
-  "Bisa mendampingi setup baru, migrasi, hardening, sampai maintenance bulanan.",
+  "Setup cloud, VPS, dan server aplikasi.",
+  "Cocok untuk UKM, SaaS, ERP, dan sistem internal.",
+  "Bisa mulai dari setup baru, migrasi, sampai maintenance bulanan.",
 ];
 
 export const serviceCategories = [
-  "AWS / VPS / cloud server",
-  "Cloudflare / DNS / SSL",
-  "Docker / Kubernetes / CI/CD",
-  "Proxmox / private cloud / hybrid",
+  "Managed Cloud",
+  "Cloud Migration",
+  "Managed Hosting",
+  "DevOps & CI/CD",
+  "Monitoring & Security",
+  "Hybrid Cloud",
 ];
 
 export const heroMetrics: MetricItem[] = [
   {
-    value: "5-step",
-    label: "Deployment workflow",
-    detail: "Assessment, architecture, deployment, observability, maintenance.",
+    value: "Deploy-ready",
+    label: "Cloud foundation",
+    detail: "Server, DNS, SSL, dan akses disiapkan lebih rapi sejak awal.",
   },
   {
     value: "Hybrid-ready",
     label: "Infrastructure scope",
-    detail: "Cloud publik, VPS, private cloud, sampai integrasi on-premise.",
+    detail: "Dari VPS dan cloud publik sampai private platform dan on-prem.",
   },
   {
     value: "Observability-first",
     label: "Operational layer",
-    detail: "Monitoring, logs, alerting, dan review health sebagai baseline.",
+    detail: "Monitoring, logs, dan alert penting dibuat lebih mudah dibaca.",
   },
   {
     value: "Monthly managed",
     label: "Support model",
-    detail: "Cocok untuk tim yang butuh partner infrastruktur jangka menengah.",
+    detail: "Cocok untuk tim yang butuh partner teknis, bukan reseller semata.",
   },
 ];
 
 export const infrastructureMetrics: MetricItem[] = [
   {
-    value: "2-3x",
-    label: "Deployment lebih efisien",
-    detail: "Workflow rilis dan provisioning menjadi lebih cepat setelah proses distandardisasi.",
+    value: "Rapi",
+    label: "Operasional lebih jelas",
+    detail: "Akses, backup, monitoring, dan perubahan minor lebih mudah ditelusuri.",
   },
   {
-    value: "< 1 panel",
-    label: "Operasional lebih terpusat",
-    detail: "Monitoring, backup, dan akses bisa dikonsolidasikan ke arsitektur yang lebih rapi.",
-  },
-  {
-    value: "24/7 signals",
+    value: "Terpantau",
     label: "Visibilitas workload",
-    detail: "Alerting dan observability membantu tim melihat masalah lebih awal sebelum eskalasi.",
+    detail: "Tim bisa melihat uptime, resource, logs, dan alert penting lebih cepat.",
+  },
+  {
+    value: "Aman",
+    label: "Security baseline",
+    detail: "Hardening, patching, access review, dan backup review berjalan lebih disiplin.",
   },
   {
     value: "Scale-ready",
-    label: "Arsitektur bertumbuh",
-    detail: "Fondasi dibuat production-ready untuk workload yang perlu berkembang bertahap.",
+    label: "Fondasi bertumbuh",
+    detail: "Arsitektur lebih siap dikembangkan saat aplikasi dan beban kerja naik.",
   },
 ];
 
@@ -130,27 +133,27 @@ export const deploymentWorkflow: WorkflowItem[] = [
   {
     step: "01",
     title: "Assessment",
-    description: "Menilai workload, trafik, stack, bottleneck, dan risiko operasional yang sudah ada.",
+    description: "Review workload, stack, akses, dan titik risiko utama.",
   },
   {
     step: "02",
     title: "Architecture Design",
-    description: "Menyusun arsitektur deployment, akses, backup, security baseline, dan observability.",
+    description: "Susun arsitektur deployment, backup, security, dan observability.",
   },
   {
     step: "03",
     title: "Deployment",
-    description: "Provisioning server, container, service, domain, SSL, dan konfigurasi produksi.",
+    description: "Provisioning server, container, domain, SSL, dan release setup.",
   },
   {
     step: "04",
     title: "Monitoring",
-    description: "Menambahkan monitoring, logs, alerting, dan review kapasitas untuk menjaga reliability.",
+    description: "Tambahkan monitoring, logs, alerting, dan review kapasitas.",
   },
   {
     step: "05",
     title: "Maintenance",
-    description: "Menjalankan patching, backup review, perubahan minor, dan advisory optimasi berkala.",
+    description: "Lanjutkan patching, backup review, dan perubahan minor berkala.",
   },
 ];
 
@@ -176,9 +179,9 @@ export const services: ServiceItem[] = [
     title: "Managed Cloud",
     shortTitle: "Managed Cloud",
     summary:
-      "Pengelolaan server cloud, workload aplikasi, akses, patching, dan operasional rutin agar platform tetap stabil dan mudah diawasi.",
+      "Kelola server, akses, patching, monitoring, dan operasional rutin untuk workload bisnis.",
     intro:
-      "Orvix.id membantu bisnis menjalankan infrastruktur cloud yang lebih tertata, aman, dan siap dipakai untuk workload produksi tanpa beban operasional harian yang berlebihan.",
+      "Orvix.id membantu tim menjalankan cloud yang lebih rapi, aman, dan stabil tanpa menambah beban operasional harian.",
     deliverables: [
       "Provisioning VPS, cloud server, Linux instance, storage, dan akses administratif yang rapi",
       "Baseline hardening, patch management, user access review, dan housekeeping sistem",
@@ -191,7 +194,7 @@ export const services: ServiceItem[] = [
       "SaaS skala awal hingga menengah",
       "Workload bisnis yang butuh managed support bulanan",
     ],
-    tech: ["Linux", "VPS", "Nginx", "Cloud Firewall", "Access Control"],
+    tech: ["Linux", "VPS", "Nginx", "Firewall"],
     icon: CloudCog,
     accent: "bg-svc-cyan",
   },
@@ -201,9 +204,9 @@ export const services: ServiceItem[] = [
     title: "Cloud Migration",
     shortTitle: "Migration",
     summary:
-      "Migrasi aplikasi, database, file, dan workload bisnis dari shared hosting, server lama, atau on-premise ke platform cloud yang lebih layak.",
+      "Migrasi website, aplikasi, database, dan file ke platform yang lebih siap scale.",
     intro:
-      "Migrasi dilakukan bertahap dengan perhatian pada downtime, integritas data, dependency aplikasi, dan kesiapan rollback bila diperlukan.",
+      "Migrasi dilakukan bertahap dengan perhatian pada downtime, integritas data, dan kesiapan cutover.",
     deliverables: [
       "Assessment workload, dependency, storage, database, dan trafik aplikasi",
       "Perencanaan migrasi dari hosting lama, VPS lama, atau server on-premise",
@@ -216,7 +219,7 @@ export const services: ServiceItem[] = [
       "Consolidation beberapa server lama ke platform yang lebih efisien",
       "Replatforming untuk kebutuhan skala dan reliability yang lebih baik",
     ],
-    tech: ["Cloud Migration", "Data Sync", "Cutover Plan", "Rollback", "DNS Switch"],
+    tech: ["Migration", "Data Sync", "Cutover"],
     icon: Waypoints,
     accent: "bg-svc-indigo",
   },
@@ -226,9 +229,9 @@ export const services: ServiceItem[] = [
     title: "Managed Hosting",
     shortTitle: "Hosting",
     summary:
-      "Hosting terkelola untuk website, panel, email hosting, domain, DNS, SSL, dan deployment aplikasi ringan hingga menengah.",
+      "Hosting terkelola untuk website bisnis, panel, email, DNS, SSL, dan deployment ringan.",
     intro:
-      "Layanan ini cocok untuk bisnis yang ingin hosting lebih terurus tanpa harus mengelola sisi server, domain, sertifikat, dan reliability sendiri.",
+      "Cocok untuk bisnis yang ingin hosting lebih terurus tanpa repot mengelola domain, sertifikat, dan operasional dasar sendiri.",
     deliverables: [
       "Setup domain, DNS, SSL, mail routing, dan panel hosting sesuai kebutuhan",
       "Managed deployment untuk website perusahaan, CMS, atau aplikasi web bisnis",
@@ -241,7 +244,7 @@ export const services: ServiceItem[] = [
       "Email hosting dan domain management bisnis",
       "Hosting yang butuh keamanan dan maintenance lebih konsisten",
     ],
-    tech: ["Cloudflare", "DNS", "SSL", "Hosting Panel", "Email Hosting"],
+    tech: ["Cloudflare", "DNS", "SSL"],
     icon: ServerCog,
     accent: "bg-svc-blue",
   },
@@ -251,9 +254,9 @@ export const services: ServiceItem[] = [
     title: "DevOps & CI/CD",
     shortTitle: "DevOps",
     summary:
-      "Penyusunan pipeline deployment, environment staging, container workflow, dan proses rilis yang lebih konsisten untuk tim development.",
+      "Setup pipeline deployment, staging, container workflow, dan release process yang lebih konsisten.",
     intro:
-      "Orvix.id membantu tim mengurangi deployment manual dan merapikan alur release agar perubahan aplikasi lebih aman dan lebih mudah ditelusuri.",
+      "Orvix.id membantu tim mengurangi deployment manual dan membuat proses release lebih konsisten.",
     deliverables: [
       "Setup Git-based deployment, CI/CD pipeline, dan environment staging",
       "Containerization dengan Docker serta workflow build dan release image",
@@ -266,7 +269,7 @@ export const services: ServiceItem[] = [
       "ERP atau aplikasi internal yang sering berubah",
       "Project multi-environment dengan kebutuhan approval dan rollback",
     ],
-    tech: ["Docker", "CI/CD", "GitOps", "Staging", "Release Workflow"],
+    tech: ["Docker", "CI/CD", "GitOps"],
     icon: Boxes,
     accent: "bg-svc-purple",
   },
@@ -276,9 +279,9 @@ export const services: ServiceItem[] = [
     title: "Backup & Disaster Recovery",
     shortTitle: "Backup",
     summary:
-      "Backup server, database, file, dan object storage dengan strategi restore dan recovery yang realistis untuk bisnis.",
+      "Strategi backup server, database, file, dan object storage untuk mengurangi risiko kehilangan data.",
     intro:
-      "Backup yang baik bukan sekadar ada salinan data, tetapi ada prosedur restore, retensi, dan pemulihan yang benar-benar dipahami tim.",
+      "Backup yang baik bukan sekadar ada salinan data, tapi juga prosedur restore dan recovery yang bisa dijalankan.",
     deliverables: [
       "Desain backup untuk file, database, VM, dan aplikasi penting",
       "Retensi lokal, offsite, dan object storage untuk salinan cadangan",
@@ -291,7 +294,7 @@ export const services: ServiceItem[] = [
       "Environment cloud yang membutuhkan salinan offsite",
       "Bisnis yang ingin mengurangi risiko downtime berkepanjangan",
     ],
-    tech: ["Backup", "Restore Test", "Object Storage", "Retention", "DR Plan"],
+    tech: ["Backup", "Recovery", "Offsite"],
     icon: HardDriveDownload,
     accent: "bg-svc-amber",
   },
@@ -301,9 +304,9 @@ export const services: ServiceItem[] = [
     title: "Monitoring & Security",
     shortTitle: "Security",
     summary:
-      "Monitoring uptime, resource, logs, alerting, dan hardening server untuk menjaga reliability dan mengurangi blind spot operasional.",
+      "Monitoring uptime, resource, logs, alerting, hardening, firewall, dan access review.",
     intro:
-      "Kami menggabungkan observability dan security baseline supaya masalah bisa terlihat lebih cepat dan eksposur publik lebih mudah dikendalikan.",
+      "Kami menggabungkan observability dan security baseline supaya masalah lebih cepat terlihat dan eksposur publik lebih terkontrol.",
     deliverables: [
       "Uptime dan resource monitoring untuk server, aplikasi, dan service penting",
       "Alerting, log collection, dan dashboard observability dasar",
@@ -316,7 +319,7 @@ export const services: ServiceItem[] = [
       "Tim internal yang ingin monthly reporting teknis",
       "Workload yang perlu monitoring performa sekaligus keamanan dasar",
     ],
-    tech: ["Grafana", "Prometheus", "Logs", "Firewall", "Cloudflare"],
+    tech: ["Observability", "Security", "Alerting"],
     icon: ShieldCheck,
     accent: "bg-svc-red",
   },
@@ -326,9 +329,9 @@ export const services: ServiceItem[] = [
     title: "Private / Hybrid Cloud",
     shortTitle: "Hybrid Cloud",
     summary:
-      "Setup private cloud, virtualisasi, Proxmox cluster, dan integrasi hybrid antara on-premise dengan cloud publik.",
+      "Setup virtualisasi, private cloud, dan integrasi cloud-to-on-prem untuk kebutuhan internal.",
     intro:
-      "Layanan ini dirancang untuk bisnis yang membutuhkan kontrol lebih besar terhadap data, resource lokal, atau integrasi antar lokasi dan cloud.",
+      "Layanan ini cocok untuk bisnis yang butuh kontrol lebih besar atas data, resource lokal, atau konektivitas antar lingkungan.",
     deliverables: [
       "Perencanaan virtualisasi dan private cloud berbasis Proxmox atau stack sejenis",
       "Integrasi workload on-premise dengan VPS, object storage, atau cloud publik",
@@ -341,7 +344,7 @@ export const services: ServiceItem[] = [
       "Bisnis multi-branch dengan sinkronisasi service tertentu",
       "Perusahaan yang ingin private cloud bertahap tanpa migrasi total",
     ],
-    tech: ["Proxmox", "Virtualization", "Hybrid Cloud", "VPN", "Storage"],
+    tech: ["Proxmox", "Hybrid", "VPN"],
     icon: Cloud,
     accent: "bg-svc-cyan",
   },
@@ -375,52 +378,52 @@ export const services: ServiceItem[] = [
 export const packages = [
   {
     title: "Starter Cloud Setup",
-    summary: "Fondasi awal untuk bisnis yang ingin mulai deploy di cloud dengan setup yang lebih rapi.",
+    summary: "Untuk bisnis yang ingin mulai deploy cloud dengan fondasi rapi.",
     features: [
-      "Initial cloud server setup",
-      "Domain, DNS, dan SSL baseline",
+      "Initial cloud/server setup",
+      "Domain, DNS, SSL baseline",
       "Basic security hardening",
-      "Deployment website atau app ringan",
+      "Website/app deployment",
     ],
   },
   {
     title: "Managed VPS",
-    summary: "Pengelolaan VPS dan server aplikasi untuk bisnis yang butuh support operasional rutin.",
+    summary: "Untuk server aplikasi yang butuh maintenance rutin.",
     features: [
-      "Server maintenance bulanan",
+      "Monthly server maintenance",
       "Monitoring dasar dan backup",
-      "Patching dan access review",
-      "Support untuk perubahan minor",
+      "Patching & access review",
+      "Minor operational support",
     ],
   },
   {
     title: "Business Managed Cloud",
-    summary: "Untuk workload bisnis yang mulai bergantung pada reliability, security, dan deployment yang lebih disiplin.",
+    summary: "Untuk workload bisnis yang mulai butuh reliability dan security lebih disiplin.",
     features: [
-      "Managed cloud operations",
-      "Monitoring dan security baseline",
-      "Backup dan recovery workflow",
-      "Monthly reporting dan advisory",
+      "Managed cloud operation",
+      "Monitoring & security baseline",
+      "Backup & recovery workflow",
+      "Monthly reporting",
     ],
   },
   {
     title: "Hybrid Infrastructure",
-    summary: "Menghubungkan server internal, private cloud, dan public cloud ke dalam arsitektur yang lebih menyatu.",
+    summary: "Untuk bisnis yang menghubungkan cloud, server internal, dan private platform.",
     features: [
       "Hybrid architecture planning",
-      "Proxmox atau virtualisasi setup",
+      "Proxmox/virtualization setup",
       "Cloud-to-on-prem integration",
-      "Backup dan access segmentation",
+      "Backup & access segmentation",
     ],
   },
   {
     title: "Custom Enterprise Setup",
-    summary: "Dirancang untuk kebutuhan yang lebih kompleks seperti SaaS, ERP, multi-service deployment, atau AI workload.",
+    summary: "Untuk SaaS, ERP, multi-service deployment, atau AI workload.",
     features: [
-      "Custom architecture and deployment",
-      "CI/CD dan container workflow",
-      "Managed database dan storage",
-      "Support scope sesuai requirement bisnis",
+      "Custom architecture",
+      "CI/CD & container workflow",
+      "Managed database/storage",
+      "Support scope sesuai kebutuhan",
     ],
   },
 ];
@@ -459,12 +462,12 @@ export const whyOrvix = [
 ];
 
 export const useCases = [
-  "Hosting website perusahaan dan landing page bisnis",
-  "Deployment ERP, SaaS, atau aplikasi operasional internal",
+  "Website perusahaan dan landing page bisnis",
+  "Deployment ERP, SaaS, dan aplikasi internal",
   "Server aplikasi internal untuk tim dan cabang",
-  "Backup server dan offsite recovery storage",
-  "Infrastruktur aplikasi AI dan API backend",
-  "Deployment sistem multi-branch dan hybrid connectivity",
+  "Backup server dan offsite recovery",
+  "Infrastruktur AI/API backend",
+  "Sistem multi-branch dan hybrid connectivity",
   "Monitoring, observability, dan security hardening",
 ];
 
@@ -489,22 +492,22 @@ export const infrastructureFocus = [
 export const lifecycleFlow = [
   {
     title: "Deploy",
-    description: "Provisioning server, container, DNS, SSL, dan release workflow yang lebih disiplin.",
+    description: "Provisioning server, DNS, SSL, container, dan release workflow.",
     icon: ServerCog,
   },
   {
     title: "Monitor",
-    description: "Observability untuk uptime, resource, logs, dan alerting agar workload tetap terlihat.",
+    description: "Pantau uptime, resource, logs, dan alert penting.",
     icon: BarChart3,
   },
   {
     title: "Secure",
-    description: "Hardening, access policy, Cloudflare layer, patching, dan backup posture review.",
+    description: "Hardening server, firewall, access policy, patching, dan backup review.",
     icon: ShieldCheck,
   },
   {
     title: "Scale",
-    description: "Optimasi arsitektur, resource planning, dan pengembangan platform untuk growth berikutnya.",
+    description: "Optimasi arsitektur, resource planning, dan kesiapan growth.",
     icon: ArrowUpRight,
   },
 ];
@@ -529,10 +532,10 @@ export const navItems = [
 ];
 
 export const contactCopy =
-  "Konsultasikan kebutuhan cloud, server, backup, deployment, monitoring, security, atau managed infrastructure untuk bisnis Anda.";
+  "Ceritakan kondisi server, aplikasi, atau cloud yang sedang berjalan. Orvix.id bantu review dan susun langkah teknis yang paling masuk akal.";
 
 export const trustIntro =
-  "Managed Cloud & Infrastructure Partner untuk bisnis yang membutuhkan deployment andal, server terkelola, hosting aman, dan sistem yang siap bertumbuh.";
+  "Managed infrastructure partner untuk bisnis yang butuh deployment rapi, server terkelola, dan operasional yang mudah diawasi.";
 
 export const finalCta =
-  "Butuh bantuan mengelola infrastruktur cloud Anda?";
+  "Ceritakan kondisi server, aplikasi, atau cloud yang sedang berjalan. Orvix.id bantu review dan susun langkah teknis yang paling masuk akal.";

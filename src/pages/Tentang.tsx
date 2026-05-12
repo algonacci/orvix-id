@@ -31,7 +31,7 @@ const Tentang = () => (
 
     <section className="bg-light-bg py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-12 max-w-3xl">
+        <div className="mb-12 max-w-4xl">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
             Fokus Utama
           </span>
@@ -41,12 +41,21 @@ const Tentang = () => (
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-          {whyOrvix.map((item) => {
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-6">
+          {whyOrvix.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <div key={item.title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div
+                key={item.title}
+                className={`rounded-3xl border border-slate-200 bg-white p-7 shadow-sm ${
+                  index < 3 ? "xl:col-span-2" : ""
+                } ${
+                  index === 3 ? "xl:col-start-2 xl:col-span-2" : ""
+                } ${
+                  index === 4 ? "xl:col-start-4 xl:col-span-2" : ""
+                }`}
+              >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-50">
                   <Icon size={22} className="text-cyan-700" />
                 </div>

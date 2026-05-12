@@ -14,18 +14,18 @@ const Footer = () => (
         <div className="max-w-md">
           <p className="font-display text-xl font-semibold text-foreground">{siteName}</p>
           <p className="mt-3 text-sm leading-7 text-text-secondary">
-            Cloud & Managed Infrastructure Services untuk deployment, observability, security, dan
-            maintenance workload modern.
+            Partner untuk cloud, server, deployment, monitoring, security, dan maintenance
+            workload bisnis.
           </p>
         </div>
 
         <div>
           <p className="section-eyebrow text-text-muted">Focus</p>
           <div className="mt-4 space-y-2 text-sm text-text-secondary">
-            <p>Managed Cloud Services</p>
-            <p>DevOps & CI/CD Setup</p>
-            <p>Hybrid Cloud & Private Infrastructure</p>
-            <p>Monitoring, Backup, and Security</p>
+            <p>Managed Cloud</p>
+            <p>Cloud Migration</p>
+            <p>DevOps & CI/CD</p>
+            <p>Hybrid Cloud</p>
           </div>
         </div>
 
