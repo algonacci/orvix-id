@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="orvix-cyan" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#4de4ff" />
+      <stop offset="1" stop-color="#5b8cff" />
+    </linearGradient>
+    <linearGradient id="orvix-purple" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#5b8cff" />
+      <stop offset="1" stop-color="#9b72ff" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(12 8) skewX(-12)">
+    <rect x="0" y="25" width="11" height="23" rx="3" fill="url(#orvix-cyan)" />
+    <rect x="14" y="8" width="11" height="40" rx="3" fill="url(#orvix-cyan)" />
+    <rect x="28" y="17" width="11" height="31" rx="3" fill="url(#orvix-purple)" />
+  </g>
+</svg>

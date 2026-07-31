@@ -187,29 +187,6 @@
     @apply text-sm leading-7 text-text-secondary sm:text-base;
   }
 
-  .orvix-mark {
-    display: flex;
-    width: 27px;
-    height: 27px;
-    align-items: flex-end;
-    gap: 2px;
-    transform: skew(-12deg);
-  }
-
-  .orvix-mark i {
-    display: block;
-    width: 7px;
-    border-radius: 2px;
-    background: linear-gradient(180deg, #4de4ff, #5b8cff);
-  }
-
-  .orvix-mark i:first-child { height: 13px; }
-  .orvix-mark i:nth-child(2) { height: 22px; }
-  .orvix-mark i:last-child {
-    height: 17px;
-    background: linear-gradient(#5b8cff, #9b72ff);
-  }
-
   .hero-gradient-text {
     color: transparent;
     background: linear-gradient(105deg, #fff 5%, #55e4ff 38%, #7196ff 68%, #b27aff);

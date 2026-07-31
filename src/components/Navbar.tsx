@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="px-1 py-3.5 sm:px-0">
           <div className="flex items-center justify-between gap-4">
             <Link to="/" className="inline-flex items-center gap-2.5 font-display text-lg font-semibold tracking-[-0.02em] text-foreground">
-              <span className="orvix-mark" aria-hidden="true"><i /><i /><i /></span>
+              <img src="/logo.svg" alt="" className="h-7 w-7" aria-hidden="true" />
               Orvix<span className="-ml-2.5 text-primary">.id</span>
             </Link>
 

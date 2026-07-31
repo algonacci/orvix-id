@@ -13,7 +13,7 @@ const Footer = () => (
       <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr_0.8fr]">
         <div className="max-w-md">
           <p className="inline-flex items-center gap-2.5 font-display text-xl font-semibold text-foreground">
-            <span className="orvix-mark" aria-hidden="true"><i /><i /><i /></span>{siteName}
+            <img src="/logo.svg" alt="" className="h-7 w-7" aria-hidden="true" />{siteName}
           </p>
           <p className="mt-3 text-sm leading-7 text-text-secondary">
             Partner untuk cloud, server, deployment, monitoring, security, dan maintenance
