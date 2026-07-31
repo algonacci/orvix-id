@@ -539,3 +539,31 @@ export const trustIntro =
 
 export const finalCta =
   "Ceritakan kondisi server, aplikasi, atau cloud yang sedang berjalan. Orvix.id bantu review dan susun langkah teknis yang paling masuk akal.";
+
+export const faqs = [
+  {
+    question: "Apa saja yang bisa dikelola Orvix.id?",
+    answer:
+      "Orvix.id menangani cloud server, VPS, deployment aplikasi, container, database, DNS, SSL, backup, monitoring, dan security baseline sesuai kebutuhan workload.",
+  },
+  {
+    question: "Apakah bisa membantu migrasi dari server atau hosting lama?",
+    answer:
+      "Bisa. Proses dimulai dari assessment dependency dan data, dilanjutkan testing, cutover terencana, validasi, serta monitoring setelah migrasi.",
+  },
+  {
+    question: "Apakah tersedia maintenance bulanan?",
+    answer:
+      "Tersedia untuk kebutuhan patching, backup review, monitoring, access review, kapasitas, troubleshooting, dan perubahan operasional minor.",
+  },
+  {
+    question: "Apakah Orvix.id hanya bekerja dengan satu cloud provider?",
+    answer:
+      "Tidak. Arsitektur dapat menggunakan VPS, public cloud, Cloudflare, Proxmox, atau kombinasi hybrid berdasarkan kebutuhan teknis dan anggaran.",
+  },
+  {
+    question: "Bagaimana memulai konsultasi?",
+    answer:
+      "Ceritakan aplikasi, server, kendala, dan target Anda melalui WhatsApp. Kami akan membantu memetakan kondisi awal dan langkah implementasi yang paling masuk akal.",
+  },
+];

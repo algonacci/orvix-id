@@ -8,11 +8,13 @@ import {
 } from "@/data/siteContent";
 
 const Footer = () => (
-  <footer className="px-4 pb-10 pt-4 sm:px-6 lg:px-8">
-    <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(9,14,32,0.92),rgba(12,18,36,0.86))] px-6 py-8 sm:px-8">
+  <footer className="border-t border-white/10 px-4 pb-10 pt-14 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-2 py-8 sm:px-0">
       <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr_0.8fr]">
         <div className="max-w-md">
-          <p className="font-display text-xl font-semibold text-foreground">{siteName}</p>
+          <p className="inline-flex items-center gap-2.5 font-display text-xl font-semibold text-foreground">
+            <span className="orvix-mark" aria-hidden="true"><i /><i /><i /></span>{siteName}
+          </p>
           <p className="mt-3 text-sm leading-7 text-text-secondary">
             Partner untuk cloud, server, deployment, monitoring, security, dan maintenance
             workload bisnis.
@@ -43,6 +45,10 @@ const Footer = () => (
           <p className="mt-2 text-sm text-text-muted">{locationLabel}</p>
           <p className="mt-4 max-w-sm text-sm leading-7 text-text-secondary">{contactCopy}</p>
         </div>
+      </div>
+      <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between">
+        <span>© 2026 Orvix.id</span>
+        <span className="inline-flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_10px_#6ee7b7]" /> Siap membantu operasional infrastruktur</span>
       </div>
     </div>
   </footer>

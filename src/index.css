@@ -186,4 +186,198 @@
   .section-copy {
     @apply text-sm leading-7 text-text-secondary sm:text-base;
   }
+
+  .orvix-mark {
+    display: flex;
+    width: 27px;
+    height: 27px;
+    align-items: flex-end;
+    gap: 2px;
+    transform: skew(-12deg);
+  }
+
+  .orvix-mark i {
+    display: block;
+    width: 7px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #4de4ff, #5b8cff);
+  }
+
+  .orvix-mark i:first-child { height: 13px; }
+  .orvix-mark i:nth-child(2) { height: 22px; }
+  .orvix-mark i:last-child {
+    height: 17px;
+    background: linear-gradient(#5b8cff, #9b72ff);
+  }
+
+  .hero-gradient-text {
+    color: transparent;
+    background: linear-gradient(105deg, #fff 5%, #55e4ff 38%, #7196ff 68%, #b27aff);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .hero-orb {
+    @apply pointer-events-none absolute rounded-full blur-[100px];
+    animation: hero-float 9s ease-in-out infinite;
+  }
+
+  .hero-orb-blue {
+    right: -11rem;
+    top: 6rem;
+    width: 29rem;
+    height: 29rem;
+    background: rgba(23, 95, 255, 0.2);
+  }
+
+  .hero-orb-purple {
+    bottom: 3rem;
+    left: 38%;
+    width: 18rem;
+    height: 18rem;
+    background: rgba(138, 63, 252, 0.16);
+    animation-delay: -4s;
+  }
+
+  .deployment-window {
+    @apply relative overflow-hidden rounded-[1.1rem] border border-white/15 bg-[#0a101c]/95;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.48), 0 0 80px rgba(42, 117, 255, 0.1);
+  }
+
+  .deployment-window-bar {
+    @apply flex h-11 items-center justify-between border-b border-white/10 bg-[#0d1421] px-4 font-mono text-[10px] text-text-muted;
+  }
+
+  .window-dots {
+    @apply flex gap-1.5;
+  }
+
+  .window-dots i {
+    @apply block h-2 w-2 rounded-full bg-slate-600;
+  }
+
+  .window-dots i:first-child {
+    @apply bg-rose-400/80;
+  }
+
+  .window-dots i:nth-child(2) {
+    @apply bg-amber-300/80;
+  }
+
+  .window-dots i:last-child {
+    @apply bg-emerald-300/80;
+  }
+
+  .deployment-progress {
+    animation: deploy-progress 1.5s 0.2s both cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .deployment-graph i {
+    @apply block flex-1 rounded-t-sm bg-[linear-gradient(180deg,#4de4ff,#315a9d)];
+    min-width: 3px;
+    transform-origin: bottom;
+    animation: graph-grow 0.6s both cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hero-float-card {
+    @apply absolute items-center gap-3 rounded-xl border border-white/15 bg-[#101927]/95 px-3 py-2.5 backdrop-blur-xl;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.36);
+  }
+
+  .hero-float-card small,
+  .hero-float-card b {
+    @apply block;
+  }
+
+  .hero-float-card small {
+    @apply text-[9px] text-text-muted;
+  }
+
+  .hero-float-card b {
+    @apply mt-0.5 text-[10px] font-medium text-foreground;
+  }
+
+  .workflow-track {
+    @apply relative;
+  }
+
+  .deployment-terminal {
+    @apply overflow-hidden rounded-[1.1rem] border border-white/15 bg-[#080d16];
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  }
+
+  .terminal-line svg {
+    @apply text-emerald-300;
+  }
+
+  .terminal-line small {
+    @apply ml-auto text-text-muted;
+  }
+
+  .terminal-line b {
+    @apply font-normal text-primary;
+  }
+
+  .terminal-cursor {
+    animation: terminal-blink 1s steps(1) infinite;
+  }
+
+  .faq-trigger[data-state="open"] svg {
+    transform: rotate(180deg);
+  }
+
+  .faq-content[data-state="open"] {
+    animation: accordion-down 0.25s ease-out;
+  }
+
+  .faq-content[data-state="closed"] {
+    animation: accordion-up 0.2s ease-out;
+  }
+}
+
+@keyframes hero-float {
+  50% { transform: translateY(28px) scale(1.08); }
+}
+
+@keyframes deploy-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes graph-grow {
+  from { transform: scaleY(0.1); opacity: 0.35; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes terminal-blink {
+  50% { opacity: 0; }
+}
+
+@media (min-width: 768px) {
+  .workflow-track::before {
+    content: "";
+    position: absolute;
+    top: 1.75rem;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, #4de4ff, #5b8cff, #9b72ff);
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .deployment-progress,
+  .deployment-graph i {
+    animation: none;
+  }
+
+  .terminal-cursor {
+    animation: none;
+  }
+
+  .deployment-progress {
+    width: 100%;
+  }
 }
