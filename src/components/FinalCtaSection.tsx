@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { finalCta, whatsappUrl } from "@/data/siteContent";
+import { finalCta, platformUrl } from "@/data/siteContent";
 
 const FinalCtaSection = () => (
   <section id="cta" className="px-4 pb-24 pt-8 sm:px-6 lg:px-8">
@@ -13,12 +13,11 @@ const FinalCtaSection = () => (
       <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-text-secondary sm:text-base">{finalCta}</p>
       <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <a
-          href={whatsappUrl}
-          target="_blank"
+          href={platformUrl}
           rel="noopener noreferrer"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-6 text-sm font-semibold text-[#07111c] transition hover:-translate-y-0.5"
         >
-          Konsultasi Sekarang <ArrowRight size={16} />
+          Ke Platform Orvix <ArrowRight size={16} />
         </a>
         <Link
           to="/contact"

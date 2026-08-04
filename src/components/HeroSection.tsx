@@ -12,7 +12,7 @@ import {
   Server,
   ShieldCheck,
 } from "lucide-react";
-import { heroBadges, heroMetrics, whatsappUrl } from "@/data/siteContent";
+import { heroBadges, heroMetrics, platformUrl } from "@/data/siteContent";
 
 const graphBars = [22, 34, 29, 48, 42, 66, 51, 76, 61, 85, 72, 91, 78, 88];
 
@@ -127,12 +127,11 @@ const HeroSection = () => (
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={whatsappUrl}
-              target="_blank"
+              href={platformUrl}
               rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-6 text-sm font-semibold text-[#07111c] shadow-[0_10px_38px_rgba(64,220,255,0.2)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_42px_rgba(64,220,255,0.3)]"
             >
-              Konsultasi Infrastruktur <ArrowRight size={16} />
+              Ke Platform Orvix <ArrowRight size={16} />
             </a>
             <a
               href="#services"

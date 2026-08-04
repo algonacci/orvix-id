@@ -21,6 +21,7 @@ export const siteTitle = "Orvix.id - Cloud & Managed Infrastructure Services";
 export const siteDescription =
   "Orvix.id membantu setup, deploy, monitor, secure, dan maintain infrastruktur cloud agar workload bisnis lebih stabil dan mudah diawasi.";
 export const siteUrl = "https://orvix.id";
+export const platformUrl = "https://platform.orvix.id";
 export const whatsappNumber = "6282125609413";
 export const whatsappDisplay = "0821-2560-9413";
 export const whatsappUrl = `https://wa.me/${whatsappNumber}`;
