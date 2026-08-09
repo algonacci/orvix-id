@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://revolta.id/sitemap.xml
+Sitemap: https://orvix.id/sitemap.xml

@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { contactCopy, findServiceBySlug, siteDescription, siteUrl, whatsappUrl } from "@/data/siteContent";
+import SEOHead from "@/components/SEOHead";
+import { contactCopy, findServiceBySlug, whatsappUrl } from "@/data/siteContent";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -15,13 +15,12 @@ const ServiceDetail = () => {
 
   return (
     <div className="pt-24">
-      <Helmet>
-        <title>{`${service.title} - Orvix.id`}</title>
-        <meta name="description" content={`${service.summary} ${siteDescription}`} />
-        <link rel="canonical" href={`${siteUrl}${service.path}`} />
-        <meta property="og:title" content={`${service.title} - Orvix.id`} />
-        <meta property="og:description" content={service.summary} />
-      </Helmet>
+      <SEOHead
+        title={service.title}
+        description={service.summary}
+        keywords={service.tech.join(", ")}
+        path={service.path}
+      />
 
       <section className="infra-shell bg-background py-24">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-end lg:justify-between">

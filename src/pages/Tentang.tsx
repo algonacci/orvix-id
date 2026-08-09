@@ -1,16 +1,13 @@
-import { Helmet } from "react-helmet-async";
-import { industries, siteUrl, whyOrvix } from "@/data/siteContent";
+import SEOHead from "@/components/SEOHead";
+import { industries, whyOrvix } from "@/data/siteContent";
 
 const Tentang = () => (
   <div className="pt-24">
-    <Helmet>
-      <title>Tentang Orvix.id</title>
-      <meta
-        name="description"
-        content="Kenali Orvix.id sebagai partner cloud dan managed infrastructure untuk deployment, hosting, security, monitoring, dan maintenance bisnis."
-      />
-      <link rel="canonical" href={`${siteUrl}/about`} />
-    </Helmet>
+    <SEOHead
+      title="Tentang"
+      description="Kenali Orvix.id: cloud platform untuk developer sekaligus partner enterprise untuk deployment, hosting, security, monitoring, dan maintenance infrastruktur bisnis."
+      path="/about"
+    />
 
     <section className="infra-shell bg-background py-24">
       <div className="mx-auto max-w-5xl px-6">

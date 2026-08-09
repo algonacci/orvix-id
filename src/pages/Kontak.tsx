@@ -1,24 +1,20 @@
-import { Helmet } from "react-helmet-async";
 import { Clock, Mail, MapPin, MessageCircle } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 import {
   contactCopy,
   emailPlaceholder,
   locationLabel,
-  siteUrl,
   whatsappDisplay,
   whatsappUrl,
 } from "@/data/siteContent";
 
 const Kontak = () => (
   <div className="pt-24">
-    <Helmet>
-      <title>Kontak Orvix.id</title>
-      <meta
-        name="description"
-        content="Hubungi Orvix.id untuk konsultasi cloud infrastructure, deployment, backup, monitoring, security, dan managed support bisnis."
-      />
-      <link rel="canonical" href={`${siteUrl}/contact`} />
-    </Helmet>
+    <SEOHead
+      title="Kontak"
+      description="Hubungi Orvix.id untuk konsultasi cloud infrastructure, deployment, backup, monitoring, security, dan managed support bisnis."
+      path="/contact"
+    />
 
     <section className="infra-shell bg-background py-24">
       <div className="mx-auto max-w-4xl px-6">
