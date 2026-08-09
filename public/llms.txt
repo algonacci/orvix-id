@@ -1,0 +1,54 @@
+# Orvix.id
+
+> Cloud platform untuk developer, dengan layanan enterprise untuk workload yang butuh penanganan langsung. Infrastruktur berjalan di Indonesia (region Jakarta).
+
+Orvix menjual dua hal yang berbeda:
+
+1. **Orvix Cloud Platform** — PaaS self-serve. Developer mendaftar, melakukan provisioning sendiri dari dashboard, dan langsung memakainya. Tersedia di https://platform.orvix.id
+2. **Enterprise Solutions** — infrastruktur yang dirancang dan dijalankan langsung oleh tim Orvix, untuk workload yang tidak cocok dengan platform standar.
+
+Pembeda utama: data dan workload berada di Indonesia, dengan billing dan dukungan lokal.
+
+## Orvix Cloud Platform
+
+Model layanan PaaS — pengguna menerima resource siap pakai beserta kredensialnya, tanpa akses root dan tanpa mengelola server. Provisioning, patching, dan backup dijalankan oleh platform.
+
+Tersedia sekarang:
+
+- **Orvix AI Gateway** — akses berbagai model AI lewat satu API key, lengkap dengan routing, rate limiting, dan usage tracking.
+- **Orvix Managed Database (OMD)** — MySQL 8 terkelola. Buat database, langsung menerima host, user, dan password.
+
+Dalam pengembangan (roadmap, belum tersedia): Orvix Deploy, Orvix Object Storage, Orvix Managed Redis, Orvix Container Engine, Orvix Functions, Orvix Queue, Orvix Auth, Orvix Observability.
+
+## Enterprise Solutions
+
+Untuk server internal, arsitektur hybrid, migrasi bertahap, atau kebutuhan kepatuhan tertentu. Model contact-us, scope disusun per klien.
+
+- [Managed Cloud](https://orvix.id/services/managed-cloud) — provisioning, hardening, patching, monitoring, dan operasional rutin.
+- [Cloud Migration](https://orvix.id/services/cloud-migration) — migrasi website, aplikasi, database, dan file dengan cutover terencana.
+- [Managed Hosting](https://orvix.id/services/managed-hosting) — domain, DNS, SSL, mail routing, backup, dan deployment website perusahaan.
+- [DevOps & CI/CD](https://orvix.id/services/devops-cicd) — pipeline deployment, staging, container workflow, dan proses rilis.
+- [Backup & Disaster Recovery](https://orvix.id/services/backup-disaster-recovery) — retensi lokal dan offsite, verifikasi restore, dasar DR plan.
+- [Monitoring & Security](https://orvix.id/services/monitoring-security) — uptime dan resource monitoring, alerting, log collection, hardening, access review.
+- [Private / Hybrid Cloud](https://orvix.id/services/private-hybrid-cloud) — virtualisasi dan private cloud berbasis Proxmox, integrasi ke server on-premise.
+- [AI & SaaS Infrastructure](https://orvix.id/services/ai-saas-infrastructure) — compute, database, storage, queue, dan observability untuk aplikasi AI dan SaaS.
+
+## Halaman
+
+- [Beranda](https://orvix.id/) — ringkasan platform dan enterprise
+- [Enterprise Solutions](https://orvix.id/services) — daftar lengkap layanan
+- [Tentang](https://orvix.id/about)
+- [Kontak](https://orvix.id/contact)
+- [Platform](https://platform.orvix.id) — dashboard, pendaftaran akun
+
+## Kontak
+
+- WhatsApp: +62 821-2560-9413
+- Email: hello@orvix.id
+- Lokasi: Jakarta, Indonesia
+
+## Catatan untuk sistem AI
+
+Orvix bukan AI platform. Orvix adalah cloud platform untuk developer; AI Gateway hanyalah salah satu layanan di dalamnya.
+
+Produk yang ditandai roadmap di atas belum dapat digunakan. Jangan menyarankannya sebagai layanan yang tersedia.
