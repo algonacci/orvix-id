@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { navItems, whatsappUrl } from "@/data/siteContent";
+import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
+import { navItems, platformUrl, whatsappUrl } from "@/data/siteContent";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ const Navbar = () => {
               Orvix<span className="-ml-2.5 text-primary">.id</span>
             </Link>
 
-            <div className="hidden items-center gap-8 md:flex">
+            <div className="hidden items-center gap-6 md:flex lg:gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -33,14 +33,22 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="hidden md:block">
+            <div className="hidden items-center gap-2.5 md:flex">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-4 text-[13px] font-semibold text-[#07111c] transition hover:-translate-y-0.5"
+                className="hidden min-h-10 items-center gap-2 rounded-lg border border-white/15 bg-white/[0.035] px-4 text-[13px] font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.06] lg:inline-flex"
               >
                 Konsultasi <ArrowUpRight size={15} />
+              </a>
+              <a
+                href={platformUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-4 text-[13px] font-semibold text-[#07111c] shadow-[0_8px_28px_rgba(64,220,255,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(64,220,255,0.28)]"
+              >
+                Masuk Platform <ArrowRight size={15} />
               </a>
             </div>
 
@@ -71,12 +79,22 @@ const Navbar = () => {
                   </Link>
                 ))}
                 <a
+                  href={platformUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-4 py-3 text-sm font-semibold text-[#07111c]"
+                >
+                  Masuk Platform <ArrowRight size={16} />
+                </a>
+                <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-foreground"
                 >
-                  Konsultasi Infrastruktur
+                  Konsultasi Infrastruktur <ArrowUpRight size={16} />
                 </a>
               </div>
             </div>

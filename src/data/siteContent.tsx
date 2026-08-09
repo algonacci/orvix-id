@@ -7,20 +7,35 @@ import {
   Boxes,
   Cloud,
   CloudCog,
+  Container,
   Database,
+  HardDrive,
   HardDriveDownload,
+  KeyRound,
   LaptopMinimalCheck,
+  Layers,
   Lock,
+  Rocket,
   ServerCog,
   ShieldCheck,
   Waypoints,
+  Zap,
 } from "lucide-react";
 
 export const siteName = "Orvix.id";
-export const siteTitle = "Orvix.id - Cloud & Managed Infrastructure Services";
+export const siteTitle = "Orvix.id - Cloud Platform untuk Developer";
 export const siteDescription =
-  "Orvix.id membantu setup, deploy, monitor, secure, dan maintain infrastruktur cloud agar workload bisnis lebih stabil dan mudah diawasi.";
+  "Orvix Cloud Platform menyediakan managed database, AI gateway, storage, dan deployment lewat satu dashboard. Infrastruktur di Indonesia, tanpa perlu mengurus server.";
 export const siteUrl = "https://orvix.id";
+export const siteLocale = "id_ID";
+export const siteKeywords =
+  "orvix cloud platform, cloud platform indonesia, managed database indonesia, managed mysql, AI gateway, PaaS indonesia, deploy aplikasi, object storage indonesia, managed cloud, cloud migration, private cloud, hybrid cloud, devops indonesia, backup disaster recovery, monitoring dan security";
+
+// Social scrapers need absolute URLs — a relative og:image is silently dropped
+// by Twitter and unreliable on Facebook.
+export const defaultOgImage = `${siteUrl}/og.jpg`;
+export const ogImageBase = `${siteUrl}/og`;
+
 export const platformUrl = "https://platform.orvix.id";
 export const whatsappNumber = "6282125609413";
 export const whatsappDisplay = "0821-2560-9413";
@@ -54,13 +69,178 @@ export type WorkflowItem = {
   description: string;
 };
 
+export type PlatformProduct = {
+  name: string;
+  short: string;
+  tagline: string;
+  description: string;
+  points: string[];
+  icon: LucideIcon;
+  accent: string;
+  status: "available" | "roadmap";
+};
+
+export const platformName = "Orvix Cloud Platform";
+
+export const platformVision =
+  "Build, deploy, dan scale aplikasi lewat satu cloud platform.";
+
+export const platformIntro =
+  "Orvix Cloud Platform menyatukan database, AI gateway, storage, dan deployment dalam satu dashboard. Provisioning otomatis, kredensial langsung jadi, dan infrastrukturnya tetap di Indonesia.";
+
+export const platformProducts: PlatformProduct[] = [
+  {
+    name: "Orvix AI Gateway",
+    short: "AI Gateway",
+    tagline: "Satu endpoint untuk banyak model.",
+    description:
+      "Akses berbagai model AI lewat satu API key. Routing, rate limiting, dan usage tracking sudah termasuk, tanpa perlu mengelola integrasi provider satu per satu.",
+    points: ["Satu API key", "Usage tracking", "Rate limiting"],
+    icon: Bot,
+    accent: "bg-svc-indigo",
+    status: "available",
+  },
+  {
+    name: "Orvix Managed Database",
+    short: "OMD",
+    tagline: "MySQL siap pakai dalam hitungan detik.",
+    description:
+      "Buat database, langsung dapat host, user, dan password. Provisioning, backup, dan patching berjalan otomatis. Tim Anda cukup memakai connection string-nya.",
+    points: ["MySQL 8", "Backup otomatis", "Kredensial per database"],
+    icon: Database,
+    accent: "bg-svc-cyan",
+    status: "available",
+  },
+  {
+    name: "Orvix Deploy",
+    short: "Deploy",
+    tagline: "Push kode, sisanya otomatis.",
+    description: "Build, release, dan rollback aplikasi langsung dari repository.",
+    points: [],
+    icon: Rocket,
+    accent: "bg-svc-blue",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Object Storage",
+    short: "OOS",
+    tagline: "Storage S3-compatible.",
+    description: "Simpan file, aset, dan backup lewat API yang sudah dikenal.",
+    points: [],
+    icon: HardDrive,
+    accent: "bg-svc-purple",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Managed Redis",
+    short: "OMR",
+    tagline: "Cache dan session store terkelola.",
+    description: "Redis siap pakai untuk caching, queue ringan, dan session.",
+    points: [],
+    icon: Zap,
+    accent: "bg-svc-amber",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Container Engine",
+    short: "Container",
+    tagline: "Jalankan container tanpa orchestrator.",
+    description: "Deploy image container tanpa perlu mengurus cluster sendiri.",
+    points: [],
+    icon: Container,
+    accent: "bg-svc-cyan",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Functions",
+    short: "Functions",
+    tagline: "Jalankan fungsi tanpa server.",
+    description: "Eksekusi kode berbasis event tanpa provisioning apa pun.",
+    points: [],
+    icon: Boxes,
+    accent: "bg-svc-indigo",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Queue",
+    short: "Queue",
+    tagline: "Background job dan message queue.",
+    description: "Antrean pekerjaan asinkron untuk workload yang berat.",
+    points: [],
+    icon: Layers,
+    accent: "bg-svc-blue",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Auth",
+    short: "Auth",
+    tagline: "Autentikasi siap pakai.",
+    description: "Login, sesi, dan manajemen user tanpa membangun dari nol.",
+    points: [],
+    icon: KeyRound,
+    accent: "bg-svc-red",
+    status: "roadmap",
+  },
+  {
+    name: "Orvix Observability",
+    short: "Observability",
+    tagline: "Metrics, logs, dan alert.",
+    description: "Pantau seluruh service Orvix dari satu tempat.",
+    points: [],
+    icon: BarChart3,
+    accent: "bg-svc-purple",
+    status: "roadmap",
+  },
+];
+
+export const availableProducts = platformProducts.filter(
+  (product) => product.status === "available",
+);
+
+export const roadmapProducts = platformProducts.filter(
+  (product) => product.status === "roadmap",
+);
+
+export const platformPillars = [
+  {
+    title: "Satu dashboard",
+    description:
+      "Database, AI gateway, storage, dan deployment berada di bawah satu akun, satu billing, dan satu konsol.",
+    icon: Layers,
+  },
+  {
+    title: "Provisioning otomatis",
+    description:
+      "Tidak ada tiket, tidak ada antre. Buat resource dari dashboard dan kredensialnya langsung tersedia.",
+    icon: Zap,
+  },
+  {
+    title: "Infrastruktur di Indonesia",
+    description:
+      "Workload dan data berjalan di region Jakarta, dekat dengan pengguna dan sesuai kebutuhan lokal.",
+    icon: Cloud,
+  },
+];
+
+export const enterpriseIntro =
+  "Sebagian workload memang tidak cocok dengan platform standar: server internal, arsitektur hybrid, migrasi bertahap, atau kebutuhan kepatuhan tertentu. Untuk itu tim Orvix turun langsung merancang, menjalankan, dan memelihara infrastrukturnya.";
+
+export const enterpriseSlugs = [
+  "managed-cloud",
+  "cloud-migration",
+  "private-hybrid-cloud",
+  "backup-disaster-recovery",
+  "monitoring-security",
+  "devops-cicd",
+];
+
 export const heroBadges = [
-  "Managed Cloud",
-  "Cloud Migration",
-  "Managed Hosting",
-  "DevOps & CI/CD",
-  "Monitoring & Security",
-  "Hybrid Cloud",
+  "Managed Database",
+  "AI Gateway",
+  "Object Storage",
+  "Deploy",
+  "Container Engine",
+  "Observability",
 ];
 
 export const trustPoints = [
@@ -86,24 +266,24 @@ export const serviceCategories = [
 
 export const heroMetrics: MetricItem[] = [
   {
-    value: "Deploy-ready",
-    label: "Cloud foundation",
-    detail: "Server, DNS, SSL, dan akses disiapkan lebih rapi sejak awal.",
+    value: "Satu dashboard",
+    label: "Unified platform",
+    detail: "Semua layanan Orvix di bawah satu akun, satu billing, satu konsol.",
   },
   {
-    value: "Hybrid-ready",
-    label: "Infrastructure scope",
-    detail: "Dari VPS dan cloud publik sampai private platform dan on-prem.",
+    value: "Hitungan detik",
+    label: "Provisioning",
+    detail: "Buat resource dari dashboard, kredensialnya langsung tersedia.",
   },
   {
-    value: "Observability-first",
-    label: "Operational layer",
-    detail: "Monitoring, logs, dan alert penting dibuat lebih mudah dibaca.",
+    value: "Region Jakarta",
+    label: "Lokasi data",
+    detail: "Workload berjalan di Indonesia, dekat dengan pengguna Anda.",
   },
   {
-    value: "Monthly managed",
-    label: "Support model",
-    detail: "Cocok untuk tim yang butuh partner teknis, bukan reseller semata.",
+    value: "Tanpa urus server",
+    label: "Model layanan",
+    detail: "Patching, backup, dan operasional infrastruktur jadi tanggung jawab kami.",
   },
 ];
 
@@ -525,32 +705,46 @@ export const industries = [
 export const findServiceBySlug = (slug?: string) =>
   services.find((service) => service.slug === slug);
 
+export const enterpriseServices = enterpriseSlugs
+  .map((slug) => services.find((service) => service.slug === slug))
+  .filter((service): service is ServiceItem => Boolean(service));
+
 export const navItems = [
   { label: "Beranda", path: "/" },
-  { label: "Layanan", path: "/services" },
+  { label: "Enterprise", path: "/services" },
   { label: "Tentang", path: "/about" },
   { label: "Kontak", path: "/contact" },
 ];
 
 export const contactCopy =
-  "Ceritakan kondisi server, aplikasi, atau cloud yang sedang berjalan. Orvix.id bantu review dan susun langkah teknis yang paling masuk akal.";
+  "Mau mulai dari platform atau butuh setup enterprise? Ceritakan aplikasi, workload, dan kendala yang sedang Anda hadapi.";
 
 export const trustIntro =
-  "Managed infrastructure partner untuk bisnis yang butuh deployment rapi, server terkelola, dan operasional yang mudah diawasi.";
+  "Cloud platform untuk developer, dengan opsi enterprise untuk workload yang butuh penanganan langsung.";
 
 export const finalCta =
-  "Ceritakan kondisi server, aplikasi, atau cloud yang sedang berjalan. Orvix.id bantu review dan susun langkah teknis yang paling masuk akal.";
+  "Buat akun dan mulai provisioning sendiri, atau hubungi tim kami kalau workload Anda butuh arsitektur khusus.";
 
 export const faqs = [
   {
-    question: "Apa saja yang bisa dikelola Orvix.id?",
+    question: "Apa bedanya Orvix Cloud Platform dan layanan Enterprise?",
     answer:
-      "Orvix.id menangani cloud server, VPS, deployment aplikasi, container, database, DNS, SSL, backup, monitoring, dan security baseline sesuai kebutuhan workload.",
+      "Platform bersifat self-serve: Anda membuat akun, provisioning resource sendiri dari dashboard, dan langsung memakainya. Enterprise adalah penanganan langsung oleh tim Orvix untuk workload yang butuh arsitektur khusus, server internal, atau setup hybrid.",
+  },
+  {
+    question: "Apakah harus mengurus server sendiri di platform?",
+    answer:
+      "Tidak. Orvix menjalankan model PaaS, jadi Anda menerima resource siap pakai seperti database beserta kredensialnya. Provisioning, patching, dan backup dijalankan platform, tanpa akses root atau pengelolaan server oleh Anda.",
+  },
+  {
+    question: "Di mana data dan workload dijalankan?",
+    answer:
+      "Infrastruktur Orvix berada di region Jakarta, Indonesia. Koneksi publik dilayani melalui gateway, sedangkan data tetap berada di dalam infrastruktur Orvix.",
   },
   {
     question: "Apakah bisa membantu migrasi dari server atau hosting lama?",
     answer:
-      "Bisa. Proses dimulai dari assessment dependency dan data, dilanjutkan testing, cutover terencana, validasi, serta monitoring setelah migrasi.",
+      "Bisa, melalui layanan Enterprise. Proses dimulai dari assessment dependency dan data, dilanjutkan testing, cutover terencana, validasi, serta monitoring setelah migrasi.",
   },
   {
     question: "Apakah tersedia maintenance bulanan?",

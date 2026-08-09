@@ -1,32 +1,31 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { packages, services, siteUrl, whatsappUrl } from "@/data/siteContent";
+import SEOHead from "@/components/SEOHead";
+import { packages, services, whatsappUrl } from "@/data/siteContent";
 
 const primaryServices = services.filter((service) => service.slug !== "ai-saas-infrastructure");
 const featuredServices = primaryServices.slice(0, 4);
 
 const Layanan = () => (
   <div className="pt-24">
-    <Helmet>
-      <title>Layanan Cloud & Infrastruktur - Orvix.id</title>
-      <meta
-        name="description"
-        content="Layanan Orvix.id mencakup managed cloud, cloud migration, managed hosting, DevOps, backup, monitoring, security, private cloud, dan AI infrastructure."
-      />
-      <link rel="canonical" href={`${siteUrl}/services`} />
-    </Helmet>
+    <SEOHead
+      title="Enterprise Solutions"
+      description="Layanan enterprise Orvix.id: managed cloud, cloud migration, managed hosting, DevOps, backup, monitoring, security, private cloud, dan AI infrastructure untuk workload yang butuh penanganan langsung."
+      keywords="managed cloud indonesia, jasa cloud migration, private cloud proxmox, managed hosting bisnis"
+      path="/services"
+    />
 
     <section className="infra-shell bg-background py-24">
       <div className="mx-auto max-w-5xl px-6">
         <span className="text-xs font-medium uppercase tracking-[0.2em] text-text-muted">
-          Layanan
+          Enterprise Solutions
         </span>
         <h1 className="mt-4 text-4xl font-extrabold text-foreground sm:text-5xl">
-          Layanan utama Orvix.id
+          Untuk workload yang butuh penanganan langsung
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-text-secondary">
-          Fokus pada layanan inti yang paling sering dibutuhkan tim operasional.
+          Di luar Orvix Cloud Platform, tim kami menangani server internal, arsitektur hybrid,
+          migrasi bertahap, dan kebutuhan infrastruktur lain yang tidak cocok dengan setup standar.
         </p>
       </div>
     </section>

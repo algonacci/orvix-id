@@ -1,25 +1,20 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
+import PlatformSection from "@/components/PlatformSection";
+import EnterpriseSection from "@/components/EnterpriseSection";
 import WhyOrvixSection from "@/components/WhyOrvixSection";
 import InfrastructureStackSection from "@/components/InfrastructureStackSection";
 import WorkflowSection from "@/components/WorkflowSection";
 import FaqSection from "@/components/FaqSection";
 import FinalCtaSection from "@/components/FinalCtaSection";
-import { siteDescription, siteTitle, siteUrl } from "@/data/siteContent";
 
 const Index = () => (
   <>
-    <Helmet>
-      <title>{siteTitle}</title>
-      <meta name="description" content={siteDescription} />
-      <link rel="canonical" href={`${siteUrl}/`} />
-      <meta property="og:title" content={siteTitle} />
-      <meta property="og:description" content={siteDescription} />
-    </Helmet>
+    <SEOHead path="/" />
     <HeroSection />
+    <PlatformSection />
     <WhyOrvixSection />
-    <ServicesSection />
+    <EnterpriseSection />
     <WorkflowSection />
     <InfrastructureStackSection />
     <FaqSection />

@@ -14,6 +14,7 @@ const FinalCtaSection = () => (
       <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <a
           href={platformUrl}
+          target="_blank"
           rel="noopener noreferrer"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-6 text-sm font-semibold text-[#07111c] transition hover:-translate-y-0.5"
         >

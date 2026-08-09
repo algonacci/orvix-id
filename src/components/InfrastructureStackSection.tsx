@@ -16,9 +16,24 @@ const operations = [
     description: "Release aplikasi dari repository dengan proses build dan rollback yang lebih konsisten.",
     icon: GitBranch,
     visual: (
-      <div className="ops-repository">
-        <div><span><i /> orvix/business-app</span><b><Check size={11} /> Connected</b></div>
-        <div className="mt-3"><code>main</code><span>deployment ready</span><small>12s ago</small></div>
+      <div className="ops-panel">
+        <div className="ops-row">
+          <span className="inline-flex min-w-0 items-center gap-2 text-text-secondary">
+            <i className="ops-dot bg-emerald-300 shadow-[0_0_8px_#6ee7b7]" />
+            <span className="truncate">orvix/business-app</span>
+          </span>
+          <b className="inline-flex items-center gap-1 font-normal text-emerald-300">
+            <Check size={11} /> Connected
+          </b>
+        </div>
+        <div className="ops-row">
+          <code className="truncate text-text-secondary">main</code>
+          <small className="text-text-muted">deployment ready</small>
+        </div>
+        <div className="ops-row">
+          <code className="truncate text-text-secondary">a82c1f</code>
+          <small className="text-text-muted">12s ago</small>
+        </div>
       </div>
     ),
   },
@@ -27,10 +42,19 @@ const operations = [
     description: "Uptime, resource, latency, dan log penting dibuat lebih mudah dibaca oleh tim.",
     icon: Activity,
     visual: (
-      <div className="ops-logs">
-        <div><time>12:04</time><span>GET</span><code>/health</code><b>200</b></div>
-        <div><time>12:05</time><span>GET</span><code>/api/orders</code><b>200</b></div>
-        <div><time>12:06</time><span>POST</span><code>/api/sync</code><b>201</b></div>
+      <div className="ops-panel">
+        {[
+          { time: "12:04", method: "GET", path: "/health", status: "200" },
+          { time: "12:05", method: "GET", path: "/api/orders", status: "200" },
+          { time: "12:06", method: "POST", path: "/api/sync", status: "201" },
+        ].map((line) => (
+          <div key={line.time} className="ops-log">
+            <time className="text-text-muted">{line.time}</time>
+            <span className="text-primary">{line.method}</span>
+            <code className="truncate text-text-secondary">{line.path}</code>
+            <b className="text-right font-normal text-emerald-300">{line.status}</b>
+          </div>
+        ))}
       </div>
     ),
   },
@@ -39,10 +63,22 @@ const operations = [
     description: "Secret, akses administratif, firewall, dan konfigurasi environment dikelola lebih disiplin.",
     icon: KeyRound,
     visual: (
-      <div className="ops-environment">
-        <div><span><i /> Production</span><small>Encrypted</small></div>
-        <p><code>DATABASE_URL</code><b>••••••••••</b></p>
-        <p><code>API_SECRET</code><b>••••••••••</b></p>
+      <div className="ops-panel">
+        <div className="ops-row">
+          <span className="inline-flex min-w-0 items-center gap-2 text-text-secondary">
+            <i className="ops-dot bg-emerald-300 shadow-[0_0_8px_#6ee7b7]" />
+            <span className="truncate">Production</span>
+          </span>
+          <small className="text-text-muted">Encrypted</small>
+        </div>
+        <div className="ops-row">
+          <code className="truncate text-text-secondary">DATABASE_URL</code>
+          <b className="font-normal tracking-wider text-slate-600">••••••••••</b>
+        </div>
+        <div className="ops-row">
+          <code className="truncate text-text-secondary">API_SECRET</code>
+          <b className="font-normal tracking-wider text-slate-600">••••••••••</b>
+        </div>
       </div>
     ),
   },
@@ -51,10 +87,24 @@ const operations = [
     description: "Backup tidak berhenti di jadwal, tetapi dilengkapi retensi dan verifikasi restore.",
     icon: RotateCcw,
     visual: (
-      <div className="ops-backup">
-        <div><span className="bg-emerald-300" /><code>backup_0726</code><small>Verified</small></div>
-        <i />
-        <div><span className="bg-primary" /><code>production</code><small>Protected</small></div>
+      <div className="ops-panel">
+        <div className="ops-row">
+          <span className="inline-flex min-w-0 items-center gap-2 text-text-secondary">
+            <i className="ops-dot bg-emerald-300 shadow-[0_0_8px_#6ee7b7]" />
+            <span className="truncate">backup_0726</span>
+          </span>
+          <b className="inline-flex items-center gap-1 font-normal text-emerald-300">
+            <Check size={11} /> Verified
+          </b>
+        </div>
+        <div className="ops-row">
+          <code className="truncate text-text-secondary">Retensi</code>
+          <small className="text-text-muted">30 hari</small>
+        </div>
+        <div className="ops-row">
+          <code className="truncate text-text-secondary">Restore terakhir</code>
+          <small className="text-text-muted">2 jam lalu</small>
+        </div>
       </div>
     ),
   },
@@ -78,14 +128,14 @@ const InfrastructureStackSection = () => (
           const Icon = item.icon;
           return (
             <article key={item.title} className="ops-card">
-              <div className="flex gap-4">
+              <div className="mb-7 flex gap-4">
                 <span className="why-icon shrink-0"><Icon size={20} /></span>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
                   <p className="mt-2 max-w-lg text-sm leading-6 text-text-secondary">{item.description}</p>
                 </div>
               </div>
-              <div className="mt-auto pt-7">{item.visual}</div>
+              {item.visual}
             </article>
           );
         })}
