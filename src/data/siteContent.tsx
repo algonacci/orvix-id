@@ -601,8 +601,8 @@ export const footerCopy = { copyright: `© ${lastVerified.slice(0, 4)} ${siteNam
 export const heroContent = {
   title: platformName,
   headline: "Akses AI, bangun aplikasi Anda.",
-  description: `Satu API key untuk ${formatNumber(modelCount)} model, dengan billing rupiah untuk developer Indonesia.`,
-  primaryCta: { label: "Buka platform", url: platformUrl },
+  description: `Satu API key untuk ${formatNumber(modelCount)} model dengan billing rupiah, dibuat di Indonesia.`,
+  primaryCta: { label: "Daftar gratis", url: platformUrl },
   secondaryCta: { label: "Lihat harga", path: "/harga" },
 };
 export const orvixOne = {

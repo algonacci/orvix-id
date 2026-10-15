@@ -84,10 +84,10 @@ describe("gateway integration examples", () => {
   it("exports a copyable curl command without diff markers", () => {
     const lines = gatewayExamples.curl.split("\n");
     expect(lines[0]).toContain("curl https://api.orvix.id/v1/chat/completions");
-    expect(lines[1]).toMatch(/^  -H "Authorization: Bearer /);
+    expect(lines[1]).toMatch(/^ {2}-H "Authorization: Bearer /);
     expect(lines[2]).toContain('  -H "Content-Type: application/json"');
     expect(lines[2].endsWith("\\")).toBe(true);
-    expect(lines[3]).toMatch(/^  -d '\{"model":"orvix\/auto"/);
+    expect(lines[3]).toMatch(/^ {2}-d '\{"model":"orvix\/auto"/);
     expect(gatewayExamples.curl).not.toMatch(/\n\+/);
     expect(gatewayExamples.curl).not.toContain("diff --git");
   });

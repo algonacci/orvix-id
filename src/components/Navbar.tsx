@@ -4,9 +4,6 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { navigation } from "@/data/siteContent";
 
-// Keep public links canonical while the shared data still uses legacy aliases.
-const publicPath = (path: string) => ({ "/services": "/layanan", "/about": "/tentang", "/contact": "/kontak" }[path] ?? path);
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -35,7 +32,7 @@ const Navbar = () => {
               </DropdownMenu.Portal>
             </DropdownMenu.Root>
             {items.map((item) => (
-              <Link key={item.path} to={publicPath(item.path)} aria-current={location.pathname === publicPath(item.path) ? "page" : undefined} className={`text-[13px] font-medium transition ${location.pathname === publicPath(item.path) ? "text-foreground" : "text-text-secondary hover:text-foreground"}`}>{item.label}</Link>
+              <Link key={item.path} to={item.path} aria-current={location.pathname === item.path ? "page" : undefined} className={`text-[13px] font-medium transition ${location.pathname === item.path ? "text-foreground" : "text-text-secondary hover:text-foreground"}`}>{item.label}</Link>
             ))}
           </div>
           <a href={navigation.login.url} target="_blank" rel="noopener noreferrer" className="hidden min-h-10 items-center gap-2 rounded-lg bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-4 text-[13px] font-semibold text-[#07111c] shadow-[0_8px_28px_rgba(64,220,255,0.18)] transition hover:-translate-y-0.5 md:inline-flex">
@@ -52,7 +49,7 @@ const Navbar = () => {
               {navigation.products.map((item) => <Link key={item.path} to={item.path} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-sm font-medium text-text-secondary hover:bg-white/[0.04] hover:text-foreground">{item.label}</Link>)}
             </div>
             <div className="mt-2 flex flex-col gap-1">
-              {items.map((item) => <Link key={item.path} to={publicPath(item.path)} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-sm font-medium text-text-secondary hover:bg-white/[0.04] hover:text-foreground">{item.label}</Link>)}
+              {items.map((item) => <Link key={item.path} to={item.path} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-sm font-medium text-text-secondary hover:bg-white/[0.04] hover:text-foreground">{item.label}</Link>)}
               <a href={navigation.login.url} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-4 py-3 text-sm font-semibold text-[#07111c]">{navigation.login.label}<ArrowRight size={16} /></a>
             </div>
           </div>

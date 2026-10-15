@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import { footerCopy, navigation, siteName } from "@/data/siteContent";
 
-// Keep public links canonical while the shared data still uses legacy aliases.
-const publicPath = (path: string) => ({ "/services": "/layanan", "/about": "/tentang", "/contact": "/kontak" }[path] ?? path);
-
 const Footer = () => (
   <footer className="border-t border-white/10 px-4 pb-10 pt-14 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl px-2 py-8 sm:px-0">
@@ -21,7 +18,7 @@ const Footer = () => (
         <div>
           <p className="section-eyebrow text-text-muted">Navigasi</p>
           <div className="mt-4 space-y-2 text-sm">
-            {navigation.items.filter((item) => item.path !== "/").map((item) => <Link key={item.path} to={publicPath(item.path)} className="block text-text-secondary transition hover:text-foreground">{item.label}</Link>)}
+            {navigation.items.filter((item) => item.path !== "/").map((item) => <Link key={item.path} to={item.path} className="block text-text-secondary transition hover:text-foreground">{item.label}</Link>)}
           </div>
         </div>
         <div>

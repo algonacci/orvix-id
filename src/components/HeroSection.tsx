@@ -19,7 +19,6 @@ const HeroSection = () => (
             <span className="hero-gradient-text mt-2 block">bangun aplikasi Anda.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-7 text-text-secondary sm:leading-8">{heroContent.description}</p>
-          <p className="mt-3 text-sm text-text-secondary">Dibuat di Indonesia.</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               href={heroContent.primaryCta.url}
@@ -27,7 +26,7 @@ const HeroSection = () => (
               rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#eafbff,#a8ebff)] px-6 text-sm font-semibold text-[#07111c] shadow-[0_10px_38px_rgba(64,220,255,0.2)] transition hover:-translate-y-0.5"
             >
-              Daftar gratis <ArrowRight size={16} />
+              {heroContent.primaryCta.label} <ArrowRight size={16} />
             </a>
             <Link
               to={heroContent.secondaryCta.path}
