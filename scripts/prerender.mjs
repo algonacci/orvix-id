@@ -163,17 +163,23 @@ async function renderRoute(browser, routePath) {
     // tags asynchronously. On Vercel's slower build worker a snapshot taken at
     // that moment once lost meta[name=description]. Wait until the head has
     // exactly one title and one description again before serializing.
-    await step("head", () => page.waitForFunction(
-      () => document.title.length > 0 &&
-        document.querySelectorAll('meta[name="description"]').length === 1 &&
-        document.querySelectorAll('link[rel="canonical"]').length === 1,
+    // Check the head and serialize in one synchronous step inside the page: the
+    // head manager can rewrite tags between a separate check and page.content()
+    // (on Vercel /harga was saved without description and canonical that way).
+    const html = await step("head", async () => (await page.waitForFunction(
+      () => {
+        const ok = document.title.length > 0 &&
+          document.querySelectorAll('meta[name="description"]').length === 1 &&
+          document.querySelectorAll('link[rel="canonical"]').length === 1;
+        return ok && `<!DOCTYPE html>${document.documentElement.outerHTML}`;
+      },
       { timeout: 30000, polling: 200 },
-    ), () => page.evaluate(() => ({
+    )).jsonValue(), () => page.evaluate(() => ({
       title: document.title,
       descriptions: document.querySelectorAll('meta[name="description"]').length,
       canonicals: [...document.querySelectorAll('link[rel="canonical"]')].map((l) => l.href),
     })));
-    writeHtml(routePath, await page.content());
+    writeHtml(routePath, html);
   } finally {
     await page.close();
   }
