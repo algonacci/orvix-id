@@ -1,172 +1,108 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import {
-  defaultOgImage,
-  ogImageBase,
-  services,
-  siteDescription,
-  siteKeywords,
-  siteLocale,
-  siteName,
-  siteTitle,
-  siteUrl,
-} from "@/data/siteContent";
+import { emailPlaceholder, faqs, pricingFaqs, siteLocale, siteName, siteUrl, whatsappNumber } from "@/data/siteContent";
+import { aiPlan, allPlans, formatNumber, formatTokens, formatValidity, pricingCopy, tokenPlans } from "@/data/pricing";
+import { canonicalPath, getMetadata } from "../../scripts/seo-metadata.mjs";
 
 type SEOHeadProps = {
-  /** Page title without the site suffix. Omit on the home page. */
   title?: string;
   description?: string;
-  /** Appended to the site-wide keyword list. */
   keywords?: string;
-  /** Canonical path override, e.g. "/services". Defaults to the current route. */
   path?: string;
-  /** Absolute image URL override. Falls back to the banner for this route. */
   image?: string;
   type?: "website" | "article";
   noindex?: boolean;
 };
 
-const serviceSlugs = new Set(services.map((service) => service.slug));
+const organization = {
+  "@type": "Organization", "@id": `${siteUrl}/#organization`,
+  name: siteName, alternateName: "Orvix", url: siteUrl,
+  logo: `${siteUrl}/logo.png`, image: `${siteUrl}/og.jpg`,
+  description: getMetadata("/").description,
+  telephone: `+${whatsappNumber}`, email: emailPlaceholder,
+};
+const website = {
+  "@type": "WebSite", "@id": `${siteUrl}/#website`, name: siteName,
+  url: `${siteUrl}/`, inLanguage: "id-ID", publisher: { "@id": organization["@id"] },
+};
 
-/**
- * Maps a route to its pre-rendered banner in public/og/.
- *
- * The home page deliberately keeps /og.jpg rather than banner_home.webp: it is
- * the same artwork, but index.html hardcodes the JPEG as the static default, and
- * serving two different URLs for one page confuses scrapers that read the shell
- * before React swaps the tags in.
- */
-function resolveOgImage(pathname: string): string {
-  const segments = pathname.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean);
-
-  if (segments.length === 0) return defaultOgImage;
-
-  const [first, second] = segments;
-
-  if (first === "services") {
-    if (second && serviceSlugs.has(second)) {
-      return `${ogImageBase}/banner_service-${second}.webp`;
-    }
-    return `${ogImageBase}/banner_services.webp`;
-  }
-
-  if (segments.length === 1 && (first === "about" || first === "contact")) {
-    return `${ogImageBase}/banner_${first}.webp`;
-  }
-
-  return defaultOgImage;
+function pricingProducts() {
+  return allPlans.map((plan) => {
+    const variants = tokenPlans.find((token) => token.id === plan.id)?.variants ?? [plan];
+    const detail = plan.id === aiPlan.id ? `${pricingCopy.fairUse} ${aiPlan.lineupNote}` : pricingCopy.tokenRate;
+    return {
+      "@type": "Product", "@id": `${siteUrl}/harga#${plan.id}`,
+      name: plan.name, description: `${plan.audience} ${plan.id === aiPlan.id ? detail : ""}`.trim(),
+      image: `${siteUrl}/og/banner_harga.webp`, brand: { "@type": "Brand", name: "Orvix" },
+      offers: variants.map((variant) => {
+        const quota = variant.tokens !== null ? formatTokens(variant.tokens) : plan.credits !== null ? `${formatNumber(plan.credits)} kredit` : "Fair use";
+        return {
+          "@type": "Offer", "@id": `${siteUrl}/harga#${plan.id}-${variant.id}-offer`,
+          name: `${plan.name} — ${quota} · ${formatValidity(variant.validityDays)}`,
+          description: `${quota}. ${formatValidity(variant.validityDays)}. ${plan.category === "token" || plan.category === "ai" ? detail : plan.audience} ${pricingCopy.footnote}`,
+          price: plan.priceIdr, priceCurrency: "IDR", url: plan.platformUrl,
+          availability: "https://schema.org/InStock", seller: { "@id": organization["@id"] },
+        };
+      }),
+    };
+  });
 }
 
-function buildBreadcrumbs(pathname: string, pageTitle: string) {
-  const segments = pathname.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean);
-  if (segments.length === 0) return null;
-
-  const items = [{ name: "Beranda", url: `${siteUrl}/` }];
-
-  if (segments[0] === "services") {
-    items.push({ name: "Enterprise Solutions", url: `${siteUrl}/services` });
-    if (segments[1]) {
-      items.push({ name: pageTitle, url: `${siteUrl}${pathname}` });
-    }
-  } else {
-    items.push({ name: pageTitle, url: `${siteUrl}${pathname}` });
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
-  };
-}
-
-const SEOHead = ({
-  title,
-  description,
-  keywords,
-  path,
-  image,
-  type = "website",
-  noindex = false,
-}: SEOHeadProps) => {
+const SEOHead = ({ path, image, type = "website", noindex = false }: SEOHeadProps) => {
   const location = useLocation();
-  const pathname = path ?? location.pathname;
-
-  const fullTitle = title ? `${title} - ${siteName}` : siteTitle;
-  const finalDescription = description ?? siteDescription;
-  const finalKeywords = keywords ? `${keywords}, ${siteKeywords}` : siteKeywords;
-  const canonical = `${siteUrl}${pathname === "/" ? "/" : pathname}`;
-  const ogImage = image ?? resolveOgImage(pathname);
-  const ogImageType = ogImage.endsWith(".webp") ? "image/webp" : "image/jpeg";
-  const breadcrumbs = noindex ? null : buildBreadcrumbs(pathname, title ?? siteName);
-
-  const webPage = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: fullTitle,
-    description: finalDescription,
-    url: canonical,
-    inLanguage: "id-ID",
-    // Reference the WebSite node declared in index.html's @graph rather than
-    // repeating it — a duplicate node makes Google guess whether the two
-    // describe the same entity.
-    isPartOf: { "@id": `${siteUrl}/#website` },
-    primaryImageOfPage: {
-      "@type": "ImageObject",
-      url: ogImage,
-      width: 1200,
-      height: 630,
+  const pathname = noindex ? "/404" : canonicalPath(path ?? location.pathname);
+  const meta = getMetadata(pathname);
+  const canonical = `${siteUrl}${pathname}`;
+  const ogImage = image ?? `${siteUrl}${meta.image}`;
+  const items = [{ name: "Beranda", item: `${siteUrl}/` }];
+  if (pathname.startsWith("/services/")) items.push({ name: "Layanan enterprise", item: `${siteUrl}/layanan` });
+  items.push({ name: meta.title, item: canonical });
+  const pageFaqs = pathname === "/" ? faqs : pathname === "/harga" ? pricingFaqs : [];
+  const graph = [
+    // Define each referenced entity once in this page's graph; no global shell graph.
+    ...(!noindex ? [organization, website] : []),
+    {
+      "@type": "WebPage", "@id": `${canonical}#webpage`, name: meta.title,
+      description: meta.description, url: canonical, inLanguage: "id-ID",
+      ...(!noindex ? { isPartOf: { "@id": website["@id"] } } : {}),
+      primaryImageOfPage: { "@type": "ImageObject", url: ogImage, width: 1200, height: 630 },
     },
-  };
+    ...(!noindex && pathname !== "/" ? [{
+      "@type": "BreadcrumbList", itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })),
+    }] : []),
+    ...(pathname === "/harga" ? pricingProducts() : []),
+    ...(pageFaqs.length ? [{
+      "@type": "FAQPage", "@id": `${canonical}#faq`,
+      mainEntity: pageFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
+    }] : []),
+  ];
 
   return (
-    // defer={false} matters: Helmet's default commits the head via
-    // requestAnimationFrame, which never fires in a backgrounded or headless
-    // page — so the tags silently stay at the index.html defaults. Committing
-    // on mount instead keeps prerenderers and hidden tabs correct.
     <Helmet prioritizeSeoTags defer={false}>
-      <title>{fullTitle}</title>
-      <meta name="description" content={finalDescription} />
-      <meta name="keywords" content={finalKeywords} />
+      <title>{meta.title}</title>
+      <meta name="description" content={meta.description} />
+      <meta name="keywords" content={meta.keyword} />
       <link rel="canonical" href={canonical} />
-      <meta
-        name="robots"
-        content={
-          noindex
-            ? "noindex, nofollow"
-            : "index, follow, max-image-preview:large, max-snippet:-1"
-        }
-      />
-
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={siteLocale} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={finalDescription} />
+      <meta property="og:title" content={meta.title} />
+      <meta property="og:description" content={meta.description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:secure_url" content={ogImage} />
-      <meta property="og:image:type" content={ogImageType} />
+      <meta property="og:image:type" content={ogImage.endsWith(".webp") ? "image/webp" : "image/jpeg"} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={fullTitle} />
-
+      <meta property="og:image:alt" content={meta.title} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={finalDescription} />
+      <meta name="twitter:title" content={meta.title} />
+      <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content={fullTitle} />
-
-      <script type="application/ld+json">{JSON.stringify(webPage)}</script>
-      {breadcrumbs ? (
-        <script type="application/ld+json">{JSON.stringify(breadcrumbs)}</script>
-      ) : null}
+      <meta name="twitter:image:alt" content={meta.title} />
+      <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>
     </Helmet>
   );
 };
-
 export default SEOHead;

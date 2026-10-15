@@ -3,17 +3,19 @@
 //
 // Why this exists: Facebook, WhatsApp, and LinkedIn read the raw HTML only.
 // Without prerendering they see index.html for every URL, which means every
-// shared link previews with the home-page banner regardless of the page. Google
-// is unaffected either way — it renders JS.
+// shared link previews with the home-page banner regardless of the page. Static
+// output also makes indexing independent of a crawler's JS rendering schedule.
 //
 // Usage: node scripts/prerender.mjs   (run after `vite build`)
 
 import { createReadStream, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import http from "node:http";
 import { extname, join } from "node:path";
-import chromium from "@sparticuz/chromium";
 import puppeteer from "puppeteer-core";
 import { getPrerenderPaths, ROOT } from "./routes.mjs";
+import { browserOptions } from "./browser.mjs";
+import { canonicalPath, SITE } from "./seo-metadata.mjs";
+import { sourceFingerprint, verifyStatic } from "./verify-static.mjs";
 
 const DIST = join(ROOT, "dist");
 const PORT = Number(process.env.PRERENDER_PORT) || 45678;
@@ -74,6 +76,7 @@ function writeHtml(routePath, html) {
   const outDir = routePath === "/" ? DIST : join(DIST, routePath);
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, "index.html"), html, "utf8");
+  if (routePath === "/404") writeFileSync(join(DIST, "404.html"), html, "utf8");
 }
 
 async function renderRoute(browser, routePath) {
@@ -97,16 +100,33 @@ async function renderRoute(browser, routePath) {
     await page.waitForSelector("#root > *", { timeout: 45000 });
 
     // Guard against silently shipping the shell's tags: SEOHead must have taken
-    // over the head by now, and every route's canonical is its own URL.
+    // over the head by now; aliases must point to their canonical counterparts.
     const canonical = await page.$eval(
       'link[rel="canonical"]',
       (el) => el.getAttribute("href") ?? ""
     );
-    const expected = routePath === "/" ? "/" : routePath;
-    if (!canonical.endsWith(expected)) {
-      throw new Error(`canonical is "${canonical}", expected it to end with "${expected}"`);
+    const expected = `${SITE}${canonicalPath(routePath)}`;
+    if (canonical !== expected) {
+      throw new Error(`canonical is "${canonical}", expected "${expected}"`);
     }
 
+    // Radix lazily mounts closed answers. Preserve their real rendered markup
+    // in hidden panels for non-JS readers and FAQ structured-data parity.
+    const answers = [];
+    for (const trigger of await page.$$("#faq .faq-trigger")) {
+      await trigger.click();
+      const id = await trigger.evaluate((el) => el.getAttribute("aria-controls"));
+      await page.waitForFunction((id) => document.getElementById(id)?.textContent.trim(), {}, id);
+      answers.push(await page.evaluate((id) => ({ id, html: document.getElementById(id).innerHTML }), id));
+      await trigger.click();
+    }
+    await page.evaluate((answers) => {
+      for (const { id, html } of answers) {
+        const panel = document.getElementById(id);
+        panel.innerHTML = html;
+        panel.hidden = true;
+      }
+    }, answers);
     writeHtml(routePath, await page.content());
   } finally {
     await page.close();
@@ -126,11 +146,9 @@ async function main() {
   await new Promise((resolve) => server.listen(PORT, "127.0.0.1", resolve));
   console.log(`Prerendering ${routes.length} routes from ${ORIGIN}\n`);
 
-  const browser = await puppeteer.launch({
-    args: chromium.args,
-    executablePath: process.env.PRERENDER_CHROME_PATH || (await chromium.executablePath()),
-    headless: true,
-  });
+  let browser;
+  try { browser = await puppeteer.launch(await browserOptions()); }
+  catch (error) { server.close(); throw error; }
 
   let ok = 0;
   let failed = 0;
@@ -159,6 +177,9 @@ async function main() {
 
   console.log(`\nDone. ${ok} prerendered, ${failed} failed.`);
   if (failed > 0) process.exit(1);
+  verifyStatic({ freshness: false });
+  writeFileSync(join(DIST, "prerender-manifest.json"), JSON.stringify({ fingerprint: sourceFingerprint(), routes }, null, 2));
+  console.log(`Verified ${verifyStatic()} serialized HTML files, schema graphs and canonical sitemap.`);
 }
 
 main().catch((error) => {
