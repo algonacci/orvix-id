@@ -74,7 +74,7 @@ const Harga = () => (
 
     <p className="border-y border-white/10 py-5 text-sm leading-relaxed text-text-secondary">{pricingCopy.footnote}</p>
 
-    <section id="faq" aria-labelledby="faq-title" className="max-w-4xl">
+    <section id="pertanyaan" aria-labelledby="faq-title" className="max-w-4xl">
       <h2 id="faq-title" className="text-3xl font-bold">Pertanyaan tentang paket</h2>
       <div className="mt-8"><FaqList items={pricingFaqs} /></div>
     </section>

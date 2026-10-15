@@ -12,7 +12,8 @@ export const FaqList = ({ items }: { items: { question: string; answer: string }
             <ChevronDown size={17} className="shrink-0 text-text-muted transition-transform duration-200" />
           </Accordion.Trigger>
         </Accordion.Header>
-        <Accordion.Content className="faq-content overflow-hidden text-sm leading-7 text-text-secondary">
+        {/* forceMount keeps closed answers in the HTML (hidden), so prerender needs no clicks. */}
+        <Accordion.Content forceMount className="faq-content overflow-hidden text-sm leading-7 text-text-secondary data-[state=closed]:hidden">
           <div className="px-5 pb-5 sm:px-6">{item.answer}</div>
         </Accordion.Content>
       </Accordion.Item>
