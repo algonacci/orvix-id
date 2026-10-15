@@ -31,7 +31,8 @@ describe("public product contract", () => {
       expect(heroText).not.toContain(product.name.toLowerCase());
       expect(heroText).not.toContain(product.short.toLowerCase());
     }
-    expect(orvixOne.status).toBe("segera");
+    expect(orvixOne.status).toBe("live");
+    expect(orvixOne.url).toBe("https://one.orvix.id");
     expect(heroText).not.toContain(orvixOne.name);
     expect(platformProducts.every((product) => ["live", "segera"].includes(product.status))).toBe(true);
   });
