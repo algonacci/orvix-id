@@ -20,9 +20,10 @@ import { sourceFingerprint, verifyStatic } from "./verify-static.mjs";
 const DIST = join(ROOT, "dist");
 const PORT = Number(process.env.PRERENDER_PORT) || 45678;
 const ORIGIN = `http://127.0.0.1:${PORT}`;
-// Vercel builds on 2 cores; four Chromium pages there starve each other into
-// timeouts. Locally four is fine.
-const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY) || (process.env.VERCEL ? 2 : 4);
+// On Vercel (2 cores) render one page at a time: concurrent headless tabs are
+// backgrounded, their animation frames throttle, and both the head manager and
+// rAF-polled waits stall until they time out. Locally four is fine.
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY) || (process.env.VERCEL ? 1 : 4);
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -81,6 +82,17 @@ function writeHtml(routePath, html) {
   if (routePath === "/404") writeFileSync(join(DIST, "404.html"), html, "utf8");
 }
 
+// Name the wait that timed out, with optional page state, so a CI-only failure
+// is diagnosable from the build log.
+async function step(name, run, state) {
+  try {
+    return await run();
+  } catch (error) {
+    const detail = state ? ` ${JSON.stringify(await state().catch(() => null))}` : "";
+    throw new Error(`${name}: ${error.message}${detail}`);
+  }
+}
+
 async function renderRoute(browser, routePath) {
   const page = await browser.newPage();
   try {
@@ -105,7 +117,7 @@ async function renderRoute(browser, routePath) {
     // React root is sufficient for static metadata and is deterministic locally
     // and in Vercel's build container.
     await page.goto(`${ORIGIN}${routePath}`, { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForSelector("#root > *", { timeout: 30000 });
+    await step("root", () => page.waitForSelector("#root > *", { timeout: 30000 }));
 
     // Guard against silently shipping the shell's tags: SEOHead must have taken
     // over the head by now; aliases must point to their canonical counterparts.
@@ -133,7 +145,7 @@ async function renderRoute(browser, routePath) {
       // event to mount its real answer panel.
       await trigger.evaluate((el) => el.dispatchEvent(new MouseEvent("click", { bubbles: true })));
       try {
-        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 15000 }, id);
+        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 15000, polling: 200 }, id);
         answers.push(await page.evaluate((panelId) => ({ id: panelId, html: document.getElementById(panelId).innerHTML }), id));
       } catch (error) {
         throw new Error(`FAQ ${index + 1}/${faqCount} did not render: ${error.message}`);
@@ -151,13 +163,23 @@ async function renderRoute(browser, routePath) {
     // tags asynchronously. On Vercel's slower build worker a snapshot taken at
     // that moment once lost meta[name=description]. Wait until the head has
     // exactly one title and one description again before serializing.
-    await page.waitForFunction(
-      () => document.title.length > 0 &&
-        document.querySelectorAll('meta[name="description"]').length === 1 &&
-        document.querySelectorAll('link[rel="canonical"]').length === 1,
-      { timeout: 30000 },
-    );
-    writeHtml(routePath, await page.content());
+    // Check the head and serialize in one synchronous step inside the page: the
+    // head manager can rewrite tags between a separate check and page.content()
+    // (on Vercel /harga was saved without description and canonical that way).
+    const html = await step("head", async () => (await page.waitForFunction(
+      () => {
+        const ok = document.title.length > 0 &&
+          document.querySelectorAll('meta[name="description"]').length === 1 &&
+          document.querySelectorAll('link[rel="canonical"]').length === 1;
+        return ok && `<!DOCTYPE html>${document.documentElement.outerHTML}`;
+      },
+      { timeout: 30000, polling: 200 },
+    )).jsonValue(), () => page.evaluate(() => ({
+      title: document.title,
+      descriptions: document.querySelectorAll('meta[name="description"]').length,
+      canonicals: [...document.querySelectorAll('link[rel="canonical"]')].map((l) => l.href),
+    })));
+    writeHtml(routePath, html);
   } finally {
     await page.close();
   }

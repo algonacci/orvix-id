@@ -142,6 +142,10 @@ export const serviceCategories = [
   "Hybrid Cloud",
 ];
 
+// Rounded down from the production user count (1,426 on 15 Oct 2026).
+// Update the floor and date together; never round up.
+export const registeredDevelopers = { floor: 1400, asOf: "2026-10-15" };
+
 export const heroMetrics: MetricItem[] = [
   {
     value: `${formatNumber(modelCount)} model`,
@@ -159,9 +163,9 @@ export const heroMetrics: MetricItem[] = [
     detail: "Isi saldo melalui QRIS.",
   },
   {
-    value: "Per proyek",
-    label: "Penggunaan AI",
-    detail: "Lihat pemakaian berdasarkan proyek di platform.",
+    value: `${formatNumber(registeredDevelopers.floor)}+ developer`,
+    label: "Terdaftar",
+    detail: `Akun terdaftar di Orvix per ${registeredDevelopers.asOf}.`,
   },
 ];
 
