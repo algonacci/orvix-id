@@ -119,12 +119,22 @@ async function renderRoute(browser, routePath) {
     // Radix lazily mounts closed answers. Preserve their real rendered markup
     // in hidden panels for non-JS readers and FAQ structured-data parity.
     const answers = [];
-    for (const trigger of await page.$$("#faq .faq-trigger")) {
-      await trigger.click();
+    const faqTriggers = await page.$$("#faq .faq-trigger");
+    for (let index = 0; index < faqTriggers.length; index += 1) {
+      const trigger = faqTriggers[index];
       const id = await trigger.evaluate((el) => el.getAttribute("aria-controls"));
-      await page.waitForFunction((id) => document.getElementById(id)?.textContent.trim(), {}, id);
-      answers.push(await page.evaluate((id) => ({ id, html: document.getElementById(id).innerHTML }), id));
-      await trigger.click();
+      // Use the browser event rather than a pointer click. The latter can wait
+      // for layout/animation work indefinitely on the home page in Vercel's
+      // constrained build worker, while the Radix trigger only needs a click
+      // event to mount its real answer panel.
+      await trigger.evaluate((el) => el.dispatchEvent(new MouseEvent("click", { bubbles: true })));
+      try {
+        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 5000 }, id);
+        answers.push(await page.evaluate((panelId) => ({ id: panelId, html: document.getElementById(panelId).innerHTML }), id));
+      } catch (error) {
+        throw new Error(`FAQ ${index + 1}/${faqTriggers.length} did not render: ${error.message}`);
+      }
+      await trigger.evaluate((el) => el.dispatchEvent(new MouseEvent("click", { bubbles: true })));
     }
     await page.evaluate((answers) => {
       for (const { id, html } of answers) {
