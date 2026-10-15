@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1fr_0.7fr_0.7fr_0.8fr]">
         <div className="max-w-md">
           <Link to="/" className="inline-flex items-center gap-2.5 font-display text-xl font-semibold text-foreground"><img src="/logo.svg" alt="" className="h-7 w-7" aria-hidden="true" />{siteName}</Link>
-          <p className="mt-3 text-sm leading-7 text-text-secondary">Cloud platform AI-first untuk developer Indonesia, dengan jalur enterprise untuk kebutuhan yang membutuhkan penanganan langsung.</p>
+          <p className="mt-3 text-sm leading-7 text-text-secondary">Cloud platform untuk developer Indonesia: AI Gateway, paket AI dan coding, API data Indonesia, dan domain. Layanan enterprise untuk kebutuhan yang perlu ditangani langsung.</p>
         </div>
         <div>
           <p className="section-eyebrow text-text-muted">{navigation.productsLabel}</p>

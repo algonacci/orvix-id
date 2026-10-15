@@ -46,7 +46,16 @@ The agent reports contain the complete before → after claim ledger, including 
 - `bunx tsc --noEmit -p tsconfig.app.json`: PASS.
 - Internal link/fragment audit: 21 routes, no broken internal links.
 - Browser interactions: mobile navigation to Harga, menu close, all home FAQs, pricing FAQ, desktop product dropdown and Escape: PASS.
-- [Screenshots: all 21 routes at 1440px and 375px](screenshots/README.md), including compatible English aliases and 404. Capture audit records titles, H1s, overflow and runtime errors.
+- Screenshots of all 21 routes (1440px and 375px) were reviewed during the PR but are not committed, to keep the repository small. Regenerate them from `dist/` after `bun run build:static`.
 - Sitemap: 17 canonical URLs; aliases retain their own static HTML, with canonical tags pointing to Indonesian paths. Static 404 is noindex.
 
 The C4 report's inherited lint blocker was already fixed on integration before the final checks above. Source/build artifacts are validated locally; deployment status is recorded in the pull request.
+
+## Review fixes (15 Oct 2026)
+
+Founder decisions applied after review: inner pages (Harga, products, Tentang, Kontak) use the same dark
+theme as the home page; the "Di mana data dan workload dijalankan?" FAQ is removed; office location is
+"Jakarta, Indonesia" (city-level JSON-LD address, no street); "dibuat di Indonesia" stays in the hero.
+Also: Coding page shows the public plugin install commands and key setup; Harga FAQ uses the shared
+accordion (`FaqList`) and is prerendered like the home FAQ; "AI-first" removed from user-facing copy;
+duplicate hero metrics removed from the gateway card; "Segera" heading aligned.

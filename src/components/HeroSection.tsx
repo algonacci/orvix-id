@@ -12,7 +12,7 @@ const HeroSection = () => (
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.07] px-3 py-2 text-xs text-text-secondary">
             <CircleDot size={11} className="text-emerald-300" />
-            {heroContent.title} · AI-first
+            {heroContent.title}
           </div>
           <h1 className="mt-6 text-[3rem] font-bold leading-[0.98] tracking-[-0.065em] text-foreground sm:text-[3.8rem] lg:text-[4.3rem]">
             Akses AI,{" "}
@@ -59,14 +59,6 @@ const HeroSection = () => (
                 <p className="mb-3 text-text-muted">Konfigurasi integrasi</p>
                 <p className="break-all"><span className="text-primary">baseURL</span>: <span className="text-foreground">{gatewayIntegration.baseUrl}</span></p>
                 <p><span className="text-primary">model</span>: <span className="text-emerald-200">{gatewayIntegration.model}</span></p>
-              </div>
-              <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                {heroMetrics.slice(1).map((metric) => (
-                  <div key={metric.label} className="rounded-xl border border-white/10 bg-white/[0.025] p-3">
-                    <p className="text-xs font-medium text-foreground">{metric.value}</p>
-                    <p className="mt-1 text-[10px] text-text-muted">{metric.label}</p>
-                  </div>
-                ))}
               </div>
               <a href={platformUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-primary hover:text-cyan-200">
                 Buka platform <ArrowRight size={14} />

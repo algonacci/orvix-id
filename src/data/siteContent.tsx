@@ -27,7 +27,7 @@ export {
 } from "./pricing";
 export type { PlanCategory, PlanVariant, PricingPlan, TokenPlan } from "./pricing";
 export {
-  apiCatalog, apiStore, availableProducts, billing, codingIntro, codingPlugins, codingSetup,
+  apiCatalog, apiStore, availableProducts, billing, codingEndpoint, codingIntro, codingKeyEnv, codingPluginCommands, codingPlugins, codingSetup,
   community, domainContent, domainTlds, gatewayExamples, gatewayFeatures, gatewayIntegration, gatewayLinks, heroBadges,
   heroProducts, liveProductIds, liveProducts, platformProducts, roadmapIntro, roadmapProducts,
 } from "./products";
@@ -52,6 +52,7 @@ export const whatsappDisplay = "0821-2560-9413";
 export const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 export const emailPlaceholder = "hello@orvix.id";
 export const locationLabel = "Indonesia";
+export const officeLocation = "Jakarta, Indonesia";
 
 export type ServiceItem = {
   slug: string;
@@ -653,10 +654,6 @@ export const faqs: FaqItem[] = [
   {
     question: "Apakah API-nya kompatibel dengan OpenAI?",
     answer: "Ya, AI Gateway menyediakan API kompatibel OpenAI. Lihat dokumentasi Orvix untuk konfigurasi integrasi dan pilihan model.",
-  },
-  {
-    question: "Di mana data dan workload dijalankan?",
-    answer: "Lokasi pemrosesan perlu dikonfirmasi untuk layanan yang Anda gunakan. Hubungi tim Orvix jika proyek Anda memiliki persyaratan lokasi data.",
   },
   {
     question: "Apa bedanya platform dan layanan enterprise?",

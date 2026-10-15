@@ -43,7 +43,7 @@ export default function ProductLayout({ title, description, eyebrow = "Orvix Clo
           </nav>
         </div>
       </header>
-      <div className="bg-light-bg text-light-text">
+      <div className="bg-background text-foreground">
         <div className="mx-auto max-w-6xl space-y-14 px-6 py-16 sm:space-y-20 sm:py-20">{children}</div>
       </div>
     </div>

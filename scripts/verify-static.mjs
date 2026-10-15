@@ -70,7 +70,8 @@ export function verifyHtml(html, path) {
     if (path !== "/404") {
       assert.equal(graph.filter((node) => node["@type"] === "Organization").length, 1);
       assert.equal(graph.filter((node) => node["@type"] === "WebSite").length, 1);
-      assert(!graph.find((node) => node["@type"] === "Organization").address, "No unverified office address");
+      const address = graph.find((node) => node["@type"] === "Organization").address;
+      assert.deepEqual(address, { "@type": "PostalAddress", addressLocality: "Jakarta", addressCountry: "ID" }, "City-level address only, no street address");
     }
     const faq = graph.filter((node) => node["@type"] === "FAQPage");
     assert.equal(faq.length, path === "/" || path === "/harga" ? 1 : 0, `${path}: FAQ only where rendered`);

@@ -86,6 +86,15 @@ const response = await client.chat.completions.create({
 console.log(response.choices[0].message.content);`,
 };
 export const codingPlugins = ["OpenCode", "Pi", "omp"];
+// Public npm packages; the same commands platform.orvix.id/coding shows
+// (platform src/lib/coding-harnesses.ts), verified 15 Oct 2026.
+export const codingPluginCommands = [
+  { name: "OpenCode", command: "opencode plugin add @orvix-id/opencode" },
+  { name: "Pi", command: "pi install npm:@orvix-id/pi" },
+  { name: "omp", command: "omp plugin install @orvix-id/omp" },
+];
+export const codingEndpoint = "https://api.orvix.id/coding/v1";
+export const codingKeyEnv = 'export ORVIX_CODING_API_KEY="orv-sk_live_..."';
 export const codingIntro = "Coding agent adalah asisten AI yang membantu Anda mengerjakan kode melalui alat pengembangan. Coding Plan digunakan lewat plugin pada endpoint coding khusus.";
 export const codingSetup = { description: "Buka halaman Coding di platform dan ikuti panduan plugin untuk alat yang Anda gunakan.", url: codingPlan.platformUrl };
 export const apiCatalog = [

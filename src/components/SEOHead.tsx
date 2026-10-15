@@ -20,6 +20,8 @@ const organization = {
   logo: `${siteUrl}/logo.png`, image: `${siteUrl}/og.jpg`,
   description: getMetadata("/").description,
   telephone: `+${whatsappNumber}`, email: emailPlaceholder,
+  // City and country only (founder, 15 Oct 2026); no street address is published.
+  address: { "@type": "PostalAddress", addressLocality: "Jakarta", addressCountry: "ID" },
 };
 const website = {
   "@type": "WebSite", "@id": `${siteUrl}/#website`, name: siteName,
