@@ -1,79 +1,24 @@
-import { Clock, Mail, MapPin, MessageCircle } from "lucide-react";
-import SEOHead from "@/components/SEOHead";
-import {
-  contactCopy,
-  emailPlaceholder,
-  locationLabel,
-  whatsappDisplay,
-  whatsappUrl,
-} from "@/data/siteContent";
+import { Mail, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { docsUrl, platformUrl } from "@/data/pricing";
+import { contactCopy, emailPlaceholder, locationLabel, whatsappDisplay, whatsappUrl } from "@/data/siteContent";
+import ProductLayout, { PlatformLink } from "./products/ProductLayout";
 
 const Kontak = () => (
-  <div className="pt-24">
-    <SEOHead
-      title="Kontak"
-      description="Hubungi Orvix.id untuk konsultasi cloud infrastructure, deployment, backup, monitoring, security, dan managed support bisnis."
-      path="/contact"
-    />
-
-    <section className="infra-shell bg-background py-24">
-      <div className="mx-auto max-w-4xl px-6">
-        <span className="text-xs font-medium uppercase tracking-[0.2em] text-text-muted">
-          Kontak
-        </span>
-        <h1 className="mt-4 text-4xl font-extrabold text-foreground sm:text-5xl">
-          Diskusikan kebutuhan cloud infrastructure bisnis Anda
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
-          {contactCopy}
-        </p>
+  <ProductLayout title="Hubungi Orvix" eyebrow="Kontak · Orvix Cloud Platform" description={contactCopy}>
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title" className="text-3xl font-bold">Diskusikan kebutuhan Anda</h2>
+      <p className="mt-4 max-w-3xl leading-relaxed text-slate-600">Hubungi kami untuk pertanyaan produk, billing, atau ruang lingkup proyek enterprise. Orvix ditujukan untuk developer dan bisnis di {locationLabel}.</p>
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rounded-3xl border border-slate-200 bg-white p-6 transition-colors hover:border-cyan-400 sm:p-8"><MessageCircle size={28} className="text-cyan-700" aria-hidden="true" /><h3 className="mt-5 text-xl font-bold">WhatsApp</h3><p className="mt-3 text-xl font-semibold">{whatsappDisplay}</p><p className="mt-3 text-sm leading-relaxed text-slate-600">Ceritakan produk yang ingin Anda gunakan atau kebutuhan proyek Anda.</p><span className="mt-5 inline-block text-sm font-semibold text-cyan-700">Mulai percakapan →</span></a>
+        <a href={`mailto:${emailPlaceholder}`} className="rounded-3xl border border-slate-200 bg-white p-6 transition-colors hover:border-cyan-400 sm:p-8"><Mail size={28} className="text-cyan-700" aria-hidden="true" /><h3 className="mt-5 text-xl font-bold">Email</h3><p className="mt-3 break-all text-xl font-semibold">{emailPlaceholder}</p><p className="mt-3 text-sm leading-relaxed text-slate-600">Kirim pertanyaan integrasi atau rangkuman kebutuhan untuk didiskusikan.</p><span className="mt-5 inline-block text-sm font-semibold text-cyan-700">Kirim email →</span></a>
       </div>
     </section>
-
-    <section className="bg-light-bg py-20">
-      <div className="mx-auto max-w-4xl space-y-8 px-6">
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-cyan-200 hover:shadow-md"
-        >
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#25D366] transition-transform group-hover:scale-110">
-            <MessageCircle size={28} className="text-foreground" />
-          </div>
-          <div>
-            <p className="font-display text-xl font-bold text-light-text">{whatsappDisplay}</p>
-            <p className="text-sm text-slate-600">
-              WhatsApp untuk konsultasi awal, kebutuhan scope layanan, dan diskusi implementasi
-            </p>
-          </div>
-        </a>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <MapPin size={24} className="mb-3 text-cyan-700" />
-            <h3 className="font-display font-bold text-light-text">Lokasi</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">{locationLabel}</p>
-          </div>
-
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <Clock size={24} className="mb-3 text-cyan-700" />
-            <h3 className="font-display font-bold text-light-text">Alur konsultasi</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Diskusi awal mencakup kebutuhan workload, scope deployment, dan model support yang
-              paling relevan untuk bisnis Anda.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <Mail size={24} className="mb-3 text-cyan-700" />
-            <h3 className="font-display font-bold text-light-text">Email</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">{emailPlaceholder}</p>
-          </div>
-        </div>
-      </div>
+    <section aria-labelledby="start-title" className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+      <h2 id="start-title" className="text-2xl font-bold">Mulai dari platform atau dokumentasi</h2><p className="mt-4 max-w-3xl leading-relaxed text-slate-600">Buka platform untuk mengelola produk dan saldo Anda. Untuk integrasi API, lihat panduan penggunaan di dokumentasi.</p><div className="mt-6 flex flex-wrap items-center gap-5"><PlatformLink href={platformUrl}>Buka platform</PlatformLink><a href={docsUrl} className="text-sm font-semibold text-cyan-700 underline underline-offset-4">Baca dokumentasi</a><Link to="/layanan" className="text-sm font-semibold text-cyan-700 underline underline-offset-4">Kebutuhan enterprise</Link></div>
     </section>
-  </div>
+    <section className="max-w-3xl"><h2 className="text-xl font-bold">Apa yang perlu diceritakan?</h2><p className="mt-4 text-sm leading-relaxed text-slate-600">Sebutkan tujuan aplikasi, produk yang sedang digunakan, dan kendala yang Anda temui. Untuk kebutuhan enterprise, sertakan gambaran workload dan ruang lingkup yang ingin dibahas. Jika lokasi pemrosesan data menjadi persyaratan proyek, tanyakan untuk layanan yang akan Anda gunakan.</p></section>
+  </ProductLayout>
 );
 
 export default Kontak;
