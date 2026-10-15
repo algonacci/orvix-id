@@ -7,10 +7,9 @@ const FaqSection = () => (
     <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
       <div className="max-w-lg">
         <span className="section-eyebrow text-text-muted">FAQ</span>
-        <h2 className="section-title mt-4">Pertanyaan sebelum mulai.</h2>
+        <h2 className="section-title mt-4">Jawaban sebelum mulai.</h2>
         <p className="section-copy mt-4">
-          Scope akhir mengikuti kondisi workload. Jika kebutuhan Anda belum tercakup, diskusikan
-          langsung dengan tim Orvix.id.
+          Tentang token, paket AI, pembayaran, dan produk yang tersedia hari ini.
         </p>
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
           Tanya melalui WhatsApp <ArrowRight size={15} />
