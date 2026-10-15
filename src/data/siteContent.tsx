@@ -589,9 +589,9 @@ export const enterpriseServices = enterpriseSlugs
 export const navItems = [
   { label: "Beranda", path: "/" },
   { label: "Harga", path: "/harga" },
-  { label: "Layanan", path: "/services" },
-  { label: "Tentang", path: "/about" },
-  { label: "Kontak", path: "/contact" },
+  { label: "Layanan", path: "/layanan" },
+  { label: "Tentang", path: "/tentang" },
+  { label: "Kontak", path: "/kontak" },
 ];
 export const productNavItems = liveProducts
   .filter((product) => ["ai-gateway", "coding-plan", "api-store", "domain"].includes(product.id))

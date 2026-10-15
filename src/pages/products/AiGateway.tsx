@@ -3,14 +3,6 @@ import { gatewayExamples, gatewayFeatures, gatewayIntegration, gatewayLinks } fr
 import { formatNumber, modelCount, modelFamilies, pricingCopy } from "@/data/pricing";
 import ProductLayout, { CodeExample, PlatformLink } from "./ProductLayout";
 
-// Built from the shared integration contract; request shape verified in public quickstart/models docs.
-const curlExample = [
-  `curl ${gatewayIntegration.baseUrl}/chat/completions \\`,
-  `  -H "Authorization: Bearer ${gatewayIntegration.apiKeyPlaceholder}" \\`,
-  '  -H "Content-Type: application/json" \\',
-  `  -d '${JSON.stringify({ model: gatewayIntegration.model, messages: [{ role: "user", content: "Halo Orvix!" }] })}'`,
-].join("\n");
-
 const AiGateway = () => (
   <ProductLayout title="Orvix AI Gateway" description={`Akses ${formatNumber(modelCount)} model melalui satu API key dengan API kompatibel OpenAI. Coba model, integrasikan ke aplikasi, dan lihat pemakaian berdasarkan proyek.`} actions={<><PlatformLink href={gatewayLinks.apiKeys}>Buat API key</PlatformLink><a href={gatewayIntegration.quickstartUrl} className="text-sm font-semibold text-primary hover:underline">Baca quickstart →</a></>}>
     <section aria-labelledby="integration-title">
@@ -18,7 +10,7 @@ const AiGateway = () => (
       <p className="mt-4 max-w-3xl leading-relaxed text-slate-600">Buat API key di platform, lalu gunakan base URL <code className="break-all text-sm font-semibold text-slate-800">{gatewayIntegration.baseUrl}</code>. Contoh ini memakai <code>{gatewayIntegration.model}</code> agar gateway memilih model untuk request Anda.</p>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">Ganti placeholder pada curl dengan API key Anda. Untuk contoh JavaScript, pasang paket <code>openai</code> sesuai quickstart dan isi environment variable <code>ORVIX_API_KEY</code>. Jalankan request dari server aplikasi Anda.</p>
       <div className="mt-8 grid min-w-0 gap-6 lg:grid-cols-2">
-        <CodeExample label="curl · Chat Completions" code={curlExample} />
+        <CodeExample label="curl · Chat Completions" code={gatewayExamples.curl} />
         <CodeExample label="JavaScript · OpenAI SDK" code={gatewayExamples.javascript} />
       </div>
       <p className="mt-4 text-sm text-slate-600">Format request: <a className="font-semibold text-cyan-700 underline underline-offset-4" href={gatewayIntegration.quickstartUrl}>Quickstart</a> · Pemilihan model: <a className="font-semibold text-cyan-700 underline underline-offset-4" href={gatewayIntegration.modelsDocsUrl}>Dokumentasi model</a>.</p>
