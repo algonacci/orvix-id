@@ -71,7 +71,7 @@ export const gatewayIntegration = {
   modelsDocsUrl: `${docsUrl}/models`,
 };
 export const gatewayExamples = {
-  curl: `curl ${gatewayIntegration.baseUrl}/chat/completions \\\n+  -H "Authorization: Bearer ${gatewayIntegration.apiKeyPlaceholder}" \\\n+  -H "Content-Type: application/json" \\\n+  -d '{"model":"${gatewayIntegration.model}","messages":[{"role":"user","content":"Halo Orvix!"}]}'`,
+  curl: `curl ${gatewayIntegration.baseUrl}/chat/completions \\\n  -H "Authorization: Bearer ${gatewayIntegration.apiKeyPlaceholder}" \\\n  -H "Content-Type: application/json" \\\n  -d '{"model":"${gatewayIntegration.model}","messages":[{"role":"user","content":"Halo Orvix!"}]}'`,
   javascript: `import OpenAI from "openai";
 
 const client = new OpenAI({
