@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { aiPlan, allPlans, codingPlan, imageCredits, lastVerified, lowestPaidProductPriceIdr, modelCount, startingPriceIdr, startingPriceScope, tokenPlans } from "./pricing";
-import { billing, heroBadges, heroProducts, liveProducts, platformProducts, roadmapProducts } from "./products";
+import { billing, gatewayExamples, heroBadges, heroProducts, liveProducts, platformProducts, roadmapProducts } from "./products";
 import { heroContent, heroMetrics, orvixOne } from "./siteContent";
 
 describe("public product contract", () => {
@@ -78,5 +78,17 @@ describe("rupiah pricing contract", () => {
     expect(aiPlan.fairUse).toEqual({ requestsPerMinute: 20, concurrentRequests: 5, dailyTokens: 20_000_000, cachedTokenPercent: 10 });
     expect([codingPlan.priceIdr, codingPlan.tokens, codingPlan.validityDays]).toEqual([150_000, 60_000_000, 30]);
     expect([imageCredits.priceIdr, imageCredits.credits, imageCredits.validityDays]).toEqual([10_000, 100, 365]);
+  });
+});
+describe("gateway integration examples", () => {
+  it("exports a copyable curl command without diff markers", () => {
+    const lines = gatewayExamples.curl.split("\n");
+    expect(lines[0]).toContain("curl https://api.orvix.id/v1/chat/completions");
+    expect(lines[1]).toMatch(/^  -H "Authorization: Bearer /);
+    expect(lines[2]).toContain('  -H "Content-Type: application/json"');
+    expect(lines[2].endsWith("\\")).toBe(true);
+    expect(lines[3]).toMatch(/^  -d '\{"model":"orvix\/auto"/);
+    expect(gatewayExamples.curl).not.toMatch(/\n\+/);
+    expect(gatewayExamples.curl).not.toContain("diff --git");
   });
 });
