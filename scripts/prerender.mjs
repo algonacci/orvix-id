@@ -145,6 +145,16 @@ async function renderRoute(browser, routePath) {
         panel.hidden = true;
       }
     }, answers);
+    // Clicking the FAQ re-renders the page, and the head manager rewrites its
+    // tags asynchronously. On Vercel's slower build worker a snapshot taken at
+    // that moment once lost meta[name=description]. Wait until the head has
+    // exactly one title and one description again before serializing.
+    await page.waitForFunction(
+      () => document.title.length > 0 &&
+        document.querySelectorAll('meta[name="description"]').length === 1 &&
+        document.querySelectorAll('link[rel="canonical"]').length === 1,
+      { timeout: 15000 },
+    );
     writeHtml(routePath, await page.content());
   } finally {
     await page.close();
