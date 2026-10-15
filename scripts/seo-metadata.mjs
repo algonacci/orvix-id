@@ -1,0 +1,28 @@
+// Browser-safe route metadata, shared by SEOHead, prerender validation and OG generation.
+export const SITE = "https://orvix.id";
+export const aliases = { "/services": "/layanan", "/about": "/tentang", "/contact": "/kontak" };
+export const canonicalPath = (path) => aliases[path.replace(/\/+$/, "") || "/"] ?? (path.replace(/\/+$/, "") || "/");
+const page = (title, description, image, keyword) => ({ title, description, image, keyword });
+export const metadata = {
+  "/": page("Orvix Cloud Platform — AI API Indonesia", "Orvix Cloud Platform untuk developer Indonesia: AI Gateway, paket AI dan coding, API data Indonesia, serta domain dengan billing rupiah.", "/og.jpg", "cloud platform indonesia"),
+  "/harga": page("Harga API AI Rupiah & Paket Coding | Orvix", "Bandingkan Token Plan, AI Plan dengan fair use, Coding Plan, dan Image Credits. Harga rupiah, pilihan kuota dan masa berlaku, pembayaran QRIS.", "/og/banner_harga.webp", "harga api ai rupiah"),
+  "/ai-gateway": page("AI API Indonesia — OpenAI-compatible | Orvix", "Integrasikan AI Gateway dengan API kompatibel OpenAI. Satu API key, pilihan model, failover otomatis, BYOK, dan billing rupiah untuk developer.", "/og/banner_ai-gateway.webp", "openai compatible api indonesia"),
+  "/coding": page("Coding Plan untuk Developer Indonesia | Orvix", "Paket token coding untuk OpenCode, Pi, dan omp melalui plugin serta endpoint khusus. Lihat kuota, masa berlaku, dan panduan setup di platform.", "/og/banner_coding.webp", "coding ai indonesia"),
+  "/api-store": page("API Data Wilayah Indonesia & API Store | Orvix", "Akses API data Indonesia: wilayah, sekolah, hari libur, BMKG, KBLI, dan NIK Parser. Gratis saat ini, dengan contoh integrasi dan dokumentasi.", "/og/banner_api-store.webp", "api data wilayah indonesia"),
+  "/domain": page("Daftar Domain .id & Domain Indonesia | Orvix", "Daftarkan domain .id dan ekstensi lainnya dengan saldo Orvix. Kelola dalam akun yang sama; cek ketersediaan serta harga terbaru di platform.", "/og/banner_domain.webp", "daftar domain .id"),
+  "/layanan": page("Jasa Kelola Cloud & Server Indonesia | Orvix", "Diskusikan managed cloud, migrasi server, DevOps, backup, dan private cloud untuk bisnis. Ruang lingkup layanan enterprise disepakati per proyek.", "/og/banner_services.webp", "managed cloud indonesia"),
+  "/tentang": page("Tentang Orvix Cloud Platform Indonesia", "Kenali Orvix Cloud Platform: AI-first untuk developer Indonesia, billing rupiah, produk yang tersedia, visi cloud, dan jalur layanan enterprise.", "/og/banner_about.webp", "orvix cloud platform indonesia"),
+  "/kontak": page("Kontak Orvix — Platform & Konsultasi Enterprise", "Hubungi Orvix untuk pertanyaan produk, billing rupiah, atau kebutuhan enterprise. Diskusikan aplikasi dan ruang lingkup proyek melalui WhatsApp atau email.", "/og/banner_contact.webp", "kontak orvix"),
+  "/services/managed-cloud": page("Jasa Kelola Server & Managed Cloud | Orvix", "Diskusikan pengelolaan server dan cloud perusahaan, dari konfigurasi hingga operasional. Ruang lingkup dan dukungan disepakati sesuai kebutuhan proyek.", "/og/banner_service-managed-cloud.webp", "jasa kelola server perusahaan"),
+  "/services/cloud-migration": page("Jasa Migrasi Server ke Cloud | Orvix", "Rencanakan migrasi server ke cloud dengan assessment, pemindahan workload, dan validasi. Tahapan serta target migrasi dibahas sesuai kebutuhan bisnis.", "/og/banner_service-cloud-migration.webp", "jasa migrasi server ke cloud"),
+  "/services/managed-hosting": page("Managed Hosting untuk Website Bisnis | Orvix", "Diskusikan hosting terkelola untuk website bisnis, panel, email, DNS, dan SSL. Konfigurasi serta dukungan mengikuti ruang lingkup proyek yang disepakati.", "/og/banner_service-managed-hosting.webp", "managed hosting bisnis"),
+  "/services/devops-cicd": page("Jasa Setup DevOps & CI/CD Perusahaan | Orvix", "Diskusikan pipeline CI/CD, container, dan alur deployment aplikasi perusahaan. Implementasi serta dokumentasi mengikuti kebutuhan dan lingkup proyek.", "/og/banner_service-devops-cicd.webp", "setup ci/cd perusahaan"),
+  "/services/backup-disaster-recovery": page("Backup & Disaster Recovery Bisnis | Orvix", "Rencanakan backup dan disaster recovery untuk data bisnis. Diskusikan retensi, prosedur restore, dan target pemulihan sesuai kebutuhan proyek.", "/og/banner_service-backup-disaster-recovery.webp", "backup dan disaster recovery bisnis"),
+  "/services/monitoring-security": page("Jasa Monitoring & Security Server | Orvix", "Diskusikan monitoring, alert, akses administratif, dan baseline keamanan server. Cakupan pemantauan serta dukungan disepakati sesuai kebutuhan bisnis.", "/og/banner_service-monitoring-security.webp", "jasa monitoring dan security server"),
+  "/services/private-hybrid-cloud": page("Private & Hybrid Cloud Indonesia | Orvix", "Diskusikan arsitektur private dan hybrid cloud untuk server internal serta workload bisnis. Desain dan implementasi mengikuti ruang lingkup proyek.", "/og/banner_service-private-hybrid-cloud.webp", "private cloud indonesia"),
+  "/services/ai-saas-infrastructure": page("Infrastruktur Aplikasi AI & SaaS | Orvix", "Diskusikan fondasi infrastruktur untuk aplikasi AI dan SaaS, dari deployment hingga operasional. Arsitektur dan dukungan mengikuti kebutuhan proyek.", "/og/banner_service-ai-saas-infrastructure.webp", "infrastruktur aplikasi ai dan saas"),
+  "/404": page("Halaman Tidak Ditemukan | Orvix", "Halaman yang Anda cari tidak ditemukan. Kembali ke beranda Orvix Cloud Platform untuk melihat produk, harga, dan layanan enterprise.", "/og.jpg", ""),
+};
+export function getMetadata(path) {
+  return metadata[canonicalPath(path)] ?? metadata["/404"];
+}

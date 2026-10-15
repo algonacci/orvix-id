@@ -6,134 +6,33 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <meta name="theme-color" content="#070b14" />
-    <title>Orvix.id - Cloud Platform untuk Developer</title>
-    <meta
-      data-rh="true"
-      name="description"
-      content="Orvix Cloud Platform menyediakan managed database, AI gateway, storage, dan deployment lewat satu dashboard. Infrastruktur di Indonesia, tanpa perlu mengurus server."
-    />
     <meta name="author" content="Orvix.id" />
-
-    <!-- Everything below is the static fallback for scrapers that never run JS.
-         SEOHead.tsx re-renders the same set per route for crawlers that do.
-
-         data-rh="true" is load-bearing. It is the attribute react-helmet-async
-         stamps on tags it owns, so marking these makes Helmet REPLACE them on
-         mount. Without it Helmet only appends, and every route ends up serving
-         two og:image and two canonical values — scrapers then pick whichever
-         they see first, which is always the home-page default.
-
-         Do not add data-rh to charset/viewport/icons/theme-color/author or the
-         JSON-LD block: Helmet does not render those, and any data-rh tag it
-         cannot match gets deleted. -->
-    <meta
-      data-rh="true"
-      name="keywords"
-      content="orvix cloud platform, cloud platform indonesia, managed database indonesia, managed mysql, AI gateway, PaaS indonesia, deploy aplikasi, object storage indonesia, managed cloud, cloud migration, private cloud, hybrid cloud, devops indonesia, backup disaster recovery, monitoring dan security"
-    />
+    <!-- Helmet owns route metadata. Keep this home fallback in sync with
+         scripts/seo-metadata.mjs; tests verify it. JSON-LD is rendered by SEOHead
+         so the shell cannot leak stale or duplicate entities onto other pages. -->
+    <title>Orvix Cloud Platform — AI API Indonesia</title>
+    <meta data-rh="true" name="description" content="Orvix Cloud Platform untuk developer Indonesia: AI Gateway, paket AI dan coding, API data Indonesia, serta domain dengan billing rupiah." />
+    <meta data-rh="true" name="keywords" content="cloud platform indonesia" />
     <meta data-rh="true" name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link data-rh="true" rel="canonical" href="https://orvix.id/" />
-
     <meta data-rh="true" property="og:type" content="website" />
     <meta data-rh="true" property="og:site_name" content="Orvix.id" />
     <meta data-rh="true" property="og:locale" content="id_ID" />
     <meta data-rh="true" property="og:url" content="https://orvix.id/" />
-    <meta data-rh="true" property="og:title" content="Orvix.id - Cloud Platform untuk Developer" />
-    <meta
-      data-rh="true"
-      property="og:description"
-      content="Managed database, AI gateway, storage, dan deployment dalam satu dashboard. Plus layanan enterprise untuk workload yang butuh penanganan langsung."
-    />
+    <meta data-rh="true" property="og:title" content="Orvix Cloud Platform — AI API Indonesia" />
+    <meta data-rh="true" property="og:description" content="Orvix Cloud Platform untuk developer Indonesia: AI Gateway, paket AI dan coding, API data Indonesia, serta domain dengan billing rupiah." />
     <meta data-rh="true" property="og:image" content="https://orvix.id/og.jpg" />
     <meta data-rh="true" property="og:image:secure_url" content="https://orvix.id/og.jpg" />
     <meta data-rh="true" property="og:image:type" content="image/jpeg" />
     <meta data-rh="true" property="og:image:width" content="1200" />
     <meta data-rh="true" property="og:image:height" content="630" />
-    <meta data-rh="true" property="og:image:alt" content="Orvix.id - Cloud Platform untuk Developer" />
-
+    <meta data-rh="true" property="og:image:alt" content="Orvix Cloud Platform — AI API Indonesia" />
     <meta data-rh="true" name="twitter:card" content="summary_large_image" />
-    <meta data-rh="true" name="twitter:title" content="Orvix.id - Cloud Platform untuk Developer" />
-    <meta
-      data-rh="true"
-      name="twitter:description"
-      content="Managed database, AI gateway, storage, dan deployment dalam satu dashboard. Infrastruktur di Indonesia."
-    />
+    <meta data-rh="true" name="twitter:title" content="Orvix Cloud Platform — AI API Indonesia" />
+    <meta data-rh="true" name="twitter:description" content="Orvix Cloud Platform untuk developer Indonesia: AI Gateway, paket AI dan coding, API data Indonesia, serta domain dengan billing rupiah." />
     <meta data-rh="true" name="twitter:image" content="https://orvix.id/og.jpg" />
-    <meta data-rh="true" name="twitter:image:alt" content="Orvix.id - Cloud Platform untuk Developer" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://orvix.id/#organization",
-            "name": "Orvix.id",
-            "alternateName": "Orvix",
-            "description": "Cloud platform untuk developer, dengan layanan enterprise untuk workload yang butuh penanganan langsung.",
-            "url": "https://orvix.id",
-            "logo": "https://orvix.id/logo.png",
-            "image": "https://orvix.id/og.jpg",
-            "telephone": "+6282125609413",
-            "email": "hello@orvix.id",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Jakarta",
-              "addressCountry": "ID"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+6282125609413",
-              "contactType": "sales",
-              "availableLanguage": ["Indonesian", "English"]
-            }
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://orvix.id/#website",
-            "name": "Orvix.id",
-            "url": "https://orvix.id",
-            "inLanguage": "id-ID",
-            "publisher": { "@id": "https://orvix.id/#organization" }
-          },
-          {
-            "@type": "SoftwareApplication",
-            "@id": "https://orvix.id/#platform",
-            "name": "Orvix Cloud Platform",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Web",
-            "url": "https://platform.orvix.id",
-            "description": "Managed database, AI gateway, storage, dan deployment dalam satu dashboard.",
-            "provider": { "@id": "https://orvix.id/#organization" }
-          },
-          {
-            "@type": "Service",
-            "@id": "https://orvix.id/#enterprise",
-            "name": "Orvix Enterprise Solutions",
-            "serviceType": "Managed cloud infrastructure",
-            "url": "https://orvix.id/services",
-            "provider": { "@id": "https://orvix.id/#organization" },
-            "areaServed": { "@type": "Country", "name": "Indonesia" },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Enterprise Solutions",
-              "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed Cloud" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Migration" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed Hosting" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps and CI/CD" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Backup and Disaster Recovery" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monitoring and Security" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private and Hybrid Cloud" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI and SaaS Infrastructure" } }
-              ]
-            }
-          }
-        ]
-      }
-    </script>
+    <meta data-rh="true" name="twitter:image:alt" content="Orvix Cloud Platform — AI API Indonesia" />
   </head>
-
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

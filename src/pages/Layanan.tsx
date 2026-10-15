@@ -149,7 +149,7 @@ const Layanan = () => (
               Konsultasi Sekarang
             </a>
             <Link
-              to="/contact"
+              to="/kontak"
               className="inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-cyan-300 hover:text-cyan-700"
             >
               Lihat Kontak

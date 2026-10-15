@@ -13,6 +13,11 @@ import Layanan from "./pages/Layanan";
 import Kontak from "./pages/Kontak";
 import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
+import Harga from "./pages/Harga";
+import AiGateway from "./pages/products/AiGateway";
+import Coding from "./pages/products/Coding";
+import ApiStore from "./pages/products/ApiStore";
+import Domain from "./pages/products/Domain";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +32,16 @@ const App = () => (
         <main className="min-h-screen">
           <Routes>
             <Route path="/" element={<Index />} />
+            {/* C3 routes */}
+            <Route path="/harga" element={<Harga />} />
+            <Route path="/ai-gateway" element={<AiGateway />} />
+            <Route path="/coding" element={<Coding />} />
+            <Route path="/api-store" element={<ApiStore />} />
+            <Route path="/domain" element={<Domain />} />
+            <Route path="/tentang" element={<Tentang />} />
+            <Route path="/kontak" element={<Kontak />} />
+            <Route path="/layanan" element={<Layanan />} />
+            {/* End C3 routes */}
             <Route path="/about" element={<Tentang />} />
             <Route path="/services" element={<Layanan />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />

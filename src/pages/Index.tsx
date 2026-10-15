@@ -1,10 +1,12 @@
 import SEOHead from "@/components/SEOHead";
 import HeroSection from "@/components/HeroSection";
 import PlatformSection from "@/components/PlatformSection";
+import CodingSection from "@/components/CodingSection";
+import ApiStoreSection from "@/components/ApiStoreSection";
+import DomainSection from "@/components/DomainSection";
 import EnterpriseSection from "@/components/EnterpriseSection";
-import WhyOrvixSection from "@/components/WhyOrvixSection";
-import InfrastructureStackSection from "@/components/InfrastructureStackSection";
-import WorkflowSection from "@/components/WorkflowSection";
+import OrvixOneSection from "@/components/OrvixOneSection";
+import RoadmapSection from "@/components/RoadmapSection";
 import FaqSection from "@/components/FaqSection";
 import FinalCtaSection from "@/components/FinalCtaSection";
 
@@ -13,10 +15,12 @@ const Index = () => (
     <SEOHead path="/" />
     <HeroSection />
     <PlatformSection />
-    <WhyOrvixSection />
+    <CodingSection />
+    <ApiStoreSection />
+    <DomainSection />
     <EnterpriseSection />
-    <WorkflowSection />
-    <InfrastructureStackSection />
+    <OrvixOneSection />
+    <RoadmapSection />
     <FaqSection />
     <FinalCtaSection />
   </>

@@ -8,7 +8,7 @@ const ServiceDetail = () => {
   const service = findServiceBySlug(slug);
 
   if (!service) {
-    return <Navigate to="/services" replace />;
+    return <Navigate to="/layanan" replace />;
   }
 
   const Icon = service.icon;
@@ -117,7 +117,7 @@ const ServiceDetail = () => {
               Konsultasi Infrastruktur
             </a>
             <Link
-              to="/services"
+              to="/layanan"
               className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:text-primary"
             >
               Lihat Semua Layanan

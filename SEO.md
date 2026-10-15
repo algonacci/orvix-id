@@ -1,153 +1,120 @@
 # SEO Strategy — Orvix.id
 
-Terakhir diperbarui: 2026-08-10
+Terakhir diperbarui: **2026-10-15**
 
-## Positioning
+## Positioning dan batas fakta
 
-Orvix menjual dua hal yang dicari lewat cara yang sangat berbeda:
+**Orvix Cloud Platform** adalah umbrella developer cloud. Produk live memimpin dengan **AI-first**: AI Gateway, Token Plan, AI Plan, Coding Plan, Image Credits, API Store, dan Domain. Enterprise adalah pintu kedua untuk pekerjaan dengan ruang lingkup yang disepakati.
 
-| Track | Apa | Model | Audiens |
-|---|---|---|---|
-| **Orvix Cloud Platform** | PaaS self-serve — managed database, AI gateway, storage, deployment | Daftar sendiri, provisioning otomatis | Developer, tim produk, software house |
-| **Enterprise Solutions** | Managed infrastructure yang dikerjakan tim Orvix | Contact us, scope per-klien | Pemilik bisnis, IT manager, ops |
+| Track | Intent | Halaman |
+| --- | --- | --- |
+| Developer | Istilah teknis, integrasi API, paket dan billing rupiah | Beranda, Harga, AI Gateway, Coding, API Store, Domain |
+| Pemilik bisnis / IT manager | Masalah operasional, migrasi, pengelolaan server | Layanan dan delapan detail enterprise |
 
-Platform adalah headline. Enterprise adalah pintu kedua, bukan pesan utama.
+Jangan campur kedua intent dalam satu halaman produk. **Indonesia** adalah konteks audiens, data API lokal, dan billing rupiah melalui QRIS; bukan jaminan lokasi pemrosesan. Lokasi workload/data dan alamat kantor Jakarta belum terverifikasi. Jangan menargetkan residency atau latensi Jakarta sebagai keunggulan yang sudah terbukti.
 
-Pembeda utama yang bisa dipertahankan: **infrastruktur berjalan di Indonesia (region Jakarta)**, billing lokal, dukungan berbahasa Indonesia.
+Managed Database (OMD), Deploy, Object Storage, Managed Redis, Container Engine, Functions, Queue, Auth, dan Observability masih **Segera**, bukan produk live. Orvix One hanya teaser “asisten AI untuk semua orang, di HP dan desktop”; tanpa tanggal, harga, atau janji fitur tambahan. Jangan membuat landing page yang menjanjikan penggunaan produk roadmap.
 
-## Insight inti: dua intent yang tidak boleh dicampur
+Sumber fakta komersial: `src/data/pricing.ts`, katalog `src/data/products.ts`, serta brief founder §2 (15 Oktober 2026). Fakta tambahan hanya dari dokumentasi/platform publik yang diverifikasi. Semua harga, kuota, masa berlaku, fair use, dan angka katalog harus diturunkan dari data bersama. Jangan menyebut sumber pasokan model. Harga domain tidak dicetak; pembaca memeriksa harga terbaru di platform.
 
-Ini keputusan paling penting di dokumen ini.
+## Keyword developer
 
-Developer mencari dalam **istilah teknis, sering berbahasa Inggris**, dan sudah tahu bentuk solusinya — `managed mysql indonesia`, `PaaS indonesia`. Mereka membandingkan produk.
+Keyword berikut adalah pilihan editorial berdasarkan intent, **bukan klaim volume pencarian atau peringkat terukur**.
 
-Pemilik bisnis mencari dalam **bahasa Indonesia berbasis masalah** — `jasa migrasi server`, `jasa kelola cloud perusahaan`. Mereka mencari orang, bukan produk.
+| Keyword | Prioritas dan penempatan | Alasan |
+| --- | --- | --- |
+| `cloud platform indonesia` | Primary beranda | Umbrella brand tetap cloud platform |
+| `ai api indonesia` | Primary AI Gateway; secondary beranda | Produk live yang memimpin |
+| `openai compatible api indonesia` | Primary/variasi AI Gateway | Istilah integrasi yang spesifik |
+| `api gpt indonesia` | Secondary AI Gateway | Keluarga GPT ada dalam katalog; bukan seluruh positioning dan lineup dapat berubah |
+| `harga api ai rupiah` | Primary Harga | Intent membandingkan paket dan pembayaran lokal |
+| `coding ai indonesia` | Primary Coding | Plugin coding agent dan endpoint khusus |
+| `api data wilayah indonesia` | Primary API Store | Produk wilayah dengan katalog API lokal terkait |
+| `daftar domain .id` | Primary Domain | Intent pendaftaran; konteks Indonesia ada pada judul |
+| `satu API key untuk banyak model AI` | Long-tail AI Gateway | Tutorial/integrasi konkret |
+| `token AI dengan QRIS` | Long-tail Harga | Pembayaran rupiah per organisasi |
 
-Satu halaman yang berusaha memenangkan keduanya akan kalah di dua-duanya. Halaman platform harus terbaca seperti dokumentasi produk; halaman enterprise seperti halaman jasa. Struktur situs saat ini sudah memisahkan ini — jangan digabung lagi.
+Tidak ada target live `managed mysql indonesia`, `managed database dengan server di indonesia`, `deploy aplikasi tanpa server`, atau `latensi database jakarta` sampai produk dan buktinya tersedia. Hindari keyword stuffing; meta keywords hanya mengikuti fokus halaman dan bukan sinyal ranking Google.
 
-## Keyword Strategy — Platform
+## Keyword enterprise
 
-Semua keyword primary di sini menyebut Indonesia. Itu disengaja: lokalitas adalah
-USP, bukan pelengkap. Keyword kategori tanpa penanda lokal (`managed database`,
-`PaaS`) langsung berhadapan dengan penyedia global — jangan dijadikan target
-utama.
+| Primary | Secondary / long-tail |
+| --- | --- |
+| `managed cloud indonesia`, `jasa kelola server perusahaan` | `jasa maintenance server`, dukungan operasional sesuai scope |
+| `jasa migrasi server ke cloud` | checklist migrasi server produksi; tanpa menjanjikan zero downtime |
+| `managed hosting bisnis` | pengelolaan website bisnis, DNS dan SSL |
+| `setup CI/CD perusahaan` | pipeline deployment, container |
+| `backup dan disaster recovery bisnis` | retensi, prosedur restore, target pemulihan yang disepakati |
+| `jasa monitoring dan security server` | baseline keamanan dan alert sesuai scope |
+| `private cloud indonesia` | private/hybrid cloud, Proxmox sebagai istilah teknis sesuai kebutuhan proyek |
+| `infrastruktur aplikasi AI dan SaaS` | perencanaan deployment dan operasional |
 
-### Primary
-| Keyword | Intent |
-|---|---|
-| `cloud platform indonesia` | Commercial — cari platform lokal |
-| `managed database indonesia` | Commercial — produk spesifik |
-| `managed mysql indonesia` | Commercial — produk spesifik, high intent |
-| `managed database dengan server di indonesia` | Data residency — USP paling langsung |
-| `PaaS indonesia` | Commercial — sadar kategori |
+Istilah teknis enterprise tidak menyatakan seluruh fitur tersebut tersedia sebagai self-serve platform. Tidak ada jaminan uptime, penghematan, sertifikasi, zero downtime, atau hasil keamanan dalam metadata.
 
-### Secondary
-| Keyword | Intent |
-|---|---|
-| `hosting database mysql cloud` | Product-specific |
-| `AI gateway API` | Product-specific |
-| `deploy aplikasi tanpa server` | Problem-driven |
-| `alternatif VPS untuk aplikasi` | Comparison |
-| `database as a service indonesia` | Kategori |
+## Peta halaman
 
-### Long-tail
-| Keyword | Intent |
-|---|---|
-| `cara deploy aplikasi tanpa mengelola server` | Edukatif, top-of-funnel |
-| `platform cloud lokal untuk startup` | Segment-specific |
-| `satu API key untuk banyak model AI` | AI Gateway, problem-driven |
-| `latensi database jakarta` | Technical, lokal |
+Sumber title/description/OG: **`scripts/seo-metadata.mjs`**. Semua title ≤60 karakter dan description ≤155 karakter, termasuk suffix brand. SEOHead menggunakan metadata terpusat agar deskripsi panjang di halaman enterprise lama tidak bocor ke hasil statis.
 
-## Keyword Strategy — Enterprise
+| Canonical route | Target utama | OG di public/ |
+| --- | --- | --- |
+| `/` | cloud platform indonesia; AI API Indonesia | `og.jpg` |
+| `/harga` | harga api ai rupiah | `og/banner_harga.webp` |
+| `/ai-gateway` | ai api indonesia; openai compatible api indonesia | `og/banner_ai-gateway.webp` |
+| `/coding` | coding ai indonesia | `og/banner_coding.webp` |
+| `/api-store` | api data wilayah indonesia | `og/banner_api-store.webp` |
+| `/domain` | daftar domain .id | `og/banner_domain.webp` |
+| `/layanan` | managed cloud indonesia | `og/banner_services.webp` |
+| `/tentang` | orvix cloud platform indonesia | `og/banner_about.webp` |
+| `/kontak` | kontak orvix; konsultasi enterprise | `og/banner_contact.webp` |
+| `/services/managed-cloud` | jasa kelola server perusahaan | `og/banner_service-managed-cloud.webp` |
+| `/services/cloud-migration` | jasa migrasi server ke cloud | `og/banner_service-cloud-migration.webp` |
+| `/services/managed-hosting` | managed hosting bisnis | `og/banner_service-managed-hosting.webp` |
+| `/services/devops-cicd` | setup CI/CD perusahaan | `og/banner_service-devops-cicd.webp` |
+| `/services/backup-disaster-recovery` | backup dan disaster recovery bisnis | `og/banner_service-backup-disaster-recovery.webp` |
+| `/services/monitoring-security` | jasa monitoring dan security server | `og/banner_service-monitoring-security.webp` |
+| `/services/private-hybrid-cloud` | private cloud indonesia | `og/banner_service-private-hybrid-cloud.webp` |
+| `/services/ai-saas-infrastructure` | infrastruktur aplikasi AI dan SaaS | `og/banner_service-ai-saas-infrastructure.webp` |
+| `/404` | noindex; bukan target pencarian | `og.jpg` |
 
-### Primary
-| Keyword | Intent |
-|---|---|
-| `managed cloud indonesia` | Commercial — cari partner |
-| `jasa kelola server perusahaan` | Commercial |
-| `jasa migrasi server ke cloud` | Commercial, high intent |
-| `private cloud proxmox indonesia` | Technical, vendor-aware |
+Aliases `/services` → `/layanan`, `/about` → `/tentang`, `/contact` → `/kontak` tetap memiliki HTML statis sendiri, dengan canonical dan OG URL menuju pasangan Indonesianya. Alias bukan redirect dan tidak masuk sitemap. Delapan detail `/services/*` tetap canonical. `dist/404/index.html` dan `dist/404.html` berisi noindex; status HTTP untuk URL tak dikenal mengikuti routing hosting dan perlu diperiksa pada deployment.
 
-### Secondary
-| Keyword | Intent |
-|---|---|
-| `jasa maintenance server bulanan` | Retainer-driven |
-| `backup dan disaster recovery bisnis` | Risk / compliance |
-| `jasa monitoring dan security server` | Ops-driven |
-| `setup CI/CD dan docker perusahaan` | DevOps-specific |
-| `hybrid cloud on-premise` | Arsitektur |
+## Structured data
 
-### Long-tail
-| Keyword | Intent |
-|---|---|
-| `migrasi hosting lama ke cloud tanpa downtime` | Problem-driven |
-| `private cloud untuk perusahaan yang tidak mau data keluar` | Compliance |
-| `infrastruktur untuk aplikasi AI dan SaaS` | Segment-specific |
-| `konsolidasi beberapa server lama jadi satu` | Cost-driven |
+- Satu graph JSON-LD yang dikelola Helmet per halaman; tidak ada graph permanen dalam shell `index.html`.
+- `Organization` pada home, juga didefinisikan sekali pada halaman indexable lain agar referensi lokal lengkap. Kontak berasal dari data situs; tidak ada alamat kantor atau klaim residency. `WebSite` dan `WebPage` terhubung lewat `@id`.
+- `BreadcrumbList` pada halaman selain home, dengan parent enterprise `/layanan` untuk detail layanan.
+- `/harga`: satu `Product` per plan dari `pricing.ts`; setiap varian Token Plan menjadi `Offer` terpisah dengan kuota dan masa berlaku sendiri, harga integer IDR, dan URL platform dari data. AI Plan mencantumkan seluruh fair use dan lineup note; coding/image mencantumkan kuota serta masa berlaku. Tidak ada offer domain atau harga roadmap. Masa berlaku paket bukan `priceValidUntil` dan bukan langganan bulanan kalender.
+- `FAQPage` hanya home dan Harga, dari array FAQ yang sama dengan UI. Pertanyaan/jawaban harus cocok persis. Prerender membuka FAQ home untuk memperoleh markup jawaban yang lazy-mounted, lalu menyimpannya dalam panel tertutup/hidden yang dapat dibuka pengguna. Harga memakai native details. Schema tidak menjanjikan eligibility rich result Google.
+- Tidak ada rating, review, customer count, sertifikasi, atau free-AI offer yang dibuat-buat. Daftar gratis berarti pendaftaran akun, bukan pemakaian AI gratis.
 
-## Peta halaman → keyword
+## Build, gambar, dan verifikasi
 
-| Route | Target utama | Banner OG |
-|---|---|---|
-| `/` | `cloud platform indonesia`, `orvix cloud platform` | `og.jpg` |
-| `/services` | `managed cloud indonesia`, `jasa kelola server perusahaan` | `banner_services` |
-| `/services/managed-cloud` | `jasa kelola server`, `managed cloud` | `banner_service-managed-cloud` |
-| `/services/cloud-migration` | `jasa migrasi server ke cloud` | `banner_service-cloud-migration` |
-| `/services/managed-hosting` | `managed hosting bisnis` | `banner_service-managed-hosting` |
-| `/services/devops-cicd` | `setup CI/CD perusahaan` | `banner_service-devops-cicd` |
-| `/services/backup-disaster-recovery` | `backup dan disaster recovery bisnis` | `banner_service-backup-disaster-recovery` |
-| `/services/monitoring-security` | `jasa monitoring dan security server` | `banner_service-monitoring-security` |
-| `/services/private-hybrid-cloud` | `private cloud proxmox indonesia` | `banner_service-private-hybrid-cloud` |
-| `/services/ai-saas-infrastructure` | `infrastruktur aplikasi AI dan SaaS` | `banner_service-ai-saas-infrastructure` |
-| `/about` | Brand | `banner_about` |
-| `/contact` | Brand + `konsultasi infrastruktur` | `banner_contact` |
+```sh
+# Native Chrome/Brave dideteksi pada macOS; bisa override path browser.
+PRERENDER_PORT=45684 bun run build:static
+bun run lint
+bun run test
+bunx tsc --noEmit -p tsconfig.app.json
+```
 
-**Celah terbesar:** sisi enterprise punya 8 halaman detail, sisi platform **nol**. Produk platform hanya muncul sebagai section di homepage. Satu section tidak bisa memenangkan `managed mysql indonesia` — halaman yang menang untuk keyword produk adalah halaman yang seluruhnya membahas produk itu. Selama ini belum ada, keyword platform hanya bisa ditarget lewat homepage, dan homepage cuma bisa fokus ke satu keyword.
+`build:static` menghasilkan sitemap → Vite bundle → seluruh route statis → validasi HTML terserialisasi → manifest fingerprint. `scripts/routes.mjs` berbagi inventory dengan metadata; validator membandingkannya dengan App dan slug data enterprise sehingga route baru tidak bisa hilang diam-diam. Sitemap berisi 17 canonical URL; prerender berisi 21 path termasuk tiga alias dan 404.
 
-## Messaging Priorities
+`src/test/seo.test.ts` masuk ke `bun run test` tanpa perubahan config. **Build statis adalah prerequisite test SEO.** Dist hilang, route hilang, perubahan source setelah build, atau manifest stale menyebabkan kegagalan eksplisit, bukan skip/false green. Fingerprint meliputi source, scripts, public, shell dan konfigurasi build utama. Validator memeriksa tag tunggal, title/description, canonical, OG/Twitter lengkap, noindex, rendered body, FAQ parity, schema shape, ID unik, serta sitemap canonical. Test tambahan membandingkan seluruh Product/Offer dan FAQ dengan data saat ini.
 
-1. Platform dulu — build dan deploy tanpa mengurus server.
-2. Data dan workload di Indonesia. Ini pembeda yang tidak bisa disamai penyedia global.
-3. Satu dashboard, satu billing, satu akun untuk semua layanan.
-4. Enterprise sebagai jalur terpisah untuk yang butuh penanganan langsung — bukan diskon, bukan tier.
-5. PaaS sekarang, IaaS menyusul. Jangan menjanjikan tanggal.
+`scripts/browser.mjs` memakai argumen native untuk path browser lokal, dan `@sparticuz/chromium` hanya sebagai fallback Linux. Tidak ada `--single-process`/`--no-zygote` Linux yang dipaksakan pada Brave macOS. Server prerender ditutup bila launch gagal.
 
-## Technical SEO
+Gambar 1200×630 mengikuti gaya existing: latar gelap/grid, brand bars cyan-ungu, headline gradient, font Plus Jakarta Sans lokal. Regenerasi banner home/default, lima produk, dan tiga index perusahaan:
 
-### Sudah dikerjakan
-- `lang="id"`, canonical per route, `robots` per route (`noindex` pada 404)
-- `SEOHead.tsx` berbasis react-helmet-async — title, description, keywords, OG lengkap, Twitter Card, JSON-LD per route
-- OG image per route otomatis dari path → `public/og/banner_*.webp` (12 banner, 1200×630)
-- Tag statis di `index.html` diberi `data-rh="true"` agar Helmet mengganti, bukan menduplikasi
-- JSON-LD `@graph`: Organization + WebSite + SoftwareApplication (platform) + Service (enterprise), saling terhubung lewat `@id`
-- `BreadcrumbList` pada halaman berjenjang
-- `robots.txt` dan `sitemap.xml` — di-generate dari route asli lewat `scripts/generate-sitemap.mjs`
-- `vercel.json` — SPA rewrite, build command eksplisit, cache header untuk aset OG
+```sh
+node scripts/generate-og.mjs
+```
 
-### Next steps
-- **Putuskan prerender.** Facebook, WhatsApp, dan LinkedIn tidak menjalankan JS, jadi mereka hanya melihat `index.html` mentah — artinya 11 dari 12 banner tidak akan pernah muncul saat link di-share. Google tidak terpengaruh karena me-render JS.
-- **Buat halaman produk platform** (`/platform`, lalu `/platform/{produk}`). Ini prasyarat untuk semua keyword platform di atas.
-- Daftarkan ke Google Search Console, submit sitemap.
-- Google Business Profile dengan kategori cloud/hosting provider, bukan IT services.
-- `llms.txt` — makin banyak jawaban AI yang jadi jalur penemuan; Orvix cocok karena produknya bisa dijelaskan ringkas.
-- Blog / insight pages untuk keyword edukatif.
-- Bersihkan `public/chris.jpg`, `public/eric.jpg`, `public/placeholder.svg` — sisa template, tidak direferensi, ~580 KB terbawa ke build.
+Delapan banner detail enterprise juga diregenerasi dengan deskripsi sesuai scope; headline lama yang menyiratkan jaminan restore, hasil keamanan, dan kontrol data penuh dihapus. Setelah mengganti artwork, review visual lalu build ulang agar fingerprint dan dist terbaru. Default `og.jpg` dan `og/banner_home.webp` tidak lagi menjanjikan database/storage/deployment live.
 
-## Content Ideas
+## Follow-up berbasis bukti
 
-| Topik | Target keyword | Track |
-|---|---|---|
-| "Kapan berhenti pakai VPS dan pindah ke managed database" | `alternatif VPS untuk aplikasi` | Platform |
-| "Kenapa latensi database ke Singapura bikin aplikasi terasa lambat" | `latensi database jakarta` | Platform |
-| "Menghubungkan banyak model AI lewat satu API key" | `AI gateway API` | Platform |
-| "Checklist sebelum migrasi server produksi" | `jasa migrasi server ke cloud` | Enterprise |
-| "Backup yang cuma dijadwal bukan backup" | `backup dan disaster recovery bisnis` | Enterprise |
-| "Private cloud vs public cloud untuk data yang tidak boleh keluar" | `private cloud proxmox indonesia` | Enterprise |
-
-## Batasan yang perlu diingat
-
-**Jangan buat halaman keyword untuk produk yang belum ada.** Deploy, Object Storage, Redis, Functions, Queue, Auth, dan Observability masih roadmap. Halaman yang menjanjikan produk yang belum bisa dipakai akan menghasilkan bounce tinggi dan, lebih buruk, kehilangan kepercayaan pengunjung yang benar-benar mendaftar.
-
-**Keyword platform itu berat.** Kompetitornya penyedia global dengan domain authority jauh di atas. Sudut yang realistis bukan menang di `PaaS` secara umum, tapi di irisan lokalnya: data di Indonesia, latensi Jakarta, billing rupiah, dukungan bahasa Indonesia. Keyword long-tail yang menyebut Indonesia jauh lebih mungkin dimenangkan daripada keyword kategori murni.
-
-**Enterprise membiayai platform.** Sisi enterprise punya intent komersial yang lebih tinggi dan kompetisi yang lebih rendah — kemungkinan besar itu sumber lead berbayar pertama dari SEO. Perlakukan sebagai jalur revenue nyata, bukan sekadar pelengkap, meskipun platform yang jadi headline.
+- Verifikasi preview deployment: raw HTML setiap route, respons status 404, robots.txt, cache gambar, dan sitemap sebelum submit ke Search Console.
+- Daftarkan properti Search Console dan submit sitemap bila akses tersedia; belum diverifikasi di tugas ini.
+- Konfirmasi lokasi bisnis serta lokasi pemrosesan per layanan sebelum menambah alamat atau klaim residency.
+- Ide konten: integrasi API kompatibel OpenAI; cara memilih paket token/fair use/coding; contoh API wilayah; checklist migrasi; rencana restore. Artikel belum dibuat.
+- Evaluasi Search Console untuk query dan konversi nyata sebelum mengklaim keyword menang atau jalur revenue dominan. Tidak ada bukti bahwa enterprise membiayai platform dari audit ini.
