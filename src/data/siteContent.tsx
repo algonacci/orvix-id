@@ -612,11 +612,11 @@ export const heroContent = {
 };
 export const orvixOne = {
   name: "Orvix One",
-  status: "segera" as const,
-  label: "Segera hadir",
-  description: "Asisten AI untuk semua orang, di HP dan desktop.",
-  ctaLabel: "Kabari saya",
-  interestUrl: `${whatsappUrl}?text=${encodeURIComponent("Halo Orvix, kabari saya saat Orvix One hadir.")}`,
+  status: "live" as const,
+  label: "Baru",
+  description: "Asisten AI untuk semua orang, langsung dari browser. Gratis 20 pesan per hari; One Plus Rp79.000 / 30 hari untuk model premium.",
+  ctaLabel: "Coba gratis",
+  url: "https://one.orvix.id",
 };
 export const enterpriseScopeNote = "Layanan enterprise dikerjakan sesuai ruang lingkup proyek yang disepakati. Daftar layanan ini bukan daftar fitur self-serve Orvix Cloud Platform.";
 
