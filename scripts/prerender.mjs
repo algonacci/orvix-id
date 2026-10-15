@@ -20,7 +20,9 @@ import { sourceFingerprint, verifyStatic } from "./verify-static.mjs";
 const DIST = join(ROOT, "dist");
 const PORT = Number(process.env.PRERENDER_PORT) || 45678;
 const ORIGIN = `http://127.0.0.1:${PORT}`;
-const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY) || 4;
+// Vercel builds on 2 cores; four Chromium pages there starve each other into
+// timeouts. Locally four is fine.
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY) || (process.env.VERCEL ? 2 : 4);
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -103,7 +105,7 @@ async function renderRoute(browser, routePath) {
     // React root is sufficient for static metadata and is deterministic locally
     // and in Vercel's build container.
     await page.goto(`${ORIGIN}${routePath}`, { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForSelector("#root > *", { timeout: 15000 });
+    await page.waitForSelector("#root > *", { timeout: 30000 });
 
     // Guard against silently shipping the shell's tags: SEOHead must have taken
     // over the head by now; aliases must point to their canonical counterparts.
@@ -131,7 +133,7 @@ async function renderRoute(browser, routePath) {
       // event to mount its real answer panel.
       await trigger.evaluate((el) => el.dispatchEvent(new MouseEvent("click", { bubbles: true })));
       try {
-        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 5000 }, id);
+        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 15000 }, id);
         answers.push(await page.evaluate((panelId) => ({ id: panelId, html: document.getElementById(panelId).innerHTML }), id));
       } catch (error) {
         throw new Error(`FAQ ${index + 1}/${faqCount} did not render: ${error.message}`);
@@ -153,7 +155,7 @@ async function renderRoute(browser, routePath) {
       () => document.title.length > 0 &&
         document.querySelectorAll('meta[name="description"]').length === 1 &&
         document.querySelectorAll('link[rel="canonical"]').length === 1,
-      { timeout: 15000 },
+      { timeout: 30000 },
     );
     writeHtml(routePath, await page.content());
   } finally {
@@ -189,9 +191,18 @@ async function main() {
         await renderRoute(browser, routePath);
         ok += 1;
         console.log(`  OK   ${routePath}`);
-      } catch (error) {
-        failed += 1;
-        console.error(`  FAIL ${routePath} — ${error.message}`);
+      } catch (first) {
+        // One retry: a slow build worker occasionally misses a wait; a real
+        // rendering bug fails twice.
+        console.warn(`  RETRY ${routePath} — ${first.message}`);
+        try {
+          await renderRoute(browser, routePath);
+          ok += 1;
+          console.log(`  OK   ${routePath} (retry)`);
+        } catch (error) {
+          failed += 1;
+          console.error(`  FAIL ${routePath} — ${error.message}`);
+        }
       }
     }
   }
