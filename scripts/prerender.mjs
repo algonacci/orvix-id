@@ -82,6 +82,17 @@ function writeHtml(routePath, html) {
   if (routePath === "/404") writeFileSync(join(DIST, "404.html"), html, "utf8");
 }
 
+// Name the wait that timed out, with optional page state, so a CI-only failure
+// is diagnosable from the build log.
+async function step(name, run, state) {
+  try {
+    return await run();
+  } catch (error) {
+    const detail = state ? ` ${JSON.stringify(await state().catch(() => null))}` : "";
+    throw new Error(`${name}: ${error.message}${detail}`);
+  }
+}
+
 async function renderRoute(browser, routePath) {
   const page = await browser.newPage();
   try {
@@ -106,7 +117,7 @@ async function renderRoute(browser, routePath) {
     // React root is sufficient for static metadata and is deterministic locally
     // and in Vercel's build container.
     await page.goto(`${ORIGIN}${routePath}`, { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForSelector("#root > *", { timeout: 30000 });
+    await step("root", () => page.waitForSelector("#root > *", { timeout: 30000 }));
 
     // Guard against silently shipping the shell's tags: SEOHead must have taken
     // over the head by now; aliases must point to their canonical counterparts.
@@ -152,12 +163,16 @@ async function renderRoute(browser, routePath) {
     // tags asynchronously. On Vercel's slower build worker a snapshot taken at
     // that moment once lost meta[name=description]. Wait until the head has
     // exactly one title and one description again before serializing.
-    await page.waitForFunction(
+    await step("head", () => page.waitForFunction(
       () => document.title.length > 0 &&
         document.querySelectorAll('meta[name="description"]').length === 1 &&
         document.querySelectorAll('link[rel="canonical"]').length === 1,
       { timeout: 30000, polling: 200 },
-    );
+    ), () => page.evaluate(() => ({
+      title: document.title,
+      descriptions: document.querySelectorAll('meta[name="description"]').length,
+      canonicals: [...document.querySelectorAll('link[rel="canonical"]')].map((l) => l.href),
+    })));
     writeHtml(routePath, await page.content());
   } finally {
     await page.close();
