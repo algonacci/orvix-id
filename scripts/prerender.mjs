@@ -82,6 +82,7 @@ function writeHtml(routePath, html) {
 async function renderRoute(browser, routePath) {
   const page = await browser.newPage();
   try {
+    page.setDefaultTimeout(15000);
     await page.setViewport({ width: 1280, height: 800 });
 
     // Block anything off-origin so a slow font or analytics host cannot stall
@@ -96,8 +97,13 @@ async function renderRoute(browser, routePath) {
       }
     });
 
-    await page.goto(`${ORIGIN}${routePath}`, { waitUntil: "networkidle0", timeout: 45000 });
-    await page.waitForSelector("#root > *", { timeout: 45000 });
+    // External fonts/analytics are deliberately aborted above. Waiting for full
+    // network idle nevertheless makes Vercel's build depend on the browser's
+    // handling of aborted third-party requests. DOM readiness plus the actual
+    // React root is sufficient for static metadata and is deterministic locally
+    // and in Vercel's build container.
+    await page.goto(`${ORIGIN}${routePath}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.waitForSelector("#root > *", { timeout: 15000 });
 
     // Guard against silently shipping the shell's tags: SEOHead must have taken
     // over the head by now; aliases must point to their canonical counterparts.
