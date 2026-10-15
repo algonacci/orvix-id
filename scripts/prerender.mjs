@@ -20,9 +20,10 @@ import { sourceFingerprint, verifyStatic } from "./verify-static.mjs";
 const DIST = join(ROOT, "dist");
 const PORT = Number(process.env.PRERENDER_PORT) || 45678;
 const ORIGIN = `http://127.0.0.1:${PORT}`;
-// Vercel builds on 2 cores; four Chromium pages there starve each other into
-// timeouts. Locally four is fine.
-const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY) || (process.env.VERCEL ? 2 : 4);
+// On Vercel (2 cores) render one page at a time: concurrent headless tabs are
+// backgrounded, their animation frames throttle, and both the head manager and
+// rAF-polled waits stall until they time out. Locally four is fine.
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY) || (process.env.VERCEL ? 1 : 4);
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -133,7 +134,7 @@ async function renderRoute(browser, routePath) {
       // event to mount its real answer panel.
       await trigger.evaluate((el) => el.dispatchEvent(new MouseEvent("click", { bubbles: true })));
       try {
-        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 15000 }, id);
+        await page.waitForFunction((panelId) => document.getElementById(panelId)?.textContent.trim(), { timeout: 15000, polling: 200 }, id);
         answers.push(await page.evaluate((panelId) => ({ id: panelId, html: document.getElementById(panelId).innerHTML }), id));
       } catch (error) {
         throw new Error(`FAQ ${index + 1}/${faqCount} did not render: ${error.message}`);
@@ -155,7 +156,7 @@ async function renderRoute(browser, routePath) {
       () => document.title.length > 0 &&
         document.querySelectorAll('meta[name="description"]').length === 1 &&
         document.querySelectorAll('link[rel="canonical"]').length === 1,
-      { timeout: 30000 },
+      { timeout: 30000, polling: 200 },
     );
     writeHtml(routePath, await page.content());
   } finally {
