@@ -9,7 +9,7 @@ Orvix Cloud Platform remains the umbrella, with live AI products leading the hom
 | C1 | Typed live/Segera catalog, centralized prices and counts, verified gateway examples, revised shared copy, README and data tests | [C1 report](C1-report.md) |
 | C2 | AI-first home, product navigation/footer, live pricing teasers, compact enterprise door, Orvix One, roadmap, removal of simulated operational metrics | [C2 report](C2-report.md) |
 | C3 | Harga, AI Gateway, Coding, API Store, Domain, Tentang/Kontak, Indonesian routes and compatible aliases | [C3 report](C3-report.md) |
-| C4 | Route metadata, OG images, sitemap/prerender, structured data and SEO strategy | C4 report follows integration |
+| C4 | Route metadata, OG images, sitemap/prerender, structured data and SEO strategy | [C4 report and metadata table](C4-report.md) |
 
 The agent reports contain the complete before → after claim ledger, including deleted numerical dashboard visuals and revised enterprise guarantees. They describe each isolated branch at completion; integration resolutions below supersede their open handoff items.
 
@@ -40,4 +40,13 @@ The agent reports contain the complete before → after claim ledger, including 
 
 ## Verification
 
-Final build, route/metadata validation, screenshot index, PR and deployment results are recorded after C4 integration.
+- `bun run build:static`: PASS, 21 prerendered routes and serialized metadata/schema/sitemap validation.
+- `bun run lint`: PASS, zero errors; seven pre-existing shadcn Fast Refresh warnings.
+- `bun run test`: PASS, 14 tests in three files, including stale-build detection, route inventory, unique metadata, pricing offers and FAQ schema.
+- `bunx tsc --noEmit -p tsconfig.app.json`: PASS.
+- Internal link/fragment audit: 21 routes, no broken internal links.
+- Browser interactions: mobile navigation to Harga, menu close, all home FAQs, pricing FAQ, desktop product dropdown and Escape: PASS.
+- [Screenshots: all 21 routes at 1440px and 375px](screenshots/README.md), including compatible English aliases and 404. Capture audit records titles, H1s, overflow and runtime errors.
+- Sitemap: 17 canonical URLs; aliases retain their own static HTML, with canonical tags pointing to Indonesian paths. Static 404 is noindex.
+
+The C4 report's inherited lint blocker was already fixed on integration before the final checks above. Source/build artifacts are validated locally; deployment status is recorded in the pull request.
