@@ -3,7 +3,7 @@
     "route": "/",
     "width": 1440,
     "file": "home-1440.jpg",
-    "title": "Orvix.id - Cloud Platform untuk Developer",
+    "title": "Orvix Cloud Platform — AI API Indonesia",
     "h1": [
       "Akses AI, bangun aplikasi Anda."
     ],
@@ -32,7 +32,7 @@
     "route": "/harga",
     "width": 1440,
     "file": "harga-1440.jpg",
-    "title": "Harga dalam rupiah - Orvix.id",
+    "title": "Harga API AI Rupiah & Paket Coding | Orvix",
     "h1": [
       "Harga dalam rupiah"
     ],
@@ -55,7 +55,7 @@
     "route": "/ai-gateway",
     "width": 1440,
     "file": "ai-gateway-1440.jpg",
-    "title": "Orvix AI Gateway - Orvix.id",
+    "title": "AI API Indonesia — OpenAI-compatible | Orvix",
     "h1": [
       "Orvix AI Gateway"
     ],
@@ -78,7 +78,7 @@
     "route": "/coding",
     "width": 1440,
     "file": "coding-1440.jpg",
-    "title": "Coding Plan untuk coding agent - Orvix.id",
+    "title": "Coding Plan untuk Developer Indonesia | Orvix",
     "h1": [
       "Coding Plan untuk coding agent"
     ],
@@ -101,7 +101,7 @@
     "route": "/api-store",
     "width": 1440,
     "file": "api-store-1440.jpg",
-    "title": "API Store: data Indonesia untuk aplikasi - Orvix.id",
+    "title": "API Data Wilayah Indonesia & API Store | Orvix",
     "h1": [
       "API Store: data Indonesia untuk aplikasi"
     ],
@@ -124,7 +124,7 @@
     "route": "/domain",
     "width": 1440,
     "file": "domain-1440.jpg",
-    "title": "Domain dalam akun Orvix Anda - Orvix.id",
+    "title": "Daftar Domain .id & Domain Indonesia | Orvix",
     "h1": [
       "Domain dalam akun Orvix Anda"
     ],
@@ -147,7 +147,7 @@
     "route": "/layanan",
     "width": 1440,
     "file": "layanan-1440.jpg",
-    "title": "Enterprise Solutions - Orvix.id",
+    "title": "Jasa Kelola Cloud & Server Indonesia | Orvix",
     "h1": [
       "Untuk workload yang butuh penanganan langsung"
     ],
@@ -177,7 +177,7 @@
     "route": "/tentang",
     "width": 1440,
     "file": "tentang-1440.jpg",
-    "title": "Tentang Orvix Cloud Platform - Orvix.id",
+    "title": "Tentang Orvix Cloud Platform Indonesia",
     "h1": [
       "Tentang Orvix Cloud Platform"
     ],
@@ -200,9 +200,193 @@
     "route": "/kontak",
     "width": 1440,
     "file": "kontak-1440.jpg",
-    "title": "Hubungi Orvix - Orvix.id",
+    "title": "Kontak Orvix — Platform & Konsultasi Enterprise",
     "h1": [
       "Hubungi Orvix"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/managed-cloud",
+    "width": 1440,
+    "file": "services--managed-cloud-1440.jpg",
+    "title": "Jasa Kelola Server & Managed Cloud | Orvix",
+    "h1": [
+      "Managed Cloud"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/cloud-migration",
+    "width": 1440,
+    "file": "services--cloud-migration-1440.jpg",
+    "title": "Jasa Migrasi Server ke Cloud | Orvix",
+    "h1": [
+      "Cloud Migration"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/managed-hosting",
+    "width": 1440,
+    "file": "services--managed-hosting-1440.jpg",
+    "title": "Managed Hosting untuk Website Bisnis | Orvix",
+    "h1": [
+      "Managed Hosting"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/devops-cicd",
+    "width": 1440,
+    "file": "services--devops-cicd-1440.jpg",
+    "title": "Jasa Setup DevOps & CI/CD Perusahaan | Orvix",
+    "h1": [
+      "DevOps & CI/CD"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/backup-disaster-recovery",
+    "width": 1440,
+    "file": "services--backup-disaster-recovery-1440.jpg",
+    "title": "Backup & Disaster Recovery Bisnis | Orvix",
+    "h1": [
+      "Backup & Disaster Recovery"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/monitoring-security",
+    "width": 1440,
+    "file": "services--monitoring-security-1440.jpg",
+    "title": "Jasa Monitoring & Security Server | Orvix",
+    "h1": [
+      "Monitoring & Security"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/private-hybrid-cloud",
+    "width": 1440,
+    "file": "services--private-hybrid-cloud-1440.jpg",
+    "title": "Private & Hybrid Cloud Indonesia | Orvix",
+    "h1": [
+      "Private / Hybrid Cloud"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/ai-saas-infrastructure",
+    "width": 1440,
+    "file": "services--ai-saas-infrastructure-1440.jpg",
+    "title": "Infrastruktur Aplikasi AI & SaaS | Orvix",
+    "h1": [
+      "AI & SaaS Infrastructure"
     ],
     "overflow": false,
     "overflowing": [],
@@ -223,7 +407,7 @@
     "route": "/services",
     "width": 1440,
     "file": "services-1440.jpg",
-    "title": "Enterprise Solutions - Orvix.id",
+    "title": "Jasa Kelola Cloud & Server Indonesia | Orvix",
     "h1": [
       "Untuk workload yang butuh penanganan langsung"
     ],
@@ -253,7 +437,7 @@
     "route": "/about",
     "width": 1440,
     "file": "about-1440.jpg",
-    "title": "Tentang Orvix Cloud Platform - Orvix.id",
+    "title": "Tentang Orvix Cloud Platform Indonesia",
     "h1": [
       "Tentang Orvix Cloud Platform"
     ],
@@ -276,193 +460,9 @@
     "route": "/contact",
     "width": 1440,
     "file": "contact-1440.jpg",
-    "title": "Hubungi Orvix - Orvix.id",
+    "title": "Kontak Orvix — Platform & Konsultasi Enterprise",
     "h1": [
       "Hubungi Orvix"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/managed-cloud",
-    "width": 1440,
-    "file": "services--managed-cloud-1440.jpg",
-    "title": "Managed Cloud - Orvix.id",
-    "h1": [
-      "Managed Cloud"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/cloud-migration",
-    "width": 1440,
-    "file": "services--cloud-migration-1440.jpg",
-    "title": "Cloud Migration - Orvix.id",
-    "h1": [
-      "Cloud Migration"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/managed-hosting",
-    "width": 1440,
-    "file": "services--managed-hosting-1440.jpg",
-    "title": "Managed Hosting - Orvix.id",
-    "h1": [
-      "Managed Hosting"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/devops-cicd",
-    "width": 1440,
-    "file": "services--devops-cicd-1440.jpg",
-    "title": "DevOps & CI/CD - Orvix.id",
-    "h1": [
-      "DevOps & CI/CD"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/backup-disaster-recovery",
-    "width": 1440,
-    "file": "services--backup-disaster-recovery-1440.jpg",
-    "title": "Backup & Disaster Recovery - Orvix.id",
-    "h1": [
-      "Backup & Disaster Recovery"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/monitoring-security",
-    "width": 1440,
-    "file": "services--monitoring-security-1440.jpg",
-    "title": "Monitoring & Security - Orvix.id",
-    "h1": [
-      "Monitoring & Security"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/private-hybrid-cloud",
-    "width": 1440,
-    "file": "services--private-hybrid-cloud-1440.jpg",
-    "title": "Private / Hybrid Cloud - Orvix.id",
-    "h1": [
-      "Private / Hybrid Cloud"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/ai-saas-infrastructure",
-    "width": 1440,
-    "file": "services--ai-saas-infrastructure-1440.jpg",
-    "title": "AI & SaaS Infrastructure - Orvix.id",
-    "h1": [
-      "AI & SaaS Infrastructure"
     ],
     "overflow": false,
     "overflowing": [],
@@ -483,7 +483,7 @@
     "route": "/404",
     "width": 1440,
     "file": "404-1440.jpg",
-    "title": "Halaman tidak ditemukan - Orvix.id",
+    "title": "Halaman Tidak Ditemukan | Orvix",
     "h1": [
       "404"
     ],
@@ -506,7 +506,7 @@
     "route": "/",
     "width": 375,
     "file": "home-375.jpg",
-    "title": "Orvix.id - Cloud Platform untuk Developer",
+    "title": "Orvix Cloud Platform — AI API Indonesia",
     "h1": [
       "Akses AI, bangun aplikasi Anda."
     ],
@@ -540,7 +540,7 @@
     "route": "/harga",
     "width": 375,
     "file": "harga-375.jpg",
-    "title": "Harga dalam rupiah - Orvix.id",
+    "title": "Harga API AI Rupiah & Paket Coding | Orvix",
     "h1": [
       "Harga dalam rupiah"
     ],
@@ -563,7 +563,7 @@
     "route": "/ai-gateway",
     "width": 375,
     "file": "ai-gateway-375.jpg",
-    "title": "Orvix AI Gateway - Orvix.id",
+    "title": "AI API Indonesia — OpenAI-compatible | Orvix",
     "h1": [
       "Orvix AI Gateway"
     ],
@@ -586,7 +586,7 @@
     "route": "/coding",
     "width": 375,
     "file": "coding-375.jpg",
-    "title": "Coding Plan untuk coding agent - Orvix.id",
+    "title": "Coding Plan untuk Developer Indonesia | Orvix",
     "h1": [
       "Coding Plan untuk coding agent"
     ],
@@ -609,7 +609,7 @@
     "route": "/api-store",
     "width": 375,
     "file": "api-store-375.jpg",
-    "title": "API Store: data Indonesia untuk aplikasi - Orvix.id",
+    "title": "API Data Wilayah Indonesia & API Store | Orvix",
     "h1": [
       "API Store: data Indonesia untuk aplikasi"
     ],
@@ -632,7 +632,7 @@
     "route": "/domain",
     "width": 375,
     "file": "domain-375.jpg",
-    "title": "Domain dalam akun Orvix Anda - Orvix.id",
+    "title": "Daftar Domain .id & Domain Indonesia | Orvix",
     "h1": [
       "Domain dalam akun Orvix Anda"
     ],
@@ -655,7 +655,7 @@
     "route": "/layanan",
     "width": 375,
     "file": "layanan-375.jpg",
-    "title": "Enterprise Solutions - Orvix.id",
+    "title": "Jasa Kelola Cloud & Server Indonesia | Orvix",
     "h1": [
       "Untuk workload yang butuh penanganan langsung"
     ],
@@ -685,7 +685,7 @@
     "route": "/tentang",
     "width": 375,
     "file": "tentang-375.jpg",
-    "title": "Tentang Orvix Cloud Platform - Orvix.id",
+    "title": "Tentang Orvix Cloud Platform Indonesia",
     "h1": [
       "Tentang Orvix Cloud Platform"
     ],
@@ -708,9 +708,193 @@
     "route": "/kontak",
     "width": 375,
     "file": "kontak-375.jpg",
-    "title": "Hubungi Orvix - Orvix.id",
+    "title": "Kontak Orvix — Platform & Konsultasi Enterprise",
     "h1": [
       "Hubungi Orvix"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/managed-cloud",
+    "width": 375,
+    "file": "services--managed-cloud-375.jpg",
+    "title": "Jasa Kelola Server & Managed Cloud | Orvix",
+    "h1": [
+      "Managed Cloud"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/cloud-migration",
+    "width": 375,
+    "file": "services--cloud-migration-375.jpg",
+    "title": "Jasa Migrasi Server ke Cloud | Orvix",
+    "h1": [
+      "Cloud Migration"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/managed-hosting",
+    "width": 375,
+    "file": "services--managed-hosting-375.jpg",
+    "title": "Managed Hosting untuk Website Bisnis | Orvix",
+    "h1": [
+      "Managed Hosting"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/devops-cicd",
+    "width": 375,
+    "file": "services--devops-cicd-375.jpg",
+    "title": "Jasa Setup DevOps & CI/CD Perusahaan | Orvix",
+    "h1": [
+      "DevOps & CI/CD"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/backup-disaster-recovery",
+    "width": 375,
+    "file": "services--backup-disaster-recovery-375.jpg",
+    "title": "Backup & Disaster Recovery Bisnis | Orvix",
+    "h1": [
+      "Backup & Disaster Recovery"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/monitoring-security",
+    "width": 375,
+    "file": "services--monitoring-security-375.jpg",
+    "title": "Jasa Monitoring & Security Server | Orvix",
+    "h1": [
+      "Monitoring & Security"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/private-hybrid-cloud",
+    "width": 375,
+    "file": "services--private-hybrid-cloud-375.jpg",
+    "title": "Private & Hybrid Cloud Indonesia | Orvix",
+    "h1": [
+      "Private / Hybrid Cloud"
+    ],
+    "overflow": false,
+    "overflowing": [],
+    "internalLinks": [
+      "/",
+      "/harga",
+      "/layanan",
+      "/tentang",
+      "/kontak",
+      "/ai-gateway",
+      "/coding",
+      "/api-store",
+      "/domain"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/services/ai-saas-infrastructure",
+    "width": 375,
+    "file": "services--ai-saas-infrastructure-375.jpg",
+    "title": "Infrastruktur Aplikasi AI & SaaS | Orvix",
+    "h1": [
+      "AI & SaaS Infrastructure"
     ],
     "overflow": false,
     "overflowing": [],
@@ -731,7 +915,7 @@
     "route": "/services",
     "width": 375,
     "file": "services-375.jpg",
-    "title": "Enterprise Solutions - Orvix.id",
+    "title": "Jasa Kelola Cloud & Server Indonesia | Orvix",
     "h1": [
       "Untuk workload yang butuh penanganan langsung"
     ],
@@ -761,7 +945,7 @@
     "route": "/about",
     "width": 375,
     "file": "about-375.jpg",
-    "title": "Tentang Orvix Cloud Platform - Orvix.id",
+    "title": "Tentang Orvix Cloud Platform Indonesia",
     "h1": [
       "Tentang Orvix Cloud Platform"
     ],
@@ -784,193 +968,9 @@
     "route": "/contact",
     "width": 375,
     "file": "contact-375.jpg",
-    "title": "Hubungi Orvix - Orvix.id",
+    "title": "Kontak Orvix — Platform & Konsultasi Enterprise",
     "h1": [
       "Hubungi Orvix"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/managed-cloud",
-    "width": 375,
-    "file": "services--managed-cloud-375.jpg",
-    "title": "Managed Cloud - Orvix.id",
-    "h1": [
-      "Managed Cloud"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/cloud-migration",
-    "width": 375,
-    "file": "services--cloud-migration-375.jpg",
-    "title": "Cloud Migration - Orvix.id",
-    "h1": [
-      "Cloud Migration"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/managed-hosting",
-    "width": 375,
-    "file": "services--managed-hosting-375.jpg",
-    "title": "Managed Hosting - Orvix.id",
-    "h1": [
-      "Managed Hosting"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/devops-cicd",
-    "width": 375,
-    "file": "services--devops-cicd-375.jpg",
-    "title": "DevOps & CI/CD - Orvix.id",
-    "h1": [
-      "DevOps & CI/CD"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/backup-disaster-recovery",
-    "width": 375,
-    "file": "services--backup-disaster-recovery-375.jpg",
-    "title": "Backup & Disaster Recovery - Orvix.id",
-    "h1": [
-      "Backup & Disaster Recovery"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/monitoring-security",
-    "width": 375,
-    "file": "services--monitoring-security-375.jpg",
-    "title": "Monitoring & Security - Orvix.id",
-    "h1": [
-      "Monitoring & Security"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/private-hybrid-cloud",
-    "width": 375,
-    "file": "services--private-hybrid-cloud-375.jpg",
-    "title": "Private / Hybrid Cloud - Orvix.id",
-    "h1": [
-      "Private / Hybrid Cloud"
-    ],
-    "overflow": false,
-    "overflowing": [],
-    "internalLinks": [
-      "/",
-      "/harga",
-      "/layanan",
-      "/tentang",
-      "/kontak",
-      "/ai-gateway",
-      "/coding",
-      "/api-store",
-      "/domain"
-    ],
-    "errors": []
-  },
-  {
-    "route": "/services/ai-saas-infrastructure",
-    "width": 375,
-    "file": "services--ai-saas-infrastructure-375.jpg",
-    "title": "AI & SaaS Infrastructure - Orvix.id",
-    "h1": [
-      "AI & SaaS Infrastructure"
     ],
     "overflow": false,
     "overflowing": [],
@@ -991,7 +991,7 @@
     "route": "/404",
     "width": 375,
     "file": "404-375.jpg",
-    "title": "Halaman tidak ditemukan - Orvix.id",
+    "title": "Halaman Tidak Ditemukan | Orvix",
     "h1": [
       "404"
     ],
