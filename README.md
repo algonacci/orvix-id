@@ -1,6 +1,6 @@
 # Orvix.id company profile
 
-Situs profil **Orvix Cloud Platform** untuk developer Indonesia, dengan jalur layanan enterprise yang terpisah untuk pemilik bisnis. Produk yang sudah tersedia memimpin konten: AI Gateway, Token Plan, AI Plan, Coding Plan, Image Credits, API Store, dan Domain. Produk roadmap diberi status **Segera**; Orvix One memiliki teaser terpisah.
+Situs profil **Orvix Cloud Platform** untuk developer Indonesia, dengan jalur layanan enterprise yang terpisah untuk pemilik bisnis. Produk yang sudah tersedia memimpin konten: AI Gateway, Token Plan, AI Plan, Coding Plan, Image Credits, API Store, Domain, dan Orvix One. Produk roadmap diberi status **Segera**.
 
 ## Pengembangan
 
@@ -45,7 +45,11 @@ Jalankan test, lint, dan build statis setelah memperbarui data. Verifikasi juga 
 
 ### Aturan kebenaran konten
 
-Gunakan fakta produksi yang diverifikasi, bukan visi roadmap sebagai klaim fitur aktif. Jangan menambahkan jaminan uptime, lokasi pemrosesan data, pelanggan, sertifikasi, atau jadwal peluncuran tanpa bukti. Sebut keluarga model; jangan sebut sumber pasokan model. Teaser Orvix One hanya menjelaskan asisten AI untuk semua orang di HP dan desktop, dengan minat melalui WhatsApp.
+Gunakan fakta produksi yang diverifikasi, bukan visi roadmap sebagai klaim fitur aktif. Jangan menambahkan jaminan uptime, lokasi pemrosesan data, pelanggan, sertifikasi, atau jadwal peluncuran tanpa bukti. Sebut keluarga model; jangan sebut sumber pasokan model. Orvix One sudah live; AI Plan dapat digunakan pada model dalam lineup. Untuk AI Plan, plugin resmi hanya OpenCode; OpenClaw/Hermes memakai API kompatibel OpenAI, Pi/omp memakai provider custom melalui API yang sama. Jangan menyebut jumlah model, unlimited, atau jaminan kecukupan kuota pada landing AI Plan.
+
+## AI Plan checkout
+
+Halaman publik `/ai-plan`: [kontrak, env, mock browser, dan checklist rilis](docs/ai-plan-checkout.md). Jalankan build statis sebelum test karena test SEO memeriksa fingerprint source. Registry lockfile memakai npm publik; `scripts/normalize-lock-registry.mjs` mempertahankan versi/integritas saat mengganti mirror lama yang tidak dapat diakses.
 
 Layanan enterprise adalah penawaran dengan ruang lingkup proyek yang disepakati, bukan fitur self-serve platform. Pertahankan pemisahan intent tersebut saat memperbarui halaman dan SEO.
 

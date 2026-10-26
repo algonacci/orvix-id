@@ -50,6 +50,7 @@ export const tokenPlans: TokenPlan[] = [
 ];
 
 export const aiPlan = {
+  slug: "ai-plan", resetTime: "00.00 WIB",
   id: "ai-plan", name: "Orvix AI Plan", category: "ai", priceIdr: 100_000,
   tokens: null, credits: null, validityDays: 30,
   audience: "Untuk penggunaan AI rutin dengan batas pemakaian wajar yang jelas.",
@@ -57,7 +58,7 @@ export const aiPlan = {
   fairUse: { requestsPerMinute: 20, concurrentRequests: 5, dailyTokens: 20_000_000, cachedTokenPercent: 10 },
   tagline: "AI sepuasnya, dengan fair use.",
   lineupNote: "Lineup model dapat berubah. Lihat pilihan terbaru di platform.",
-} satisfies PricingPlan & { fairUse: { requestsPerMinute: number; concurrentRequests: number; dailyTokens: number; cachedTokenPercent: number }; tagline: string; lineupNote: string };
+} satisfies PricingPlan & { slug: string; resetTime: string; fairUse: { requestsPerMinute: number; concurrentRequests: number; dailyTokens: number; cachedTokenPercent: number }; tagline: string; lineupNote: string };
 
 export const codingPlan = {
   id: "coding-plan", name: "Coding Plan", category: "coding", priceIdr: 150_000,

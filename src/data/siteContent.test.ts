@@ -44,6 +44,10 @@ describe("public product contract", () => {
 });
 
 describe("rupiah pricing contract", () => {
+  it("matches the gateway AI Plan checkout slug and Jakarta daily reset", () => {
+    expect(aiPlan.slug).toBe("ai-plan");
+    expect(aiPlan.resetTime).toBe("00.00 WIB");
+  });
   it("scopes the teaser to the cheapest Token Plan, rather than image credits", () => {
     expect(startingPriceScope).toBe("Token Plan");
     expect(startingPriceIdr).toBe(Math.min(...tokenPlans.map((plan) => plan.priceIdr)));

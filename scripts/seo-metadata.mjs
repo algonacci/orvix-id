@@ -4,6 +4,7 @@ export const aliases = { "/services": "/layanan", "/about": "/tentang", "/contac
 export const canonicalPath = (path) => aliases[path.replace(/\/+$/, "") || "/"] ?? (path.replace(/\/+$/, "") || "/");
 const page = (title, description, image, keyword) => ({ title, description, image, keyword });
 export const metadata = {
+  "/ai-plan": page("AI Plan — Kuota AI Reset Harian, Bayar QRIS | Orvix", "AI Plan untuk agent pribadi dan proyek rutin, dengan kuota reset harian dan fair use. Beli langsung lewat QRIS; link masuk dikirim ke email.", "/og/banner_ai-gateway.webp", "ai plan qris kuota harian"),
   "/": page("Orvix Cloud Platform — AI API Indonesia", "Orvix Cloud Platform untuk developer Indonesia: AI Gateway, paket AI dan coding, API data Indonesia, serta domain dengan billing rupiah.", "/og.jpg", "cloud platform indonesia"),
   "/harga": page("Harga API AI Rupiah & Paket Coding | Orvix", "Bandingkan Token Plan, AI Plan dengan fair use, Coding Plan, dan Image Credits. Harga rupiah, pilihan kuota dan masa berlaku, pembayaran QRIS.", "/og/banner_harga.webp", "harga api ai rupiah"),
   "/ai-gateway": page("AI API Indonesia — OpenAI-compatible | Orvix", "Integrasikan AI Gateway dengan API kompatibel OpenAI. Satu API key, pilihan model, failover otomatis, BYOK, dan billing rupiah untuk developer.", "/og/banner_ai-gateway.webp", "openai compatible api indonesia"),
