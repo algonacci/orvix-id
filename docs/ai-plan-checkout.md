@@ -9,7 +9,7 @@ daily reset `00.00 WIB` matches `plans.service.ts` (Asia/Jakarta day).
 - Set `VITE_GATEWAY_URL` at build time. Empty/invalid config disables checkout; there is no production fallback.
 - Production candidate **https://gateway.orvix.id** requires founder confirmation in Vercel. This task does not configure or deploy production.
 - `VITE_META_PIXEL_ID=4302084656749999` is public configuration. Empty means no script/events. Never put CAPI tokens in Vite env.
-- Preview must have its **actual origin** explicitly added to gateway `ORVIX_ID_PREVIEW_ORIGINS`; no Vercel wildcard. Actual preview origin: pending PR deployment metadata.
+- Preview must have its **actual origin** explicitly added to gateway `ORVIX_ID_PREVIEW_ORIGINS`; no Vercel wildcard. Actual origin reported by the Vercel bot on [frontend PR #6](https://github.com/algonacci/orvix-id/pull/6#issuecomment-6423048597): `https://orvix-id-git-feat-ai-plan-landing-checkout-algonaccis-projects.vercel.app`. Vercel reported Ready for implementation commit `6fe38cc`. Gateway allowlist configuration is still pending; no live checkout request was made.
 - Gateway rollout/migration and platform PR #35 return-path handling are coordinated release prerequisites.
 - Real payment, inbox delivery, Meta Test Events/CAPI dedup, and live custom-provider compatibility require founder-authorized validation before ads. All verification here uses mocks.
 
