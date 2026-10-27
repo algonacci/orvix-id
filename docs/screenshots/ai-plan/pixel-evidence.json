@@ -1,0 +1,87 @@
+{
+  "scriptLoadUrls": [
+    "http://127.0.0.1:4179/ai-plan?utm_source=meta&fbclid=mock-click-id",
+    "http://127.0.0.1:4179/ai-plan?utm_source=meta&fbclid=mock-click-id"
+  ],
+  "pixelCalls": [
+    [
+      "init",
+      "4302084656749999"
+    ],
+    [
+      "set",
+      "autoConfig",
+      false,
+      "4302084656749999"
+    ],
+    [
+      "track",
+      "PageView"
+    ],
+    [
+      "track",
+      "ViewContent",
+      {
+        "content_ids": [
+          "orvix-ai-2026-10"
+        ],
+        "content_type": "product",
+        "value": 100000,
+        "currency": "IDR"
+      }
+    ],
+    [
+      "track",
+      "InitiateCheckout",
+      {
+        "content_ids": [
+          "orvix-ai-2026-10"
+        ],
+        "content_type": "product",
+        "value": 100000,
+        "currency": "IDR"
+      }
+    ],
+    [
+      "init",
+      "4302084656749999"
+    ],
+    [
+      "set",
+      "autoConfig",
+      false,
+      "4302084656749999"
+    ],
+    [
+      "track",
+      "PageView"
+    ],
+    [
+      "track",
+      "ViewContent",
+      {
+        "content_ids": [
+          "orvix-ai-2026-10"
+        ],
+        "content_type": "product",
+        "value": 100000,
+        "currency": "IDR"
+      }
+    ],
+    [
+      "track",
+      "Purchase",
+      {
+        "content_ids": [
+          "orvix-ai-2026-10"
+        ],
+        "content_type": "product",
+        "value": 100000,
+        "currency": "IDR"
+      },
+      {
+        "eventID": "exact-ledger"
+      }
+    ]
+  ]
+}

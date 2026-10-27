@@ -44,6 +44,11 @@ describe("public product contract", () => {
 });
 
 describe("rupiah pricing contract", () => {
+  it("preserves the landing slug and matches gateway CAPI content ID and Jakarta daily reset", () => {
+    expect(aiPlan.slug).toBe("ai-plan");
+    expect(aiPlan.metaContentId).toBe("orvix-ai-2026-10");
+    expect(aiPlan.resetTime).toBe("00.00 WIB");
+  });
   it("scopes the teaser to the cheapest Token Plan, rather than image credits", () => {
     expect(startingPriceScope).toBe("Token Plan");
     expect(startingPriceIdr).toBe(Math.min(...tokenPlans.map((plan) => plan.priceIdr)));

@@ -13,7 +13,7 @@ Terakhir diperbarui: **2026-10-15**
 
 Jangan campur kedua intent dalam satu halaman produk. **Indonesia** adalah konteks audiens, data API lokal, dan billing rupiah melalui QRIS; bukan jaminan lokasi pemrosesan. Lokasi workload/data dan alamat kantor Jakarta belum terverifikasi. Jangan menargetkan residency atau latensi Jakarta sebagai keunggulan yang sudah terbukti.
 
-Managed Database (OMD), Deploy, Object Storage, Managed Redis, Container Engine, Functions, Queue, Auth, dan Observability masih **Segera**, bukan produk live. Orvix One hanya teaser “asisten AI untuk semua orang, di HP dan desktop”; tanpa tanggal, harga, atau janji fitur tambahan. Jangan membuat landing page yang menjanjikan penggunaan produk roadmap.
+Managed Database (OMD), Deploy, Object Storage, Managed Redis, Container Engine, Functions, Queue, Auth, dan Observability masih **Segera**, bukan produk live. Orvix One sudah live; AI Plan berlaku pada model dalam lineup. Jangan membuat landing page yang menjanjikan penggunaan produk roadmap. Landing AI Plan hanya mengklaim plugin resmi OpenCode; integrasi lain melalui API kompatibel OpenAI (Pi/omp: provider custom), tanpa jumlah model atau jaminan kuota cukup.
 
 Sumber fakta komersial: `src/data/pricing.ts`, katalog `src/data/products.ts`, serta brief founder §2 (15 Oktober 2026). Fakta tambahan hanya dari dokumentasi/platform publik yang diverifikasi. Semua harga, kuota, masa berlaku, fair use, dan angka katalog harus diturunkan dari data bersama. Jangan menyebut sumber pasokan model. Harga domain tidak dicetak; pembaca memeriksa harga terbaru di platform.
 
@@ -60,6 +60,7 @@ Sumber title/description/OG: **`scripts/seo-metadata.mjs`**. Semua title ≤60 k
 | `/` | cloud platform indonesia; AI API Indonesia | `og.jpg` |
 | `/harga` | harga api ai rupiah | `og/banner_harga.webp` |
 | `/ai-gateway` | ai api indonesia; openai compatible api indonesia | `og/banner_ai-gateway.webp` |
+| `/ai-plan` | ai plan qris kuota harian | `og/banner_ai-gateway.webp` |
 | `/coding` | coding ai indonesia | `og/banner_coding.webp` |
 | `/api-store` | api data wilayah indonesia | `og/banner_api-store.webp` |
 | `/domain` | daftar domain .id | `og/banner_domain.webp` |
@@ -97,7 +98,7 @@ bun run test
 bunx tsc --noEmit -p tsconfig.app.json
 ```
 
-`build:static` menghasilkan sitemap → Vite bundle → seluruh route statis → validasi HTML terserialisasi → manifest fingerprint. `scripts/routes.mjs` berbagi inventory dengan metadata; validator membandingkannya dengan App dan slug data enterprise sehingga route baru tidak bisa hilang diam-diam. Sitemap berisi 17 canonical URL; prerender berisi 21 path termasuk tiga alias dan 404.
+`build:static` menghasilkan sitemap → Vite bundle → seluruh route statis → validasi HTML terserialisasi → manifest fingerprint. `scripts/routes.mjs` berbagi inventory dengan metadata; validator membandingkannya dengan App dan slug data enterprise sehingga route baru tidak bisa hilang diam-diam. Sitemap berisi 18 canonical URL; prerender berisi 22 path termasuk tiga alias dan 404. `/ai-plan` indexable, dengan canonical dan metadata terpusat. Pixel tidak dimuat oleh prerender/bot.
 
 `src/test/seo.test.ts` masuk ke `bun run test` tanpa perubahan config. **Build statis adalah prerequisite test SEO.** Dist hilang, route hilang, perubahan source setelah build, atau manifest stale menyebabkan kegagalan eksplisit, bukan skip/false green. Fingerprint meliputi source, scripts, public, shell dan konfigurasi build utama. Validator memeriksa tag tunggal, title/description, canonical, OG/Twitter lengkap, noindex, rendered body, FAQ parity, schema shape, ID unik, serta sitemap canonical. Test tambahan membandingkan seluruh Product/Offer dan FAQ dengan data saat ini.
 

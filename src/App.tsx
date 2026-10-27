@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,8 +18,17 @@ import AiGateway from "./pages/products/AiGateway";
 import Coding from "./pages/products/Coding";
 import ApiStore from "./pages/products/ApiStore";
 import Domain from "./pages/products/Domain";
+import AiPlan from "./pages/AiPlan";
 
 const queryClient = new QueryClient();
+function SiteNavigation() {
+  const { pathname } = useLocation();
+  return pathname.replace(/\/$/, "") === "/ai-plan" ? <header className="absolute inset-x-0 top-0 z-10 border-b border-white/10"><nav aria-label="Navigasi AI Plan" className="container mx-auto flex h-20 items-center justify-between px-5"><Link to="/" className="text-2xl font-bold tracking-tight">orvix<span className="text-primary">.</span></Link><a href="#checkout" className="text-sm font-semibold text-primary">Aktifkan AI Plan →</a></nav></header> : <Navbar />;
+}
+function SiteFooter() {
+  const { pathname } = useLocation();
+  return pathname.replace(/\/$/, "") === "/ai-plan" ? <footer className="border-t border-white/10 p-8 text-center text-sm text-text-secondary">Orvix Cloud Platform · <Link to="/" className="text-primary">Kembali ke beranda</Link></footer> : <Footer />;
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -28,13 +37,14 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <Navbar />
+        <SiteNavigation />
         <main className="min-h-screen">
           <Routes>
             <Route path="/" element={<Index />} />
             {/* C3 routes */}
             <Route path="/harga" element={<Harga />} />
             <Route path="/ai-gateway" element={<AiGateway />} />
+            <Route path="/ai-plan" element={<AiPlan />} />
             <Route path="/coding" element={<Coding />} />
             <Route path="/api-store" element={<ApiStore />} />
             <Route path="/domain" element={<Domain />} />
@@ -49,7 +59,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        <Footer />
+        <SiteFooter />
         <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
