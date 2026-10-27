@@ -10,8 +10,8 @@ export function pixelAllowed(id = import.meta.env.VITE_META_PIXEL_ID) {
 export function startPixel() {
   if (!pixelAllowed() || initialized) return;
   initialized = true;
-  // Strip untrusted query data before Meta reads the page URL; attribution was captured first.
-  history.replaceState(history.state, "", window.location.pathname);
+  // Keep fbclid/utm_* in the URL so fbevents.js can capture the click and create _fbc.
+  // Gateway attribution is captured separately by the checkout.
   if (!window.fbq) {
     const fbq: Pixel = Object.assign((...args: unknown[]) => {
       if (fbq.callMethod) fbq.callMethod(...args); else fbq.queue.push(args);
@@ -36,5 +36,5 @@ export function trackPixel(event: "ViewContent" | "InitiateCheckout" | "Purchase
     seen.add(key);
     try { sessionStorage.setItem(key, "1"); } catch { /* Payment must work without storage. */ }
   }
-  window.fbq("track", event, { content_ids: [aiPlan.slug], content_type: "product", value: amount, currency: "IDR" }, ...(eventId ? [{ eventID: eventId }] : []));
+  window.fbq("track", event, { content_ids: [aiPlan.metaContentId], content_type: "product", value: amount, currency: "IDR" }, ...(eventId ? [{ eventID: eventId }] : []));
 }

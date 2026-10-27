@@ -48,7 +48,7 @@ describe("checkout security contract", () => {
     trackPixel("Purchase", 100000, "purchase-test", "ledger-id");
     trackPixel("Purchase", 100000, "purchase-test", "ledger-id");
     expect(fbq).toHaveBeenCalledTimes(1);
-    expect(fbq).toHaveBeenCalledWith("track", "Purchase", { content_ids: ["ai-plan"], content_type: "product", value: 100000, currency: "IDR" }, { eventID: "ledger-id" });
+    expect(fbq).toHaveBeenCalledWith("track", "Purchase", { content_ids: ["orvix-ai-2026-10"], content_type: "product", value: 100000, currency: "IDR" }, { eventID: "ledger-id" });
     vi.resetModules();
     const reloaded = await import("@/lib/aiPixel"); reloaded.trackPixel("Purchase", 100000, "purchase-test", "ledger-id");
     expect(fbq).toHaveBeenCalledTimes(1); delete window.fbq;
@@ -56,6 +56,19 @@ describe("checkout security contract", () => {
 });
 
 describe("checkout UI", () => {
+  it("formats fulfilled expiry in Jakarta without seconds and wraps only the email", async () => {
+    saveCheckout(fixture);
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response({ status: "fulfilled", expiresAt: fixture.expiresAt, emailMasked: fixture.emailMasked, planExpiresAt: "2026-11-26T17:00:00Z" })));
+    render(<AiPlanCheckout />);
+    await screen.findByRole("heading", { name: "AI Plan Anda aktif" });
+    const expiry = screen.getByText(/AI Plan aktif sampai/);
+    expect(expiry).toHaveTextContent("27 November 2026 pukul 00.00 WIB");
+    expect(expiry.textContent).not.toMatch(/[:.]\d{2}\.\d{2}/);
+    const email = screen.getByText(fixture.emailMasked);
+    expect(email.tagName).toBe("STRONG");
+    expect(email).toHaveClass("break-all");
+    expect(email.parentElement).not.toHaveClass("break-all", "break-words");
+  });
   it("pauses polling while hidden and resumes visible", async () => {
     saveCheckout(fixture);
     const visibility = vi.spyOn(document, "visibilityState", "get").mockReturnValue("hidden");

@@ -24,11 +24,11 @@ export default function AiPlan() {
         <section className="mt-20 rounded-3xl border border-white/10 bg-white/[.025] p-6 sm:p-9" aria-labelledby="fair-use-title">
           <span className="text-xs font-bold uppercase tracking-widest text-primary">Batas yang jelas</span><h2 id="fair-use-title" className="mt-3 text-2xl font-bold">Ritme harian, dengan fair use.</h2>
           <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{[
-            [formatTokens(aiPlan.fairUse.dailyTokens), "Hingga, token terhitung per hari"],
+            [`Hingga ${formatTokens(aiPlan.fairUse.dailyTokens)} terhitung per hari`, ""],
             [`${formatNumber(aiPlan.fairUse.requestsPerMinute)} request/menit`, "Batas laju pemakaian"],
             [`${formatNumber(aiPlan.fairUse.concurrentRequests)} bersamaan`, "Request yang berjalan bersamaan"],
             [`Cache ${formatNumber(aiPlan.fairUse.cachedTokenPercent)}%`, "Bobot token cache dalam perhitungan"],
-          ].map(([title, copy]) => <div key={title}><p className="text-xl font-bold">{title}</p><p className="mt-2 text-sm text-text-secondary">{copy}</p></div>)}</div>
+          ].map(([title, copy]) => <div key={title}><p className="text-xl font-bold">{title}</p>{copy && <p className="mt-2 text-sm text-text-secondary">{copy}</p>}</div>)}</div>
           <p className="mt-7 border-t border-white/10 pt-5 text-sm leading-relaxed text-text-secondary">Jatah harian reset pukul {aiPlan.resetTime} selama masa aktif {formatValidity(aiPlan.validityDays)}. Kebutuhan tiap model dan proyek berbeda. {aiPlan.lineupNote}</p>
         </section>
         <section className="mt-20"><h2 className="text-3xl font-bold">Pakai di alur kerja Anda.</h2><p className="mt-3 text-text-secondary">Dari agent pribadi sampai asisten harian.</p>
