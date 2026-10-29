@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import AttributionCookie from "@/components/AttributionCookie";
 import Index from "./pages/Index";
 import Tentang from "./pages/Tentang";
 import Layanan from "./pages/Layanan";
@@ -36,6 +37,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AttributionCookie />
         <ScrollToTop />
         <SiteNavigation />
         <main className="min-h-screen">
