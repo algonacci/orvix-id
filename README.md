@@ -53,6 +53,20 @@ Halaman publik `/ai-plan`: [kontrak, env, mock browser, dan checklist rilis](doc
 
 Layanan enterprise adalah penawaran dengan ruang lingkup proyek yang disepakati, bukan fitur self-serve platform. Pertahankan pemisahan intent tersebut saat memperbarui halaman dan SEO.
 
+## Cookie atribusi lintas subdomain
+
+`src/components/AttributionCookie.tsx` menangkap atribusi pada semua route, termasuk navigasi SPA.
+Helper `src/lib/attributionCookie.ts` menulis JSON URL-encoded `orvix_attr` dengan
+`Domain=.orvix.id; Path=/; Max-Age=2419200` (28 hari), `SameSite=Lax`, dan `Secure`.
+Cookie ini hanya dapat ditulis browser pada domain yang sesuai melalui HTTPS.
+
+- Hanya `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, dan `fbclid` yang diterima dari query; field lain, query lengkap, dan fragment tidak disimpan.
+- Payload memuat `v:1`, parameter valid, `landing_path`, dan `ts` (milidetik). `fbc_ts` merekam waktu pertama `fbclid` terlihat; klik yang sama mempertahankan timestamp cookie sebelumnya, klik baru memakai waktu baru.
+- Nilai harus printable ASCII sepanjang 1–200 karakter; nilai dengan alamat email diabaikan. Path tidak valid membatalkan penulisan. Jangan memasukkan PII ke label kampanye atau path.
+- Seluruh cookie setelah encoding, termasuk nama dan atribut, harus kurang dari 1.024 byte; payload terlalu besar diabaikan.
+- Last non-direct touch: hanya URL dengan parameter atribusi valid yang menulis ulang cookie. Kunjungan langsung atau parameter seluruhnya tidak valid mempertahankan cookie sebelumnya. Kegagalan akses cookie tidak mengganggu halaman.
+- Pixel dan atribusi body checkout tetap memakai implementasi yang sudah ada. Test cookie mencakup parsing, validasi, ukuran, timestamp klik, navigasi SPA, dan storage yang diblokir (`bun run test`).
+
 ## Deployment
 
 Vercel men-deploy branch **`main`** ke produksi sesuai konfigurasi proyek. `vercel.json` menjalankan build statis: sitemap → Vite build → prerender, dengan rewrite SPA untuk route aplikasi. Gunakan branch kerja dan review sebelum merge ke `main`; deployment preview mengikuti konfigurasi integrasi Vercel.
